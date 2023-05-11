@@ -1,2 +1,21 @@
 @import './common';
 @import './example';
+
+@import './components/logo';
+@import './components/modal';
+
+@import './reuse/buttons';
+@import './reuse/container';
+
+@import './sections/header';
+@import './sections/category';
+@import './sections/home';
+@import './sections/menu';
+@import './sections/pop-up';
+@import './sections/shoppig-list';
+
+@import './utils/fonts';
+@import './utils/mixins';
+@import './utils/templates';
+
+@import './variables/colors';
