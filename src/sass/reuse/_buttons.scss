@@ -1,0 +1,18 @@
+#back-to-top-button {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    display: none;
+    cursor: pointer;
+    z-index: 999;
+    border-radius: 50%;
+    outline: none;
+    background-color: var(--accent-primary);
+    border: 5px solid rgba(80, 46, 232, 0.3);
+    width: 64px;
+    height: 64px;
+}
+
+#back-to-top-button:hover {
+    opacity: 0.8;
+}
