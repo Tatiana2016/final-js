@@ -1,0 +1,47 @@
+//Book Card
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 1050px;
+  gap: 24px;
+  // flex-wrap: wrap;
+}
+
+.book-section {
+  list-style: none;
+}
+
+.book-card {
+  &__container {
+    width: 180px;
+  }
+  &__component {
+    width: 180px;
+  }
+  &__image {
+    width: 180px;
+    height: 256px;
+    border-radius: 8px;
+  }
+
+  &__title {
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.13;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #111111;
+  }
+
+  &__author {
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.04em;
+    color: #b4afaf;
+  }
+}
