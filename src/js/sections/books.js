@@ -11,8 +11,8 @@ window.addEventListener('load', async () => {
   bookContainer.innerHTML = markup; // add markup to the DOM
 
   const categories = response.data;
-  const markupCategories = createBooksCategories(categories)
-  bookContainer.insertAdjacentElement = markupCategories; // add markup to the DOM
+  // const markupCategories = createBooksCategories(categories)
+  // bookContainer.insertAdjacentElement = markupCategories; // add markup to the DOM
 });
 
 
