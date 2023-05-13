@@ -1,5 +1,7 @@
-/*Mobile - Default, Media for Tablet and Desktop*/
+/*Mobile - Default*/
 /*h1*/
+@media screen and (max-width: 374px),
+screen and (min-width: $mobile){
 .header-one {
   font-family: 'DM Sans', Arial, Helvetica, sans-serif;
   font-weight: 700;
@@ -8,7 +10,7 @@
   letter-spacing: -0.04em;
   color: var(--text-color-main);
 
-  @media screen and (min-width: $tablet) {
+  @include tablet{
     font-size: 48px;
     line-height: 1.08
   }
@@ -22,7 +24,8 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text-color-secondary);
-  @media screen and (min-width: $tablet) {
+
+  @include tablet{
     line-height: 1.71
   }
 
@@ -36,10 +39,12 @@
   line-height: 1.13;
   letter-spacing: -0.04em;
   color: var(--text-color-main);
-  @media screen and (min-width: $tablet) {
+
+  @include tablet{
     font-size: 24px;
     line-height: 1.17;
   }
+
 }
 /*h3*/
 .header-three {
@@ -121,7 +126,8 @@
   letter-spacing: -0.04em;
   color: var(--text-color-secondary);
 
-  @media screen and (min-width: $tablet) {
+  @include tablet {
     font-size: 12px;
   }
+}
 }
