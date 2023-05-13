@@ -1,5 +1,3 @@
-// import { supportArr } from '../components/support-list';
-
 export function createImageItemMurkup(supportList) {
   let num = 0;
   const markup = supportList
