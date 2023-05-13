@@ -1,0 +1,15 @@
+/*Container for the whole website*/
+.container{
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @include tablet{
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    @include desktop{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}

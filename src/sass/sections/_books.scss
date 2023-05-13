@@ -5,14 +5,33 @@
 }
 
 .book-card {
+  width: 335px;
   list-style: none;
   margin-bottom: 40px;
 
-  &__section{
+  @include tablet{
+    width: 704px;
+  }
+  @include desktop{
+    width: 996px;
+  }
+
+  &__section {
     display: flex;
     gap: 24px;
     list-style: none;
-    padding-left: 0;
+
+    &--margin-bottom {
+      margin-bottom: 8px;
+
+      @include tablet{
+        margin-bottom: 20px;
+      }
+
+      @include desktop{
+        margin-bottom: 32px;
+      }
+    }
   }
   &__container {
     width: 180px;
@@ -24,6 +43,10 @@
     width: 180px;
     height: 256px;
     border-radius: 8px;
+
+    &--margin-bottom {
+      margin-bottom: 14px;
+    }
   }
 
   &__title {
@@ -34,6 +57,10 @@
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color: #111111;
+
+    &--margin-bottom {
+      margin-bottom: 4px;
+    }
   }
 
   &__author {
