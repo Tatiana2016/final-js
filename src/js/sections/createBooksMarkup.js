@@ -5,12 +5,7 @@ function createBooksMarkup(arr) {
     .map(book => {
       return book.books
         .map(element => {
-          element.list_name;
           element.books;
-          heading = element.list_name;
-
-          heading = element.list_name;
-
           const { book_image, title, author } = element;
 
           return `
@@ -28,7 +23,6 @@ function createBooksMarkup(arr) {
     })
     .join('');
 
-  // bookContainer.insertAdjacentHTML('beforebegin', heading);
   bookContainer.insertAdjacentHTML('beforeend', markup);
 
   return markup;
@@ -47,9 +41,7 @@ function createBooksCategories(arr) {
     .join('');
 
   bookContainer.insertAdjacentHTML('beforebegin', markup);
-  console.log(markup);
   return markup;
 }
 
 export { createBooksCategories };
-
