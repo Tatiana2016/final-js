@@ -9,7 +9,7 @@ async function getBooksCategory() {
     const result = await axios.get(`${BASE_URL}${ENDPOINT}`);
     return result;
   } catch (error) {
-    console.log(error);
+    throw new Error(Notiflix.Notify.failure('Sorry, no results found'));
   }
 }
 
