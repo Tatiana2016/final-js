@@ -1,6 +1,6 @@
 //Button - Default
 .button{
-    display: block;
+    display: inline-block;
     padding: 14px 28px;
     border: 2px solid var(--accent-primary);
     border-radius: 40px;
@@ -11,12 +11,24 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
     color: var(--text-color-main);
+
+    &--yellow{
+        background-color: var(--accent-secondary);
+    }
     &--right{
+        margin-left: 0;
         text-align: right;
     }
     &--right-flex{
-        text-align: right;
         align-self: end;
     }
+}
+
+.button:hover,
+.button:focus{
+    color: var(--background-white);
+    background-color: var(--accent-primary);
 }
