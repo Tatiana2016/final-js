@@ -7,7 +7,6 @@ async function getBooksCategory() {
 
   try {
     const result = await axios.get(`${BASE_URL}${ENDPOINT}`);
-    console.log(result.data);
     return result;
   } catch (error) {
     console.log(error);

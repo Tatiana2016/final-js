@@ -1,5 +1,6 @@
 //Button - Default
 .button{
+    display: block;
     padding: 14px 28px;
     border: 2px solid var(--accent-primary);
     border-radius: 40px;
@@ -11,5 +12,11 @@
     text-transform: uppercase;
     text-decoration: none;
     color: var(--text-color-main);
-    
+    &--right{
+        text-align: right;
+    }
+    &--right-flex{
+        text-align: right;
+        align-self: end;
+    }
 }

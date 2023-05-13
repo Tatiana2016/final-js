@@ -10,6 +10,10 @@ screen and (min-width: $mobile){
   letter-spacing: -0.04em;
   color: var(--text-color-main);
 
+  &--accent{
+    color: var(--accent-primary);
+  }
+
   @include tablet{
     font-size: 48px;
     line-height: 1.08
@@ -24,6 +28,11 @@ screen and (min-width: $mobile){
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text-color-secondary);
+
+  &--margin-bottom{
+    margin-bottom: 18px;
+  }
+  
 
   @include tablet{
     line-height: 1.71
