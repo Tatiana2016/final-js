@@ -1,0 +1,15 @@
+//Button - Default
+.button{
+    padding: 14px 28px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 40px;
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-color-main);
+    
+}
