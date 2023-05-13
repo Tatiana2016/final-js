@@ -1,13 +1,14 @@
 const bookContainer = document.querySelector('.books-container');
 
 function createBooksMarkup(arr) {
-  let heading = '';
   const markup = arr
     .map(book => {
       return book.books
         .map(element => {
           element.list_name;
           element.books;
+          heading = element.list_name;
+
           heading = element.list_name;
 
           const { book_image, title, author } = element;
@@ -27,9 +28,28 @@ function createBooksMarkup(arr) {
     })
     .join('');
 
+  // bookContainer.insertAdjacentHTML('beforebegin', heading);
   bookContainer.insertAdjacentHTML('beforeend', markup);
 
   return markup;
 }
 
 export { createBooksMarkup };
+
+//Function for Books Categories
+function createBooksCategories(arr) {
+  const markup = arr
+    .map(book => {
+      return `
+      <h2>${book.list_name}</h2>
+    `;
+    })
+    .join('');
+
+  bookContainer.insertAdjacentHTML('beforebegin', markup);
+  console.log(markup);
+  return markup;
+}
+
+export { createBooksCategories };
+
