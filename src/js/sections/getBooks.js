@@ -10,7 +10,7 @@ async function getBooks() {
 
     return response;
   } catch (error) {
-    console.log(error);
+    throw new Error(Notiflix.Notify.failure('Sorry, no results found'));
   }
 }
 
