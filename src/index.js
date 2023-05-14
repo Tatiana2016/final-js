@@ -8,5 +8,6 @@ import './js/sections/getBooks';
 import './js/sections/createBooksMarkup';
 import './js/sections/category';
 import './js/sections/shopping-list';
+import './js/sections/support-ukraine';
 import './js/modal';
 import './js/sections/fetchApi';
