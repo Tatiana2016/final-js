@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { createBooksMarkup } from './createBooksMarkup';
 import { getAllBooksByCategory } from './getAllBooksByCategory';
-import createAllBooksByCategoryMarkup from './createAllBooksByCategoryMarkup';
+import {createAllBooksByCategoryMarkup} from './createAllBooksByCategoryMarkup';
 
 // Event listener to the document
 document.addEventListener('click', async function (event) {
