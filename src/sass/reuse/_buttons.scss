@@ -8,11 +8,11 @@
     border-radius: 50%;
     outline: none;
     background-color: var(--accent-primary);
-    border: 5px solid rgba(80, 46, 232, 0.3);
+    border: none;
     width: 64px;
     height: 64px;
 }
 
 #back-to-top-button:hover {
-    opacity: 0.8;
+    border: 5px solid rgba(255, 255, 255, 0.3);
 }

@@ -1,7 +1,7 @@
 const backToTopButton = document.getElementById("back-to-top-button");
 
 window.addEventListener("scroll", () => {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
         backToTopButton.style.display = "block";
     } else {
         backToTopButton.style.display = "none";
