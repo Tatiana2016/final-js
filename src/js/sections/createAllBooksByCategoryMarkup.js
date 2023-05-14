@@ -1,6 +1,7 @@
+// 20 books by category markup
 const bookContainer = document.querySelector('.books-container');
 
-function createBooksMarkup(arr, category) {
+function createAllBooksByCategoryMarkup(arr, category) {
   const markup = arr
     .map(book => {
       const card = book.books
@@ -18,15 +19,14 @@ function createBooksMarkup(arr, category) {
         <li class="book-card">
           <h2 class="header-two header-two--margin-bottom">${book.list_name}</h2>
           <ul class="book-card__section book-card__section--margin-bottom">${card}</ul>
-          <a class="books-category-js button button--right-flex" href="data-category="${category}">See More</a>
         </li>
       `;
     })
     .join('');
 
-  bookContainer.insertAdjacentHTML('beforeend', markup);
+  bookContainer.innerHTML = markup;
 
   return markup;
 }
 
-export { createBooksMarkup };
+export { createAllBooksByCategoryMarkup };
