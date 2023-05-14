@@ -1,5 +1,6 @@
 const bookContainer = document.querySelector('.books-container');
 
+//Top 5 books markup
 function createBooksMarkup(arr, category) {
   const markup = arr
     .map(book => {
