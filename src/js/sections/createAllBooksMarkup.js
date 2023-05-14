@@ -10,7 +10,8 @@ document.addEventListener('click', async function (event) {
     event.preventDefault();
     // Category from the "data-category" attribute of the button
     const category = event.target.dataset.category;
-    const response = await getAllBooksByCategory(); // make API request for books
+    const categoryName = document.querySelector('header-two');
+    const response = await getAllBooksByCategory(categoryName); // make API request for books
     const allBooks = response.data;
     bookContainer.innerHTML = createAllBooksByCategoryMarkup(allBooks, category);
   }
