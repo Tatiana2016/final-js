@@ -1,38 +1,43 @@
-<button type="button" class="modal-close-btn" data-modal-close>
-    <svg class="modal-close-btn-icon" data-modal-close>
-        <use href="/src/images/symbol-defs.svg#icon-close" data-modal-close></use>
-    </svg>
+<button data-modal-open class="open" type="button">
+    <a href="#">OPEN</a>
 </button>
-<div class="modal-book-card-wrapper">
-    <div class="modal-book-picture-wrapper"></div>
-    <div class="modal-book-info-wrapper"></div>
-    <ul class="list modal-shop-list">
-        <li>
-            <a href="#" class="modal-shop-link shop-image_amazon" target="blank">
-                <img srcset="
-            /src/images/modal-img/icons_light_theme/amazonLight.png    1x,
-            /src/images/modal-img/icons_light_theme/amazonLight@2x.png 2x
-          " src="/src/images/modal-img/icons_light_theme/amazonLight.png" alt="Logo Amazon" class="shop-image" />
-            </a>
-        </li>
-        <li>
-            <a href="#" class="modal-shop-link" target="blank">
-                <img srcset="
-            /src/images/modal-img/icons_light_theme/appleBooks.png    1x,
-            /src/images/modal-img/icons_light_theme/appleBooks@2x.png 2x
-          " src="/src/images/modal-img/icons_light_theme/appleBooks.png" alt="Logo Apple Books "
-                    class="shop-image" />
-            </a>
-        </li>
-        <li>
-            <a href="#" class="modal-shop-link" target="blank">
-                <img srcset="
-            /src/images/modal-img/icons_light_theme/bookShop.png    1x,
-            /src/images/modal-img/icons_light_theme/bookShop@2x.png 2x
-          " src="/src/images/modal-img/icons_light_theme/bookShop.png" alt="Logo Book Shop " class="shop-image" />
-            </a>
-        </li>
-    </ul>
+<div data-modal class="modal">
+    <div class="modal-container">
+        <div class="modal-body">
+            <svg class="modal-close">
+                <use href="/src/images/symbol-defs.svg#icon-close" data-modal-close></use>
+            </svg>
+            <div class="book-container"></div>
+            <ul>
+                <li>
+                    <a href="https://www.amazon.com/" class="modal-shop-link shop-image_amazon" target="blank">
+                        <!-- <img srcset="/src/images/modal-img/icons_light_theme/amazonLight.png 1x,
+                            /src/images/modal-img/icons_light_theme/amazonLight@2x.png 2x "
+                            src="/src/images/modal-img/icons_light_theme/amazonLight.png" alt="Logo Amazon"
+                            class="shop-image" /> -->
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/apple-books/" class="modal-shop-link" target="blank">
+                        <!-- <img srcset="/src/images/modal-img/icons_light_theme/appleBooks.png 1x,
+                            /src/images/modal-img/icons_light_theme/appleBooks@2x.png 2x"
+                            src="/src/images/modal-img/icons_light_theme/appleBooks.png" alt="Logo Apple Books"
+                            class="shop-image" /> -->
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bookshop.ua.market/" class="modal-shop-link" target="blank">
+                        <!-- <img srcset="/src/images/modal-img/icons_light_theme/bookShop.png 1x,
+                            /src/images/modal-img/icons_light_theme/bookShop@2x.png 2x"
+                            src="/src/images/modal-img/icons_light_theme/bookShop.png" alt="Logo Book Shop"
+                            class="shop-image" /> -->
+                    </a>
+                </li>
+            </ul>
+            <button class="btn_modal" type="button">
+                <a href="#">Add to shopping list</a>
+            </button>
+            <div class="congratulations-text"></div>
+        </div>
+    </div>
 </div>
-<button type="button" class="modal-action-btn">ADD TO SHOPPING LIST</button>
-<div class="congratulations-text"></div>
