@@ -10,6 +10,6 @@ document.addEventListener('click', async function (event) {
     const category = event.target.dataset.category;
     const response = await getAllBooksByCategory(); // make API request for books
     const allBooks = response.data;
-    const markup = createAllBooksByCategoryMarkup(allBooks, category);
+    bookContainer.innerHTML = createAllBooksByCategoryMarkup(allBooks, category);
   }
 });
