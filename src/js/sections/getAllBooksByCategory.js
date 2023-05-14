@@ -7,8 +7,9 @@ async function getAllBooksByCategory(category) {
   const BOOK_CATEGORY = category;
 
   try {
-    const response = await axios.get(`${BASE_URL}${ENDPOINT}?category=${BOOK_CATEGORY}`);
-    console.log(response.data)
+    const response = await axios.get(
+      `${BASE_URL}${ENDPOINT}?category=${BOOK_CATEGORY}`
+    );
 
     return response.data;
   } catch (error) {
