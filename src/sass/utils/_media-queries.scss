@@ -1,0 +1,30 @@
+/*Responsive mixins begins*/
+/*Responsive up to 374px*/
+@mixin mobileResponsive{
+    @media only screen and (max-width: 374px){
+        @content;
+    }
+}
+
+/*Mobile*/
+@mixin mobile{
+    @media only screen and (min-width: $mobile){
+        @content;
+    }
+}
+
+/*Tablet*/
+@mixin tablet{
+    @media only screen and (min-width: $tablet){
+        @content;
+    }
+}
+
+/*Desktop*/
+@mixin desktop{
+    @media only screen and (min-width: $desktop){
+        @content;
+    }
+}
+
+/*Responsive mixins ends*/

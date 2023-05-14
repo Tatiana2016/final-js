@@ -1,16 +1,21 @@
+@import './reuse/breakpoints';
+@import './utils/reset';
 @import './common';
+@import './utils/media-queries';
+
+@import './reuse/container';
+@import './reuse/section';
+@import './reuse/fonts';
+@import './reuse/buttons';
 
 @import './components/logo';
 @import './components/modal-book';
 @import './components/modal';
 @import './components/shopping-list-cart';
 
-@import './reuse/buttons';
-@import './reuse/container';
-@import './reuse/breakpoints';
-
 @import './sections/header';
 @import './sections/category';
+@import './sections/books';
 @import './sections/home';
 @import './sections/menu';
 @import './sections/pop-up';

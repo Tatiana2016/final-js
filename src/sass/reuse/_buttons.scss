@@ -1,0 +1,34 @@
+//Button - Default
+.button{
+    display: inline-block;
+    padding: 14px 28px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 40px;
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    color: var(--text-color-main);
+
+    &--yellow{
+        background-color: var(--accent-secondary);
+    }
+    &--right{
+        margin-left: 0;
+        text-align: right;
+    }
+    &--right-flex{
+        align-self: end;
+    }
+}
+
+.button:hover,
+.button:focus{
+    color: var(--background-white);
+    background-color: var(--accent-primary);
+}
