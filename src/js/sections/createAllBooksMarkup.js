@@ -2,6 +2,8 @@ import axios from 'axios';
 import { getAllBooksByCategory } from './getAllBooksByCategory';
 import {createAllBooksByCategoryMarkup} from './createAllBooksByCategoryMarkup';
 
+const bookContainer = document.querySelector('.books-container');
+
 // Event listener to the document
 document.addEventListener('click', async function (event) {
   if (event.target.classList.contains('books-category-js')) {
