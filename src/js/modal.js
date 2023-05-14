@@ -1,4 +1,5 @@
 
+
 const openModalBtn = document.getElementById("openModalBtn");
 const modal = document.querySelector('.modal');
 const closeModalBtn = modal.querySelector('.close-modal-btn');
@@ -146,3 +147,4 @@ function onStorageDelete() {
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(newStorageArr));
 }
+
