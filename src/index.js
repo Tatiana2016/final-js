@@ -14,3 +14,4 @@ import './js/sections/shopping-list';
 import './js/sections/support-ukraine';
 import './js/modal';
 import './js/sections/fetchApi';
+import './js/components/scroll-up';
