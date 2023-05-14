@@ -1,6 +1,7 @@
 const bookContainer = document.querySelector('.books-container');
 
-function createBooksMarkup(arr) {
+//Top 5 books markup
+function createBooksMarkup(arr, category) {
   const markup = arr
     .map(book => {
       const card = book.books
@@ -18,7 +19,7 @@ function createBooksMarkup(arr) {
         <li class="book-card">
           <h2 class="header-two header-two--margin-bottom">${book.list_name}</h2>
           <ul class="book-card__section book-card__section--margin-bottom">${card}</ul>
-          <a class="button button--right-flex" href="">See More</a>
+          <a class="books-category-js button button--right-flex" href="data-category="${category}">See More</a>
         </li>
       `;
     })
