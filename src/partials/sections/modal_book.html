@@ -1,38 +1,9 @@
-<button type="button" class="modal-close-btn" data-modal-close>
-    <svg class="modal-close-btn-icon" data-modal-close>
-        <use href="/src/images/symbol-defs.svg#icon-close" data-modal-close></use>
-    </svg>
-</button>
-<div class="modal-book-card-wrapper">
-    <div class="modal-book-picture-wrapper"></div>
-    <div class="modal-book-info-wrapper"></div>
-    <ul class="list modal-shop-list">
-        <li>
-            <a href="#" class="modal-shop-link shop-image_amazon" target="blank">
-                <img srcset="
-            /src/images/modal-img/icons_light_theme/amazonLight.png    1x,
-            /src/images/modal-img/icons_light_theme/amazonLight@2x.png 2x
-          " src="/src/images/modal-img/icons_light_theme/amazonLight.png" alt="Logo Amazon" class="shop-image" />
-            </a>
-        </li>
-        <li>
-            <a href="#" class="modal-shop-link" target="blank">
-                <img srcset="
-            /src/images/modal-img/icons_light_theme/appleBooks.png    1x,
-            /src/images/modal-img/icons_light_theme/appleBooks@2x.png 2x
-          " src="/src/images/modal-img/icons_light_theme/appleBooks.png" alt="Logo Apple Books "
-                    class="shop-image" />
-            </a>
-        </li>
-        <li>
-            <a href="#" class="modal-shop-link" target="blank">
-                <img srcset="
-            /src/images/modal-img/icons_light_theme/bookShop.png    1x,
-            /src/images/modal-img/icons_light_theme/bookShop@2x.png 2x
-          " src="/src/images/modal-img/icons_light_theme/bookShop.png" alt="Logo Book Shop " class="shop-image" />
-            </a>
-        </li>
-    </ul>
+<button id="openModalBtn" type="button">Open</button>
+<button type="button" class="storage-button">Add to Storage</button>
+<button type="button" class="storage-delete-button">Delete from Storage</button>
+<div class="modal is-hidden about-book-modal">
+    <button class="close-modal-btn" type="button">
+        <img width="24" height="24" src="/src/images/modal-img/modal/close-icon.png" alt="close-icon" />
+    </button>
+    <p class="storage-description"></p>
 </div>
-<button type="button" class="modal-action-btn">ADD TO SHOPPING LIST</button>
-<div class="congratulations-text"></div>
