@@ -16,3 +16,4 @@ document.addEventListener('click', async function (event) {
     bookContainer.innerHTML = createAllBooksByCategoryMarkup(allBooks, category);
   }
 });
+
