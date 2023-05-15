@@ -19,7 +19,7 @@ function createBooksMarkup(arr, category) {
         <li class="book-card">
           <h2 class="header-two header-two--margin-bottom">${book.list_name}</h2>
           <ul class="book-card__section book-card__section--margin-bottom">${card}</ul>
-          <a class="books-category-js button button--right-flex" href="data-category="${category}">See More</a>
+          <a class="books-category-js button button--right-flex" href="#" data-category="${book.list_name}">See More</a>
         </li>
       `;
     })
