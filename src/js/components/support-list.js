@@ -24,7 +24,7 @@ export const supportList = [
     url: 'https://u24.gov.ua/uk',
     img: new URL('../../images/support-ukraine/UNITED24.svg', import.meta.url),
     width: 129,
-    height: 32,
+    height: 15,
   },
   {
     title: 'International Medical Corps',
