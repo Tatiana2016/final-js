@@ -1,4 +1,4 @@
-<button id="openModalBtn" type="button">Open</button>
+<!-- <button id="openModalBtn" type="button">Open</button>
 <button type="button" class="storage-button">Add to Storage</button>
 <button type="button" class="storage-delete-button">Delete from Storage</button>
 <div class="modal is-hidden about-book-modal">
@@ -6,4 +6,25 @@
         <img width="24" height="24" src="/src/images/modal-img/modal/close-icon.png" alt="close-icon" />
     </button>
     <p class="storage-description"></p>
+</div> -->
+<div class="js-backdrop-modal">
+<div data-modal-open class="modal is-hidden about-book-modal">
+    <button id="modal-close" class="close-modal-btn" type="button">
+        <img width="24" height="24" src="/src/images/modal-img/modal/close-icon.png" alt="close-icon" />
+    </button>
+    <div id="allModal"></div>
+    <div class="storage-button-wrapper">
+        <button type="button" class="add-storage-button">
+            Add to shopping list
+        </button>
+
+        <div class="remove-modal-btn">
+            <button type="button" class="storage-delete-button">
+                'Remove from the shopping list';
+            </button>
+
+            <p class="storage-description"></p>
+        </div>
+    </div>
+</div>
 </div>
