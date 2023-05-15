@@ -6,13 +6,13 @@ function createBooksMarkup(arr, category) {
     .map(book => {
       const card = book.books
         .map(element => {
-          const { book_image, title, author } = element;
-          return `<li class="book-card__container">
+          const { book_image, title, author, _id } = element;
+          return `<ul class="book-card__container" id="${_id}">
           <div class="book-card__image-container book-card__image-container--margin-bottom"><img data-modal-open class="book-card__image book-card__image--margin-bottom" src="${book_image}" alt="${title}" loading="lazy"/>
           </div>
           <h3 data-modal-open class="book-card__title book-card__title--margin-bottom">${title}</h3>
           <p class="book-card__author">${author}</p>
-        </li>`;
+        </ul>`;
         })
         .join('');
       return `

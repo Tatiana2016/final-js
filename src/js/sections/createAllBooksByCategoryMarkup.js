@@ -2,7 +2,7 @@
 const bookContainer = document.querySelector('.books-container');
 
 function createAllBooksByCategoryMarkup(arr, category) {
-    return markup = arr
+    const markup = arr
       .map(book => {
         const card = book.books
           .map(element => {
