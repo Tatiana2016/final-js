@@ -18,12 +18,16 @@ async function renderCategories() {
   const response = await getBooksCategory();
   const categories = response.data;
   const sortedCategories = categories.sort((a, b) => a.list_name.localeCompare(b.list_name));
+<<<<<<< Updated upstream
   const itemsHtml = sortedCategories.map(category =>
     `<li>
     <a href="#" data-category="${category.list_name}" class="menu-item-light">${category.list_name}</a>
     </li>`)
     
     .join('');
+=======
+  const itemsHtml = sortedCategories.map(category => `<li><a href="#" data-category="${category.list_name}" class="menu-item-light">${category.list_name}</a></li>`).join('');
+>>>>>>> Stashed changes
 
   list.insertAdjacentHTML('beforeend', itemsHtml);
 
