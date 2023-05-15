@@ -1,4 +1,4 @@
-import { getBookById } from './getBookById';
+import axios from 'axios';
 
 function renderBooks(books) {
   const container = document.querySelector('.books-container');
@@ -9,7 +9,7 @@ function renderBooks(books) {
     return;
   }
 
-  books.forEach(async book => {
+  books.forEach(book => {
     const bookContainer = document.createElement('div');
     bookContainer.classList.add('book');
     
@@ -28,14 +28,18 @@ function renderBooks(books) {
 
     const button = document.createElement('button');
     button.textContent = 'View Details';
-    button.addEventListener('click', async () => {
-      const bookDetails = await getBookById(book.id);
-      renderBookDetails(bookDetails);
-    });
+    button.setAttribute('data-book-id', book.id); // додайте атрибут з id книги
     bookContainer.appendChild(button);
 
     container.appendChild(bookContainer);
   });
 }
-
-export { renderBooks };
+async function getBookById(id) {
+  try {
+    const { data } = await axios.get(`https://books-backend.p.goit.global/books/${id}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+export { getBookById,renderBooks };
