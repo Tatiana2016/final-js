@@ -1,13 +1,15 @@
+import { getBookById } from './getBookById';
+
 function renderBooks(books) {
-  const container = document.querySelector('.book-list');
+  const container = document.querySelector('.books-container');
   container.innerHTML = '';
 
-  if (books.length === 0) {
+  if (!Array.isArray(books) || books.length === 0) {
     container.innerHTML = '<p>No books found</p>';
     return;
   }
 
-  books.forEach(book => {
+  books.forEach(async book => {
     const bookContainer = document.createElement('div');
     bookContainer.classList.add('book');
     
@@ -24,7 +26,16 @@ function renderBooks(books) {
     description.textContent = book.description;
     bookContainer.appendChild(description);
 
+    const button = document.createElement('button');
+    button.textContent = 'View Details';
+    button.addEventListener('click', async () => {
+      const bookDetails = await getBookById(book.id);
+      renderBookDetails(bookDetails);
+    });
+    bookContainer.appendChild(button);
+
     container.appendChild(bookContainer);
   });
 }
+
 export { renderBooks };

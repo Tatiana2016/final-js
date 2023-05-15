@@ -4,6 +4,7 @@ import './js/sections/home';
 import './js/sections/books';
 import './js/sections/getBooksCategories';
 import './js/sections/getBooksByCategory';
+import './js/sections/getBookById';
 import './js/sections/renderBooks'
 import './js/sections/all-category'
 import './js/sections/getBooks';
