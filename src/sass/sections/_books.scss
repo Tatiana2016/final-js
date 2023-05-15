@@ -21,6 +21,7 @@
 
   &__section {
     display: flex;
+    align-items: flex-start;
     gap: 24px;
     list-style: none;
     align-items: center;
@@ -48,14 +49,17 @@
   }
   &__image {
     width: 335px;
+    height: 485px;
     border-radius: 8px;
 
     @include tablet{
       width: 218px;
+      height: 316px;
     }
 
     @include desktop{
       width: 180px;
+      height: 256px;
     }
   }
 
