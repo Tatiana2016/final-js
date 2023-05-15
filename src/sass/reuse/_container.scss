@@ -5,7 +5,7 @@
     justify-content: center;
     padding-left: 24px;
     padding-right: 24px;
-
+    
     @include tablet{
         padding-left: 32px;
         padding-right: 32px;
@@ -14,15 +14,33 @@
     @include desktop{
         padding-left: 24px;
         padding-right: 24px;
+        margin: 0 auto;
+        width: 1392px;
+        flex-direction: column;
+    }
+
+    &__both-sections{
+        @include desktop{
+            display: flex;
+            justify-content: center;
+        }
     }
 
     &__column-left{
+        
         @include tablet{
             display: flex;
         }
         @include desktop{
+            width: 356px;
             margin-right: 40px;
             flex-direction: column;
+        }
+    }
+
+    &__column-right{
+        @include desktop{
+            flex-grow: 1;
         }
     }
 }
