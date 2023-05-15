@@ -68,14 +68,6 @@ p {
   display: flex;
   align-items: center;
 
-  // &:hover,
-  // &:focus {
-  //   border-right: 1px solid var(--accent-secondary);
-  //   transition-property: color;
-  //   transition-duration: 250ms;
-  //   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  // }
-
   &:hover > .support__number,
   &:focus > .support__number {
     color: var(--accent-secondary);
@@ -94,9 +86,11 @@ p {
 }
 
 .support__number {
-  width: 14px;
   height: 18px;
   margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-family: 'DM Sans';
   font-style: normal;

@@ -13,8 +13,7 @@ export function createImageItemMurkup(supportList) {
         <span class="support__number">0${(num += 1)}</span>
         <img
           class="support__img"
-          width="${width}"
-          height="${height}"
+          style="width: ${width}px !important; height: ${height}px !important"
           src="${img}"
           alt="${title}"
         />
