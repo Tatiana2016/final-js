@@ -147,4 +147,3 @@ function onStorageDelete() {
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(newStorageArr));
 }
-
