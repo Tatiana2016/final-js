@@ -10,12 +10,11 @@ const bookContainer = document.querySelector('.books-container');
 window.addEventListener('load', async () => {
   const response = await getBooks(); // make API request for books
   const books = response.data;
-
   const markup = createBooksMarkup(books); // create HTML markup
 
 });
 
-// Event listener to the document
+// See more button clicked - show 20 books
 document.addEventListener('click', async function (event) {
   let categoryId = document.getElementById(`#${_id}`)
   const books = await getAllBooksByCategory(categoryId)
