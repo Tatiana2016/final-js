@@ -25,13 +25,21 @@ async function renderCategories() {
   const categoryLinks = document.querySelectorAll('.category-list a');
 
   categoryLinks.forEach(link => {
-  link.addEventListener('click', async (event) => {
-    event.preventDefault();
-    const selectedCategory = event.currentTarget.getAttribute('data-category');
-    console.log(selectedCategory);
-    const booksResponse = await getBooksByCategory(selectedCategory);
+    link.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const selectedCategory = event.currentTarget.getAttribute('data-category');
+      const booksResponse = await getBooksByCategory(selectedCategory);
     
-    renderBooks(booksResponse.data);
-  });
- });
+      renderBooks(booksResponse.data);
+
+      const bookButtons = document.querySelectorAll('.book button');
+      bookButtons.forEach(button => {
+        button.addEventListener('click', async (event) => {
+          const bookId = event.currentTarget.getAttribute('data-book-id');
+          const bookDetails = await getBookById(bookId);
+          renderBookDetails(bookDetails);
+        });
+      });
+    });
+  })
 }
