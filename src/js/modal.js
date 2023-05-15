@@ -1,150 +1,183 @@
+// const fireBaseBackdrop = document.querySelector('.fire-base-backdrop');
 
 
-const openModalBtn = document.getElementById("openModalBtn");
-const modal = document.querySelector('.modal');
-const closeModalBtn = modal.querySelector('.close-modal-btn');
-const jsBackdropModal = document.querySelector('.js-backdrop-modal');
+const idModal = document.querySelector('.about-book-modal');
+const closeModalBtn = document.querySelector('#modal-close');
+const idBackdropModal = document.querySelector('.js-backdrop-modal');
 
-function openModal() {
-        modal.classList.remove('is-hidden');
+function openModalId() {
+  idModal.classList.remove('is-hidden');
+  idBackdropModal.classList.remove('is-hidden');
 }
 
-function closeModal() {
-        modal.classList.add('is-hidden');
+function closeModalId() {
+  idModal.classList.add('is-hidden');
+  idBackdropModal.classList.add('is-hidden');
 }
 
-// Змінити на клік по зображенням!!!  
-
-openModalBtn.addEventListener('click', openModal);
-
-closeModalBtn.addEventListener('click', closeModal);
+closeModalBtn.addEventListener('click', closeModalId);
 
 document.addEventListener('keydown', function (event) {
-if (event.key === 'Escape') {
-closeModal();
-}
+  if (event.key === 'Escape') {
+    closeModalId();
+  }
 });
 
-jsBackdropModal.addEventListener('click', function (event) {
-if (event.target === jsBackdropModal) {
-closeModal();
-}
+idBackdropModal.addEventListener('click', function (event) {
+  if (event.target === idBackdropModal) {
+    closeModalId();
+  }
 });
 
 
-const bookModalContainer = document.querySelector('.modal');
-const storageButton = document.querySelector('.storage-button');
-const deleteStorageBtn = document.querySelector('.storage-delete-button');
+
+const bookList = document.querySelector('.books-container');
+const modals = document.querySelector('#modals');
+const storageButton = document.querySelector('.add-storage-button');
+const removeStorageBtn = document.querySelector('.remove-modal-btn');
 const storageDescription = document.querySelector('.storage-description');
-const bookId = '643282b2e85766588626a0fc';   // тестові айді
-const secondBookId = '643282b1e85766588626a080';  // тестові айді
-const STORAGE_KEY = 'storage-data';
-const storageArr = [];
+const STORAGE_KEY = 'storage-data-shop';
+let storageArr = [];
 let storageObj = {};
 
-deleteStorageBtn.addEventListener('click', onStorageDelete);
 storageButton.addEventListener('click', onStorageAdd);
-openModalBtn.addEventListener('click', onModalOpen);
+removeStorageBtn.addEventListener('click', onStorageDelete);
+bookList.addEventListener('click', onIdClick);
 
-function onModalOpen() {
-createModal(secondBookId);
-}
- // Запит на бекенд
-async function fetchBookById(secondBookId) {
-try {
-storageObj = {};
-const response = await fetch(
-`https://books-backend.p.goit.global/books/${secondBookId}`
-);
-const data = await response.json();
-        storageObj = {
-        book_image: data.book_image,
-        title: data.title,
-        author: data.author,
-        marketAmazon: data.buy_links[0].url,
-        marketAppleBooks: data.buy_links[1].url,
-        marketBookshop: data.buy_links[4].url,
-        list_name: data.list_name,
-        id: data._id,
-};
-console.log(storageObj);
-return data;
-} catch (error) {
-console.error('Error', error);
-throw error;
-}
-}
+function onIdClick(e) {
+  const id = e.target.closest('li').id;
+  openModalId();
+  createModal(id);
+console.log(e.target.closest('li'));
 
-function createMarkup(data) {
-const bookModalImage = data.book_image;
-const bookTitle = data.title;
-const bookAuthor = data.author;
-const marketAmazon = data.buy_links[0].url;
-const marketAppleBooks = data.buy_links[1].url;
-const marketBookshop = data.buy_links[4].url;
-
-   // Бракує класів 
-const html = `
-  <img src="${bookModalImage}" alt="Book Image" class="image__about-book-modal">
-  <h2>${bookTitle}</h2>
-  <p> ${bookAuthor}</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, iure nam facere exercitationem quibusdam cum in quasi impedit perferendis porro. Vero quos minima doloribus magni corporis beatae ducimus officiis! Rerum?</p>
-  <ul> <li><a href="${marketAmazon}" target="_blank"
-    > <img
-    width="28"
-    height="28"
-    src="src/images/modal-img/shops/amazon-icon.png"
-    alt="Logo Amazon"
-  /></a></li>
-  <li><a href="${marketAppleBooks}" target="_blank"
-    > <img
-    width="28"
-    height="28"
-    src="src/images/modal-img/shops/first-book-shop-icon.png"
-    alt="Logo Apple"
-  /></a></li>
-  <li><a href="${marketBookshop}" target="_blank"
-    > <img
-    width="28"
-    height="28"
-    src="src/images/modal-img/shops/second-book-shop-icon.png"
-    alt="close-icon"
-  /></a></li>
-</ul>
-  `;
-
-  bookModalContainer.insertAdjacentHTML('afterbegin', html);
 }
 
 async function createModal(bookId) {
-  storageObj = {}; 
   try {
     const data = await fetchBookById(bookId);
+    storageCheck();
     createMarkup(data);
+    return data;
+  
+  } catch (error) {
+    console.error('Error', error);
+    throw error;
+  
+  }
+}
+
+async function fetchBookById(bookId) {
+  try {
+    storageObj = {};
+    const response = await fetch(
+      `https://books-backend.p.goit.global/books/${bookId}`
+    );
+    const data = await response.json();
+    storageObj = {
+      book_image: data.book_image,
+      title: data.title,
+      author: data.author,
+      description: data.description,
+      marketAmazon: data.buy_links[0].url,
+      marketAppleBooks: data.buy_links[1].url,
+      marketBookshop: data.buy_links[4].url,
+      list_name: data.list_name,
+      id: data._id,
+    };
     return data;
   } catch (error) {
     console.error('Error', error);
     throw error;
   }
 }
+function storageCheck() {
+  const storageArr = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  const idToFind = storageObj.id;
 
-function onStorageAdd(e) {
+  if (!storageArr || storageArr.length === 0) {
+    storageButton.style.display = 'block';
+    removeStorageBtn.style.display = 'none';
+    return;
+  } else {
+    const objToFind = storageArr.find(obj => obj.id === idToFind);
+    if (!objToFind) {
+      storageButton.style.display = 'block';
+      removeStorageBtn.style.display = 'none';
+    } else {
+      storageButton.style.display = 'none';
+      removeStorageBtn.style.display = 'block';
+    }
+  }
+
+}
+
+import apple from "../images/modal-img/book_shop.svg";
+import amazon from '../images/modal-img/amazon.svg';
+import book from '../images/modal-img/book.svg';
+
+function createMarkup(data) {
+  modals.innerHTML = '';
+  const bookImage = data.book_image;
+  const title = data.title;
+  const author = data.author;
+  const description = data.description;
+  const marketAmazon = data.buy_links[0].url;
+  const marketAppleBooks = data.buy_links[1].url;
+  const marketBookshop = data.buy_links[4].url;
+
+  const html = `
+  
+  <img src="${bookImage}" alt="Book Image" class="image-about-book-modal">
+  <div class="info-modal">
+  <h2 class="title-about-book-modal">${title}</h2>
+  <p class="author-about-book-modal"> ${author}</p>
+  <p class="text-about-book-modal">${description || " "}
+  <a href="${marketAmazon}" target="_blank"> 
+  <img width="38" height="38"
+        src ="${amazon}" alt = "Amazon"/>
+  </a>
+  </li> 
+  <li class="shop-modal-item">
+  <a href="${marketAppleBooks}" target="_blank">
+  <img width="38" height="38"
+        src ="${apple}" alt = "Apple"/>
+  </a>
+  </li>
+  <li class="shop-modal-item">
+  <a href="${marketBookshop}" target="_blank"> 
+  <img width="38" height="38"
+        src ="${book}" alt = "Book"/>
+  </a>
+  </li>
+</ul>
+</div>
+  `;
+  modals.innerHTML = html;
+}
+
+function onStorageAdd() {
+  const realStorageArr = JSON.parse(localStorage.getItem(STORAGE_KEY));
   const dataToSave = storageObj;
-  storageArr.push(dataToSave);
+  if (!realStorageArr || realStorageArr.length === 0) {
+    storageArr.push(dataToSave);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(storageArr));
+  } else {
+    realStorageArr.push(dataToSave);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(realStorageArr));
+  }
+
   storageDescription.textContent =
     'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
-  e.target.textContent = 'Remove from the shopping list';
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(storageArr));
+  storageCheck();
 }
 
 function onStorageDelete() {
-  const idToDelete = storageObj.id;
-  const storageArr = JSON.parse(localStorage.getItem(STORAGE_KEY));
   storageDescription.textContent = '';
 
+  const idToDelete = storageObj.id;
+  const storageArr = JSON.parse(localStorage.getItem(STORAGE_KEY));
   const indexToDelete = storageArr.findIndex(obj => obj.id === idToDelete);
-  const newStorageArr = storageArr.splice(indexToDelete + 1, 1);
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(newStorageArr));
+  storageArr.splice(indexToDelete, 1);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(storageArr));
+  storageCheck();
 }
-
