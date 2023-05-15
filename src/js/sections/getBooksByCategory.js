@@ -5,7 +5,7 @@ import { renderBooks } from './renderBooks';
 Notiflix.Notify.init();
 
 async function getBooksByCategory(category) {
-  const BASE_URL = `https://books-backend.p.goit.global/books/category/${id}`;
+  const BASE_URL = `https://books-backend.p.goit.global/`;
   const ENDPOINT = `books?category=${category}`;
 
   try {
