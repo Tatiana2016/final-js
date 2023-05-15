@@ -17,7 +17,7 @@ window.addEventListener('load', async () => {
 
 // Event listener to the document
 document.addEventListener('click', async function (event) {
-  let categoryId = document.querySelector(`#${_id}`)
+  let categoryId = document.getElementById(`#${_id}`)
   const books = await getAllBooksByCategory(categoryId)
   const result = books.response.data;
   if (event.target.classList.contains('books-category-js')) {
