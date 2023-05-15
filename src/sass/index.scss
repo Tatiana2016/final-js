@@ -1,5 +1,7 @@
-@import './reuse/breakpoints';
 @import './utils/reset';
+@import './reuse/breakpoints';
+@import './variables/colors';
+@import './utils/general';
 @import './common';
 @import './utils/media-queries';
 
@@ -28,4 +30,4 @@
 @import './utils/mixins';
 @import './utils/templates';
 
-@import './variables/colors';
+
