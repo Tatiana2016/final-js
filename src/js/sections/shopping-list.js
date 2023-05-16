@@ -46,7 +46,7 @@ const save = (value) => {
     }
   };
 
-loadLocalStorage();
+loadLocalStorage(); 
 
 function loadLocalStorage(){
     try {        
