@@ -3,7 +3,7 @@ export const supportList = [
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
     img: new URL(
-      '../../images/support-ukraine/Save_the_Children.svg?width=40',
+      '../../images/support-ukraine/Save_the_Children.svg',
       import.meta.url
     ),
     width: 129,

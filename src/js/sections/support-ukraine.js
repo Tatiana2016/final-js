@@ -9,9 +9,7 @@ const imageMarkup = createImageItemMurkup(supportList);
 
 supportContainer.insertAdjacentHTML('beforeend', imageMarkup);
 
-swiperContainer = document.querySelector('.swiper-container');
-
-swiperOptions = {
+new Swiper('.swiper-container', {
   modules: [Navigation],
   direction: 'vertical',
   slidesPerView: 4,
@@ -32,6 +30,4 @@ swiperOptions = {
       spaceBetween: 20,
     },
   },
-};
-
-carousel = new Swiper(swiperContainer, swiperOptions);
+});
