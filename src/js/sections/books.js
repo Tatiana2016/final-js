@@ -16,7 +16,7 @@ window.addEventListener('load', async () => {
 
 // See more button clicked - show 20 books
 document.addEventListener('click', async function (event) {
-  let categoryId = document.getElementById(`#${_id}`)
+  let categoryId = document.getElementById(_id)
   const books = await getAllBooksByCategory(categoryId)
   const result = books.response.data;
   if (event.target.classList.contains('books-category-js')) {
