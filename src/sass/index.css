@@ -854,6 +854,10 @@ p {
   align-items: center;
 }
 
+a.swiper-button-next {
+  z-index: 0;
+}
+
 .swiper-button-next {
   width: 38px !important;
   height: 38px !important;
