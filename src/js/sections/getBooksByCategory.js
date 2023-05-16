@@ -6,7 +6,7 @@ Notiflix.Notify.init();
 
 async function getBooksByCategory(category) {
   const BASE_URL = `https://books-backend.p.goit.global/`;
-  const ENDPOINT = `books?category=${category}`;
+  const ENDPOINT = `books/category?category=${encodeURIComponent(category)}`;
 
   try {
     const result = await axios.get(`${BASE_URL}${ENDPOINT}`);

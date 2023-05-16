@@ -5,7 +5,7 @@ import './js/sections/books';
 import './js/sections/getBooksCategories';
 import './js/sections/getBooksByCategory';
 import './js/sections/renderBooks'
-import './js/sections/all-category'
+import './js/sections/renderCategories'
 import './js/sections/getBooks';
 import './js/sections/getAllBooksByCategory';
 import './js/sections/createBooksMarkup';
