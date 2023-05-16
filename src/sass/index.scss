@@ -1,22 +1,33 @@
+@import './utils/reset';
+@import './reuse/breakpoints';
+@import './variables/colors';
+@import './utils/general';
 @import './common';
-@import './example';
+@import './utils/media-queries';
+
+@import './reuse/container';
+@import './reuse/section';
+@import './reuse/fonts';
+@import './reuse/buttons';
+@import './reuse/icons';
 
 @import './components/logo';
+@import './components/all-category';
+@import './components/modal-book';
 @import './components/modal';
-
-@import './reuse/buttons';
-@import './reuse/container';
-@import './reuse/breakpoints';
+@import './components/shopping-list-cart';
 
 @import './sections/header';
 @import './sections/category';
+@import './sections/books';
 @import './sections/home';
 @import './sections/menu';
 @import './sections/pop-up';
 @import './sections/shoppig-list';
+@import './sections/support-ukraine';
 
 @import './utils/fonts';
 @import './utils/mixins';
 @import './utils/templates';
 
-@import './variables/colors';
+
