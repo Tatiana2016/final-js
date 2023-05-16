@@ -9,31 +9,27 @@ function renderBooks(books) {
     return;
   }
 
-  books.forEach(book => {
-    const bookContainer = document.createElement('div');
-    bookContainer.classList.add('book');
+  const bookElements = books.map(book => {
+    const image = `
+      <div class="book-card__image-container book-card__image-container--margin-bottom">
+        <img class="book-card__image" src="${book.book_image}" alt="${book.title}" loading="lazy" data-modal-open>
+      </div>
+    `;
+    const title = `<h3 class="book-card__title book-card__title--margin-bottom" data-modal-open>${book.title}</h3>`;
+    const description = `<p class="book-card__author">${book.author}</p>`;
     
-    const image = document.createElement('img');
-    image.src = book.image_url;
-    image.alt = book.title;
-    bookContainer.appendChild(image);
-
-    const title = document.createElement('h3');
-    title.textContent = book.title;
-    bookContainer.appendChild(title);
-
-    const description = document.createElement('p');
-    description.textContent = book.description;
-    bookContainer.appendChild(description);
-
-    const button = document.createElement('button');
-    button.textContent = 'View Details';
-    button.setAttribute('data-book-id', book.id); // додайте атрибут з id книги
-    bookContainer.appendChild(button);
-
-    container.appendChild(bookContainer);
+    return `
+      <div class="book-card">
+        ${image}
+        ${title}
+        ${description}       
+      </div>
+    `;
   });
+
+  container.innerHTML = bookElements.join('');
 }
+
 async function getBookById(id) {
   try {
     const { data } = await axios.get(`https://books-backend.p.goit.global/books/${id}`);
@@ -42,4 +38,21 @@ async function getBookById(id) {
     console.error(error);
   }
 }
-export { getBookById,renderBooks };
+
+//function renderBookDetails(bookDetails) {
+  // Ви можете використовувати bookDetails для відображення деталей книги у вашому шаблоні HTML
+  // Наприклад:
+  //const modal = document.createElement('div');
+  //modal.classList.add('modal');
+  //modal.innerHTML = `
+    //<h2>${bookDetails.title}</h2>
+    //<p>${bookDetails.author}</p>
+    //<p>${bookDetails.description}</p>
+  //`;
+
+  // Додайте modal до DOM, наприклад, до document.body або до іншого контейнера, який ви використовуєте для модального вікна
+
+  // Ви можете також застосувати стилі до modal, використовуючи CSS-класи або задаючи стилі прямо тут
+//}
+
+export { getBookById, renderBooks, renderBookDetails };
