@@ -1,0 +1,144 @@
+/*Mobile - Default*/
+/*h1*/
+@media screen and (max-width: 374px),
+screen and (min-width: $mobile){
+.header-one {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.19;
+  letter-spacing: -0.04em;
+  color: var(--text-color-main);
+
+  &--accent{
+    color: var(--accent-primary);
+  }
+
+  @include tablet{
+    font-size: 48px;
+    line-height: 1.08
+  }
+}
+
+/*h2*/
+.header-two {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+
+  &--margin-bottom{
+    margin-bottom: 18px;
+  }
+  
+
+  @include tablet{
+    line-height: 1.71
+  }
+
+}
+/*h2-big*/
+.header-two-big {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+  color: var(--text-color-main);
+
+  @include tablet{
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+}
+/*h3*/
+.header-three {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-main);
+}
+/*h4*/
+.header-four {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+  color: var(--background-white);
+}
+/*button*/
+// .button-text {
+//   font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 1.29;
+//   letter-spacing: -0.01em;
+//   text-transform: uppercase;
+//   color: var(--text-color-main);
+// }
+
+/*main text*/
+.text-main {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  color: var(--text-color-main);
+}
+/*menu elements-light theme*/
+.menu-item-light {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.menu-item-light:hover,
+.menu-item-light:focus{
+    color: var(--accent-primary);
+    text-transform: uppercase;
+}
+/*menu elements-dark theme*/
+.menu-item-dark {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.menu-item-dark:hover,
+.menu-item-dark:focus{
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+}
+
+
+/*small grey text p, p_big*/
+.text-additional {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  color: var(--text-color-secondary);
+
+  @include tablet {
+    font-size: 12px;
+  }
+}
+}

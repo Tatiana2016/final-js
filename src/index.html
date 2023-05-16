@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./images/Favicon.svg">
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    
+
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <h1 class="test">Test</h1>
     <include src="./partials/header.html"></include>
     <main>
-      <include src="./partials/sections/menu.html"></include>
-      <include src="./partials/sections/home.html"></include>
-      <include src="./partials/sections/category.html"></include>
-      <include src="./partials/sections/shopping-list.html"></include>      
+      <div class="container">
+       <div class="container__both-sections">
+          <div class="container__column-left">
+            <!-- content for the left column -->
+            <include src="./partials/all-category.html"></include>
+            <include src="./partials/support-ukraine.html"></include>
+          </div>
+          <div class="container__column-right">
+            <!-- content for the right column -->
+            <include src="./partials/books.html"></include>
+          </div>
+       </div>
+      </div>
     </main>
+    <footer></footer>
     <div>
-      <include src="./partials/sections/pop-up.html"></include>
+      <include src="./partials/pop-up.html"></include>
+      <include src="./partials/sections/modal_book.html"></include>
     </div>
-    
-      
   </body>
-
 </html>

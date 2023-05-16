@@ -1,0 +1,17 @@
+/*Paddings for every website section*/
+.section{
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include mobile{
+        width: 287px;
+    }
+
+    @include tablet{
+        width: 704px;
+    }
+
+    @include desktop{
+        width: 996px;
+    }
+}
