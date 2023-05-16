@@ -1,0 +1,329 @@
+
+// Точки перелому
+$mobile: 375px;
+$tablet: 768px;
+$desktop: 1440px;
+
+
+h1,h2,h3{
+    margin:0;
+}
+
+
+.card-shopping{   
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        
+        margin: 0 auto;
+        border: 2px solid rgba(79, 46, 232, 0.4);
+        border-radius: 16px;
+        position: relative;
+        
+        padding: 14px 14px;
+        width: 335px;
+        height: 170px; 
+            
+        gap: 14px;  
+    
+        @media screen and (min-width: $tablet) {
+            padding: 24px 24px;
+            width: 704px;
+            height: 213px;
+
+            gap: 14px;
+        }
+    
+        @media screen and (min-width: $desktop) {
+          width: 996px;      
+        }
+    }
+
+    &__img{
+        width: 100px;
+        height: 142px;
+ 
+      @media screen and (min-width: $tablet) {
+        width: 116px; 
+        height: 165px
+      }
+    }
+
+    &__head{        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        font-family: 'dm_sansregular';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.125;
+        text-transform: uppercase;
+        color: var(--text-color-main);
+        width: 144px;
+        @media screen and (min-width: $tablet) {
+            width: 100%;             
+        }
+
+    }
+
+   &__shortDescription{
+        margin: 8 0 14;
+        display: block;
+        box-sizing: border-box;    
+        
+        
+        width: 193px; 
+        height: 55px;
+        
+        font-family: 'dm_sansregular';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.28;
+        letter-spacing: -0.04em;
+        
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--text-color-main);
+         
+        @media screen and (min-width: $tablet) {
+            width: 508px; 
+            height: 53px;
+            margin: 14 0 48;
+        }
+
+        @media screen and (min-width: $desktop) {
+            width: 808px; 
+            height: 53px
+        }
+   }
+
+
+   &__author{
+        font-family: 'dm_sansregular';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.16;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+        margin: 0;
+
+        color: var(--text-color-secondary);
+   }
+
+   &____categoryBook{
+        font-family: 'dm_sansregular';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.16;
+        letter-spacing: 0.03em;
+        color: var(--text-color-main);
+    }
+
+   &__delCard{
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 14px;
+        right: 14px;
+
+        @media screen and (min-width: $tablet) {
+            top: 24px;
+            right: 24px;
+        }
+        border: none;
+        border-radius: 50%;
+
+        background-color: var(--accent-primary);
+   }
+
+   &__delCardIcon{
+        top:50%;
+        right: 50%;
+        transform: translate(30%, 30%);
+   }
+
+   &__author-links-container{
+    width: 193px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 14px;
+
+    // @media screen and (min-width: $mobile) {
+    //    gap: 42px;
+    // }
+
+    @media screen and (min-width: $tablet) {
+        width: 100%;
+    }
+
+    // @media screen and (min-width: $desktop) {
+    //     gap: 597px;
+    // }
+   }
+
+   &__listLinks{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 4px;
+  
+ 
+     @media screen and (min-width: $tablet) {
+         gap: 16px;
+     }
+   }
+
+   &__pictureEmptyCont{
+    @media screen and (min-width: $tablet) {
+       width: 322px;
+       height: 241px;
+    }
+   }
+}
+
+
+.listCards{
+    margin: 40px 0 40px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 20px;
+
+    list-style: none;
+}
+
+.listBtnItem{
+    width: 44px;
+    height: 44px;
+    position: relative;
+}
+.btnPag{   
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    
+    position: absolute;
+    z-index: 999;
+}
+
+.card-shopping__btnContainer{
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    
+}
+    
+
+//Первые 2 элемента
+.listBtnItem:nth-child(-n + 2) .btnPag {
+    background-color: var(--text-color-main);
+  }
+
+//Последние 3 элемента
+.listBtnItem:nth-child(n + 7) .btnPag {
+    background-color: var(--accent-secondary);
+  }
+
+//Последние 3 иконки
+.listBtnItem:nth-child(n + 7) .iconRight {
+  fill: #000000;
+}
+
+.listBtnItem:nth-child(5){
+    display: none;
+    @media screen and (min-width: $tablet) {
+        display: block;
+    }
+}
+
+.paginationToStart__icon{
+    fill:var(--text-color-secondary);
+}
+
+.paginationToStart{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: -2px;
+}
+
+.paginationToEnd{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: -2px;
+}
+
+.paginationOne,
+.paginationTwo,
+.paginationThree{
+    font-family: 'dm_sansregular';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.22;
+    color: var(--text-color-main);
+}
+
+.listCards__head{
+    font-family: 'dm_sansregular';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+    color: var(--text-color-main);
+}
+
+.listCards__headColor{
+    color: var(--accent-primary);
+}
+
+.shopping-list__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0;
+}
+
+.shopping-list__emptyListContainer{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 120px 0 0;
+    @media screen and (min-width: $tablet) {
+        margin: 140px 0 0;
+    }
+}
+
+.shopping-list__emptyListDescription{   
+   
+    font-family: 'dm_sansregular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28;
+    color: rgba(0, 0, 0, 0.6);
+
+    text-align: center;
+}
