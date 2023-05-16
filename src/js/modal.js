@@ -1,4 +1,6 @@
-// const fireBaseBackdrop = document.querySelector('.fire-base-backdrop');
+import apple from "../images/modal-img/book_shop.svg";
+import amazon from '../images/modal-img/amazon.svg';
+import book from '../images/modal-img/book.svg';
 
 
 const idModal = document.querySelector('.about-book-modal');
@@ -29,8 +31,6 @@ idBackdropModal.addEventListener('click', function (event) {
   }
 });
 
-
-
 const bookList = document.querySelector('.books-container');
 const modals = document.querySelector('#modals');
 const storageButton = document.querySelector('.add-storage-button');
@@ -42,14 +42,15 @@ let storageObj = {};
 
 storageButton.addEventListener('click', onStorageAdd);
 removeStorageBtn.addEventListener('click', onStorageDelete);
-bookList.addEventListener('click', onIdClick);
+bookList.addEventListener('click', onClick);
 
-function onIdClick(e) {
-  const id = e.target.closest('li').id;
+function onClick(e) {
+  e.preventDefault();
+  if (e.target.nodeName !== 'IMG' && e.target.nodeName !== 'H3' && e.target.nodeName !== 'P') {
+    return;
+  } 
   openModalId();
-  createModal(id);
-console.log(e.target.closest('li'));
-
+  createModal(e.target.parentNode.parentNode.id);
 }
 
 async function createModal(bookId) {
@@ -111,9 +112,6 @@ function storageCheck() {
 
 }
 
-import apple from "../images/modal-img/book_shop.svg";
-import amazon from '../images/modal-img/amazon.svg';
-import book from '../images/modal-img/book.svg';
 
 function createMarkup(data) {
   modals.innerHTML = '';
