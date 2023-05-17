@@ -4,32 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="./images/Favicon.svg" />
-    <title>Page title</title>
+    <title>Book Shelf</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-
-    <script type="module" src="./index.js"></script>
   </head>
+
   <body>
-    <include src="./partials/header.html"></include>
+    <header>
+      <include src="./partials/header.html"></include>
+    </header>
+
     <main>
       <div class="container">
         <div class="container__both-sections">
           <div class="container__column-left">
+
             <!-- content for the left column -->
             <include src="./partials/all-category.html"></include>
             <include src="./partials/support-ukraine.html"></include>            
+
+            <include src="./partials/support-ukraine.html"></include>
+
           </div>
+
           <div class="container__column-right">
-            <!-- content for the right column -->
             <include src="./partials/books.html"></include>
           </div>
         </div>
       </div>
     </main>
+
     <footer></footer>
-    <div>
-      <include src="./partials/pop-up.html"></include>
-      <include src="./partials/sections/modal_book.html"></include>
-    </div>
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

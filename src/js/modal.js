@@ -131,32 +131,40 @@ function addMarkup(data) {
 
   const html = `
   <div class = "modal-card-wr">
-  <img src="${bookImage}" alt=“Book Image” class=“image-modal”>
+  <img src="${bookImage}" alt="Book Image" class="image-modal">
+  
   <div class="info-modal">
-  <h2 class="title-book-modal">${title}</h2>
+  <div class = "cont-title">
+  <h2 class="title-book-modal">${title}</h2></div>
   <p class="author-book-modal"> ${author}</p>
   <p class="txt-book-modal">${description || ""}
-  </div>
+  
+
   <ul class = "modal-shopping-list">
+
   <li class="modal-shopping-list-amazon">
-  <a href="${shopAmazon}" target="_blank">
+  <a href="${shopAmazon}" target="_blank"> 
   <img width="62" height="19"
         src ="${amazon1x},${amazon2x}" alt = "Amazon"/>
   </a>
-  </li>
+  </li> 
+
   <li class="modal-shopping-list-apple">
   <a href="${shopAppleBooks}" target="_blank">
   <img width="38" height="38"
-        src ="${apple1x},${apple2x}" alt = "Apple"/>
+        src ="${apple1x},${apple2x} " alt = "Apple"/>
   </a>
   </li>
+
   <li class="modal-shopping-list-book">
-  <a href="${shopBookshop}" target="_blank">
+  <a href="${shopBookshop}" target="_blank"> 
   <img width="38" height="38"
         src ="${book1x},${book2x}" alt = "Book"/>
   </a>
   </li>
+
 </ul>
+</div>
 </div>
   `;
   modals.innerHTML = html;
