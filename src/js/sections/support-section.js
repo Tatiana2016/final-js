@@ -1,16 +1,14 @@
-import Swiper, { Navigation } from 'swiper'; // import 'swiper/css';
-
+import Swiper, { Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import { supportList } from '../components/support-list';
-import { createImageItemMurkup } from './createMarkupSupportSection';
+import { createImageItemMurkup } from './createMarkupSupport';
 
 const supportContainer = document.querySelector('.swiper-wrapper');
 const imageMarkup = createImageItemMurkup(supportList);
-supportContainer.innerHTML = imageMarkup;
 
-swiperContainer = document.querySelector('.swiper-container');
+supportContainer.insertAdjacentHTML('beforeend', imageMarkup);
 
-swiperOptions = {
+new Swiper('.swiper-container', {
   modules: [Navigation],
   direction: 'vertical',
   slidesPerView: 4,
@@ -31,6 +29,4 @@ swiperOptions = {
       spaceBetween: 20,
     },
   },
-};
-
-carousel = new Swiper(swiperContainer, swiperOptions);
+});
