@@ -11,19 +11,19 @@ function renderBooks(books, currentCategoryTitle) {
 
   const bookElements = books.map(book => {
     const image = `
-      <div class="book-card__image-container book-card__image-container--margin-bottom">
-        <img class="book-card__image" src="${book.book_image}" alt="${book.title}" loading="lazy" data-modal-open>
-      </div>
-    `;
+       <img class="book-card__image" src="${book.book_image}" alt="${book.title}" loading="lazy" data-modal-open>
+      `;
     const title = `<h3 class="book-card__title book-card__title--margin-bottom" data-modal-open>${book.title}</h3>`;
     const description = `<p class="book-card__author">${book.author}</p>`;
     
     return `
-      <div class="book-card">
+    <ul class="book-card">
+      <li id="${book._id}" class="book-card__image-container book-card__image-container--margin-bottom">      
         ${image}
         ${title}
-        ${description}       
-      </div>
+        ${description}    
+      </li>
+  </ul>
     `;
   });
 
