@@ -1,7 +1,9 @@
-import apple from "../images/modal-img/book_shop.svg";
-import amazon from '../images/modal-img/amazon.svg';
-import book from '../images/modal-img/book.svg';
-
+import apple1x from "../images/modal_img/icons-for-light-theme/appleBooks.png";
+import apple2x from '../images/modal_img/icons-for-light-theme/appleBooks@2x.png';
+import amazon1x from '../images/modal_img/icons-for-light-theme/amazonLight.png';
+import amazon2x from '../images/modal_img/icons-for-light-theme/amazonLight@2x.png';
+import book1x from '../images/modal_img/icons-for-light-theme/bookShop.png';
+import book2x from '../images/modal_img/icons-for-light-theme/bookShop@2x.png';
 
 const idModal = document.querySelector('.about-book-modal');
 const closeModalBtn = document.querySelector('#modal-close');
@@ -40,9 +42,10 @@ const STORAGE_KEY = 'storage-data-shop';
 let storageArr = [];
 let storageObj = {};
 
+
+bookList.addEventListener('click', onClick);
 storageButton.addEventListener('click', onStorageAdd);
 removeStorageBtn.addEventListener('click', onStorageDelete);
-bookList.addEventListener('click', onClick);
 
 function onClick(e) {
   e.preventDefault();
@@ -50,14 +53,17 @@ function onClick(e) {
     return;
   } 
   openModalId();
-  createModal(e.target.parentNode.parentNode.id);
+  addModal(e.target.closest('li').id);
+  // console.log((e.target.nodeName.nodeName !== 'H3'));
+  // console.log(e.target.parentNode.parentNode.id);
+  // console.log(e.target.closest('li').id);
 }
 
-async function createModal(bookId) {
+async function addModal(bookId) {
   try {
     const data = await fetchBookById(bookId);
     storageCheck();
-    createMarkup(data);
+    addMarkup(data);
     return data;
   
   } catch (error) {
@@ -79,9 +85,9 @@ async function fetchBookById(bookId) {
       title: data.title,
       author: data.author,
       description: data.description,
-      marketAmazon: data.buy_links[0].url,
-      marketAppleBooks: data.buy_links[1].url,
-      marketBookshop: data.buy_links[4].url,
+      shopAmazon: data.buy_links[0].url,
+      shopAppleBooks: data.buy_links[1].url,
+      shopBookshop: data.buy_links[4].url,
       list_name: data.list_name,
       id: data._id,
     };
@@ -113,38 +119,41 @@ function storageCheck() {
 }
 
 
-function createMarkup(data) {
+function addMarkup(data) {
   modals.innerHTML = '';
   const bookImage = data.book_image;
   const title = data.title;
   const author = data.author;
   const description = data.description;
-  const marketAmazon = data.buy_links[0].url;
-  const marketAppleBooks = data.buy_links[1].url;
-  const marketBookshop = data.buy_links[4].url;
+  const shopAmazon = data.buy_links[0].url;
+  const shopAppleBooks = data.buy_links[1].url;
+  const shopBookshop = data.buy_links[4].url;
 
   const html = `
-  
-  <img src="${bookImage}" alt="Book Image" class="image-about-book-modal">
+  <div class = "modal-card-wr">
+  <img src="${bookImage}" alt=“Book Image” class=“image-modal”>
   <div class="info-modal">
-  <h2 class="title-about-book-modal">${title}</h2>
-  <p class="author-about-book-modal"> ${author}</p>
-  <p class="text-about-book-modal">${description || " "}
-  <a href="${marketAmazon}" target="_blank"> 
-  <img width="38" height="38"
-        src ="${amazon}" alt = "Amazon"/>
-  </a>
-  </li> 
-  <li class="shop-modal-item">
-  <a href="${marketAppleBooks}" target="_blank">
-  <img width="38" height="38"
-        src ="${apple}" alt = "Apple"/>
+  <h2 class="title-book-modal">${title}</h2>
+  <p class="author-book-modal"> ${author}</p>
+  <p class="txt-book-modal">${description || ""}
+  </div>
+  <ul class = "modal-shopping-list">
+  <li class="modal-shopping-list-amazon">
+  <a href="${shopAmazon}" target="_blank">
+  <img width="62" height="19"
+        src ="${amazon1x},${amazon2x}" alt = "Amazon"/>
   </a>
   </li>
-  <li class="shop-modal-item">
-  <a href="${marketBookshop}" target="_blank"> 
+  <li class="modal-shopping-list-apple">
+  <a href="${shopAppleBooks}" target="_blank">
   <img width="38" height="38"
-        src ="${book}" alt = "Book"/>
+        src ="${apple1x},${apple2x}" alt = "Apple"/>
+  </a>
+  </li>
+  <li class="modal-shopping-list-book">
+  <a href="${shopBookshop}" target="_blank">
+  <img width="38" height="38"
+        src ="${book1x},${book2x}" alt = "Book"/>
   </a>
   </li>
 </ul>
