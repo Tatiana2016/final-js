@@ -1,10 +1,10 @@
-import svgLinkDelIcon from '../../images/symbol-defs.svg';
-import pngLinkAmazonIcon from '../../images/amazonIcon.png';
-import pngLinkAmazonIcon2x from '../../images/amazonIcon@2x.png';
-import pngLinkbookIcon from '../../images/bookIcon.png';
-import pngLinkbookIcon2x from '../../images/bookIcon@2x.png';
-import pngLinkbooksIcon from '../../images/booksIcon.png';
-import pngLinkbooksIcon2x from '../../images/booksIcon@2x.png';
+import svgLinkDelIcon from '/src/images/symbol-defs.svg';
+import pngLinkAmazonIcon from '/src/images/amazonIcon.png';
+import pngLinkAmazonIcon2x from '/src/images/amazonIcon@2x.png';
+import pngLinkbookIcon from '/src/images/bookIcon.png';
+import pngLinkbookIcon2x from '/src/images/bookIcon@2x.png';
+import pngLinkbooksIcon from '/src/images/booksIcon.png';
+import pngLinkbooksIcon2x from '/src/images/booksIcon@2x.png';
 
 const listShoppingCards = document.querySelector('.js-listCards');
 const paginationStart = document.querySelector('.js-paginationToStart');
@@ -23,19 +23,19 @@ const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
 const STORAGE_KEY = 'storage-data-shop';
 let listObg = [];
 let pagePagination=1;
-
-// function fethFunc(BASE_URL){
-//     let bookObj=[];  
-//     resp = fetch(BASE_URL)
-//         .then(data=>data.json())
-//         .then(data=>{       
-//         data.map(({books})=>{   
-//             books.map(book=> bookObj.push(book))
-//         }); 
-//         save(bookObj); 
-//     });
-// }
-// fethFunc(BASE_URL); 
+// localStorage.clear();
+function fethFunc(BASE_URL){
+    let bookObj=[];  
+    resp = fetch(BASE_URL)
+        .then(data=>data.json())
+        .then(data=>{       
+        data.map(({books})=>{   
+            books.map(book=> bookObj.push(book))
+        }); 
+        save(bookObj); 
+    });
+}
+fethFunc(BASE_URL); 
 
 const save = (value) => {
     try {      
@@ -50,7 +50,9 @@ loadLocalStorage();
 
 function loadLocalStorage(){
     try {        
-        listObg = JSON.parse(localStorage.getItem(STORAGE_KEY));          
+        listObg = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
+        console.log(listObg);
+        if (listObg===null){listObg=[]}
     } catch (error) {
             console.error("Get state error: ", error.message);
         }
@@ -145,23 +147,28 @@ function createMarkup(arr){
         }).join('');
     }
 
-listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
-
 if (listObg.length>0){
+    if (listObg.length<=3){
+        paginationCont.style.display = "none";
+    } 
+    listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
     emptyListContainer.style.display = "none";
-} 
+    pagination.addEventListener('click', onPaginationNextEl);
+    paginationStart.addEventListener('click', onPaginationFirstEl);
+    paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+    paginationOne.addEventListener('click', onPaginationElements);
+    paginationTwo.addEventListener('click', onPaginationElements);
+    paginationThree.addEventListener('click', onPaginationElements);
+    paginationToEnd.addEventListener('click', onPaginationElements);
+    paginationPoint.addEventListener('click', onPaginationPoint);
+    btnDelCard.addEventListener('click', delCardShoppingList);
+}
 
-if (listObg.length<=3){
-    paginationCont.style.display = "none";
-} 
-
-pagination.addEventListener('click', onPaginationNextEl);
 
 function onPaginationNextEl(){
 
     if (listObg.length<=(pagePagination-1)*3 || listObg.length===pagePagination*3){
         pagination.disabled = true;
-        return
     } 
         pagePagination+=1;
         listShoppingCards.innerHTML='';
@@ -169,14 +176,14 @@ function onPaginationNextEl(){
         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));  
 }
 
-paginationStart.addEventListener('click', onPaginationFirstEl);
+
 function onPaginationFirstEl(){
     pagePagination=1;
     listShoppingCards.innerHTML='';
     listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3)))
 }
 
-paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+
 function onPaginationPrevEl(){
     if (pagePagination>1){     
         pagePagination-=1;  
@@ -185,10 +192,7 @@ function onPaginationPrevEl(){
     }
 }
 
-paginationOne.addEventListener('click', onPaginationElements);
-paginationTwo.addEventListener('click', onPaginationElements);
-paginationThree.addEventListener('click', onPaginationElements);
-paginationToEnd.addEventListener('click', onPaginationElements);
+
 
 function onPaginationElements(evt){  
     if (evt.currentTarget.classList.contains('js-paginationToEnd')){
@@ -206,7 +210,7 @@ function onPaginationElements(evt){
         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
     }
 }
-paginationPoint.addEventListener('click', onPaginationPoint);
+
 function onPaginationPoint(){
     if (listObg.length>9 && (Number(paginationOne.textContent)+3)*3<listObg.length){
         paginationOne.textContent=Number(paginationOne.textContent)+3;
@@ -214,8 +218,6 @@ function onPaginationPoint(){
         paginationThree.textContent=Number(paginationThree.textContent)+3;
     }
 }
-
-btnDelCard.addEventListener('click', delCardShoppingList);
 
 function delCardShoppingList(evt){
     if (evt.target.classList.contains('js-delCard') && listObg.length>0){
