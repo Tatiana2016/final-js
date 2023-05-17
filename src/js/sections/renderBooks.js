@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 function renderBooks(books, currentCategoryTitle) {
+  const heading = document.querySelector('.header-one');
   const container = document.querySelector('.books-container');
   container.innerHTML = '';
 
@@ -19,7 +20,6 @@ function renderBooks(books, currentCategoryTitle) {
     return `
     <ul class="books-container-category">
       <li id="${book._id}"> 
-           
         ${image}
         ${title}
         ${description}    
@@ -27,9 +27,10 @@ function renderBooks(books, currentCategoryTitle) {
   </ul>
     `;
   });
+  heading.textContent = currentCategoryTitle;
   container.classList.add('books-container-category');
   container.innerHTML = `
-    <h2>${currentCategoryTitle}</h2>
+    
     ${bookElements.join('')}
   `
 }
