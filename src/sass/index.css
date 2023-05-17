@@ -1123,7 +1123,6 @@ p {
 }
 
 .support__img {
-  height: 32px;
   filter: brightness(0) invert(1);
 }
 
@@ -1142,6 +1141,11 @@ p {
 .swiper-navigation {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+div.swiper-slide {
+  display: flex;
   align-items: center;
 }
 
