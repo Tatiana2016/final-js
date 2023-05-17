@@ -1,10 +1,10 @@
-import svgLinkDelIcon from '../../images/symbol-defs.svg';
-import pngLinkAmazonIcon from '../../images/amazonIcon.png';
-import pngLinkAmazonIcon2x from '../../images/amazonIcon@2x.png';
-import pngLinkbookIcon from '../../images/bookIcon.png';
-import pngLinkbookIcon2x from '../../images/bookIcon@2x.png';
-import pngLinkbooksIcon from '../../images/booksIcon.png';
-import pngLinkbooksIcon2x from '../../images/booksIcon@2x.png';
+import svgLinkDelIcon from '/src/images/symbol-defs.svg';
+import pngLinkAmazonIcon from '/src/images/amazonIcon.png';
+import pngLinkAmazonIcon2x from '/src/images/amazonIcon@2x.png';
+import pngLinkbookIcon from '/src/images/bookIcon.png';
+import pngLinkbookIcon2x from '/src/images/bookIcon@2x.png';
+import pngLinkbooksIcon from '/src/images/booksIcon.png';
+import pngLinkbooksIcon2x from '/src/images/booksIcon@2x.png';
 
 const listShoppingCards = document.querySelector('.js-listCards');
 const paginationStart = document.querySelector('.js-paginationToStart');
@@ -23,7 +23,7 @@ const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
 const STORAGE_KEY = 'storage-data-shop';
 let listObg = [];
 let pagePagination=1;
-
+// localStorage.clear();
 // function fethFunc(BASE_URL){
 //     let bookObj=[];  
 //     resp = fetch(BASE_URL)
@@ -50,7 +50,9 @@ loadLocalStorage();
 
 function loadLocalStorage(){
     try {        
-        listObg = JSON.parse(localStorage.getItem(STORAGE_KEY));          
+        listObg = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
+        console.log(listObg);
+        if (listObg===null){listObg=[]}
     } catch (error) {
             console.error("Get state error: ", error.message);
         }
@@ -145,7 +147,10 @@ function createMarkup(arr){
         }).join('');
     }
 
-listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
+if (listObg!==null){
+    listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
+}
+
 
 if (listObg.length>0){
     emptyListContainer.style.display = "none";
