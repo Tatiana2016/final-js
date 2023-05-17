@@ -23,14 +23,7 @@ async function renderCategories() {
       const sortedCategories = categories.sort((a, b) => a.list_name.localeCompare(b.list_name));
       const itemsHtml = sortedCategories.map(category => `<li><a href="#" data-category="${category.list_name}" class="menu-item-light">${category.list_name}</a></li>`).join('');
 
-      list.insertAdjacentHTML('beforeend', itemsHtml);
-       // Handle click on the title
-      title.addEventListener('click', async () => {
-        const booksResponse = await getBooksByCategory('', 'All Categories');
-        if (booksResponse && booksResponse.data) {
-          renderBooks(booksResponse.data, 'All Categories');
-        }
-      });
+      list.insertAdjacentHTML('beforeend', itemsHtml);         
 
       list.addEventListener('click', async (event) => {
         event.preventDefault();
