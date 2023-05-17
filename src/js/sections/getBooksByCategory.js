@@ -9,14 +9,13 @@ async function getBooksByCategory(category, currentCategoryTitle) {
   const ENDPOINT = `books/category?category=${encodeURIComponent(category)}`;
 
   try {
-    const response = await axios.get(`${BASE_URL}${ENDPOINT}`);
-    const books = response.data;
-    renderBooks(books, currentCategoryTitle);
+    const result = await axios.get(`${BASE_URL}${ENDPOINT}`);
+    const books = result.data;
+    renderBooks(books, currentCategoryTitle); // передайте currentCategoryTitle до функції renderBooks
     Notiflix.Notify.success('Books loaded successfully');
   } catch (error) {
-    console.error(error);
     Notiflix.Notify.failure('Sorry, no results found');
-    throw error;
+    throw new Error(error);
   }
 }
 

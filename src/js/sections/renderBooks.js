@@ -43,4 +43,20 @@ async function getBookById(id) {
   }
 }
 
+//function renderBookDetails(bookDetails) {
+  // Ви можете використовувати bookDetails для відображення деталей книги у вашому шаблоні HTML
+  // Наприклад:
+  //const modal = document.createElement('div');
+  //modal.classList.add('modal');
+  //modal.innerHTML = `
+    //<h2>${bookDetails.title}</h2>
+    //<p>${bookDetails.author}</p>
+    //<p>${bookDetails.description}</p>
+  //`;
+
+  // Додайте modal до DOM, наприклад, до document.body або до іншого контейнера, який ви використовуєте для модального вікна
+
+  // Ви можете також застосувати стилі до modal, використовуючи CSS-класи або задаючи стилі прямо тут
+//}
+
 export { getBookById, renderBooks, renderBookDetails };
