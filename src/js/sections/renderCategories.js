@@ -24,6 +24,13 @@ async function renderCategories() {
       const itemsHtml = sortedCategories.map(category => `<li><a href="#" data-category="${category.list_name}" class="menu-item-light">${category.list_name}</a></li>`).join('');
 
       list.insertAdjacentHTML('beforeend', itemsHtml);
+       // Handle click on the title
+      title.addEventListener('click', async () => {
+        const booksResponse = await getBooksByCategory('', 'All Categories');
+        if (booksResponse && booksResponse.data) {
+          renderBooks(booksResponse.data, 'All Categories');
+        }
+      });
 
       list.addEventListener('click', async (event) => {
         event.preventDefault();
