@@ -1,0 +1,83 @@
+
+<div class="shopping-list__container">
+    <h2 class="listCards__head">Shopping <span class="listCards__headColor"> List</span></h2>
+    <div class="shopping-list__emptyListContainer">
+        <p shopping-list__emptyListDescription>This page is empty, add some books and proceed to order.</p>
+        <picture>
+            <source
+                srcset="
+                    /src/images/booksEmptyList.png 1x, 
+                    /src/images/booksEmptyList.png 2x
+                "
+                type="image/png"
+                width="265" 
+                height="198" 
+            >
+            <img
+                src='/src/images/booksEmptyList.png'
+
+                alt="amazon"
+                class="card-shopping__pictureEmptyCont"
+            >
+        </picture>  
+    </div>
+    <ul class="js-listCards listCards"></ul>
+
+    <ul class="card-shopping__btnContainer">
+        <li class="listBtnItem">
+            <button class="js-paginationToStart paginationToStart btnPag">
+                <svg width="17" height="17" class="paginationToStart__icon iconleft">
+                    <use href='/src/images/symbol-defs.svg#iconVectorLeft'> </use>
+                </svg>
+                <svg width="17" height="17" class="paginationToStart__icon iconleft">
+                    <use href='/src/images/symbol-defs.svg#iconVectorLeft'> </use>
+                </svg>
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationPrevEl paginationPrevEl btnPag">
+                <svg width="17" height="17" class="paginationToStart__icon iconleft">
+                    <use href='/src/images/symbol-defs.svg#iconVectorLeft'> </use>
+                </svg>
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationOne paginationOne btnPag">
+                1
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationTwo paginationTwo btnPag">
+                2
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationThree paginationThree btnPag">
+                3
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationPoint paginationPoint btnPag">
+                ...
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationNextEl paginationNextEl btnPag">
+                <svg width="17" height="17" class="paginationNextEl__icon iconRight paginationIcon">
+                    <use href='/src/images/symbol-defs.svg#iconVectorRight'> </use>
+                </svg>
+            </button>
+        </li>
+        <li class="listBtnItem">
+            <button class="js-paginationToEnd paginationToEnd btnPag">
+                <svg width="17" height="17" class="paginationToStart__icon iconRight">
+                    <use href='/src/images/symbol-defs.svg#iconVectorRight'> </use>
+                </svg>
+                <svg width="17" height="17" class="paginationToStart__icon iconRight">
+                    <use href='/src/images/symbol-defs.svg#iconVectorRight'> </use>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</div>
+

@@ -22,7 +22,8 @@
     "caniuse-lite": "^1.0.30001486",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "swiper": "^9.3.2"
+    "swiper": "^9.3.1",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
