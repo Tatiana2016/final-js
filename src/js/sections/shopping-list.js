@@ -24,18 +24,18 @@ const STORAGE_KEY = 'storage-data-shop';
 let listObg = [];
 let pagePagination=1;
 // localStorage.clear();
-// function fethFunc(BASE_URL){
-//     let bookObj=[];  
-//     resp = fetch(BASE_URL)
-//         .then(data=>data.json())
-//         .then(data=>{       
-//         data.map(({books})=>{   
-//             books.map(book=> bookObj.push(book))
-//         }); 
-//         save(bookObj); 
-//     });
-// }
-// fethFunc(BASE_URL); 
+function fethFunc(BASE_URL){
+    let bookObj=[];  
+    resp = fetch(BASE_URL)
+        .then(data=>data.json())
+        .then(data=>{       
+        data.map(({books})=>{   
+            books.map(book=> bookObj.push(book))
+        }); 
+        save(bookObj); 
+    });
+}
+fethFunc(BASE_URL); 
 
 const save = (value) => {
     try {      
@@ -147,26 +147,28 @@ function createMarkup(arr){
         }).join('');
     }
 
-if (listObg!==null){
+if (listObg.length>0){
+    if (listObg.length<=3){
+        paginationCont.style.display = "none";
+    } 
     listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
+    emptyListContainer.style.display = "none";
+    pagination.addEventListener('click', onPaginationNextEl);
+    paginationStart.addEventListener('click', onPaginationFirstEl);
+    paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+    paginationOne.addEventListener('click', onPaginationElements);
+    paginationTwo.addEventListener('click', onPaginationElements);
+    paginationThree.addEventListener('click', onPaginationElements);
+    paginationToEnd.addEventListener('click', onPaginationElements);
+    paginationPoint.addEventListener('click', onPaginationPoint);
+    btnDelCard.addEventListener('click', delCardShoppingList);
 }
 
-
-if (listObg.length>0){
-    emptyListContainer.style.display = "none";
-} 
-
-if (listObg.length<=3){
-    paginationCont.style.display = "none";
-} 
-
-pagination.addEventListener('click', onPaginationNextEl);
 
 function onPaginationNextEl(){
 
     if (listObg.length<=(pagePagination-1)*3 || listObg.length===pagePagination*3){
         pagination.disabled = true;
-        return
     } 
         pagePagination+=1;
         listShoppingCards.innerHTML='';
@@ -174,14 +176,14 @@ function onPaginationNextEl(){
         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));  
 }
 
-paginationStart.addEventListener('click', onPaginationFirstEl);
+
 function onPaginationFirstEl(){
     pagePagination=1;
     listShoppingCards.innerHTML='';
     listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3)))
 }
 
-paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+
 function onPaginationPrevEl(){
     if (pagePagination>1){     
         pagePagination-=1;  
@@ -190,10 +192,7 @@ function onPaginationPrevEl(){
     }
 }
 
-paginationOne.addEventListener('click', onPaginationElements);
-paginationTwo.addEventListener('click', onPaginationElements);
-paginationThree.addEventListener('click', onPaginationElements);
-paginationToEnd.addEventListener('click', onPaginationElements);
+
 
 function onPaginationElements(evt){  
     if (evt.currentTarget.classList.contains('js-paginationToEnd')){
@@ -211,7 +210,7 @@ function onPaginationElements(evt){
         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
     }
 }
-paginationPoint.addEventListener('click', onPaginationPoint);
+
 function onPaginationPoint(){
     if (listObg.length>9 && (Number(paginationOne.textContent)+3)*3<listObg.length){
         paginationOne.textContent=Number(paginationOne.textContent)+3;
@@ -219,8 +218,6 @@ function onPaginationPoint(){
         paginationThree.textContent=Number(paginationThree.textContent)+3;
     }
 }
-
-btnDelCard.addEventListener('click', delCardShoppingList);
 
 function delCardShoppingList(evt){
     if (evt.target.classList.contains('js-delCard') && listObg.length>0){
