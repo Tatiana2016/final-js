@@ -6,10 +6,11 @@ import { createImageItemMurkup } from './createMarkupSupportSection';
 
 const supportContainer = document.querySelector('.swiper-wrapper');
 const imageMarkup = createImageItemMurkup(supportList);
+supportContainer.innerHTML = imageMarkup;
 
-supportContainer.insertAdjacentHTML('beforeend', imageMarkup);
+swiperContainer = document.querySelector('.swiper-container');
 
-new Swiper('.swiper-container', {
+swiperOptions = {
   modules: [Navigation],
   direction: 'vertical',
   slidesPerView: 4,
@@ -30,4 +31,6 @@ new Swiper('.swiper-container', {
       spaceBetween: 20,
     },
   },
-});
+};
+
+carousel = new Swiper(swiperContainer, swiperOptions);
