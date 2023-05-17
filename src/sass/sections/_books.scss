@@ -1,8 +1,17 @@
-//Book Card
+//Book Card - home page
 
 .book-section {
   list-style: none;
 }
+
+//Book Card - category page
+.books-container-category{
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+//Book Card
 
 .book-card {
   position: relative;
