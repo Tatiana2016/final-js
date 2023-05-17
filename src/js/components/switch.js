@@ -6,12 +6,10 @@ changeThemeButton.addEventListener('change', changeTheme);
 function changeTheme(e) {
   let theme = null;
   if (changeThemeButton.checked) {
-    console.log('Checkbox is checked..');
     theme = 'dark';
     body.classList.remove('light-theme');
     body.classList.add('dark-theme');
   } else {
-    console.log('Checkbox is not checked..');
     theme = 'light';
     body.classList.remove('dark-theme');
     body.classList.add('light-theme');
@@ -20,7 +18,6 @@ function changeTheme(e) {
 }
 
 let activeTheme = localStorage.getItem('theme'); // Проверяем есть ли в LocalStorage записано значение для 'theme' и присваиваем его переменной.
-console.log(activeTheme);
 if (activeTheme === null || activeTheme === 'light') {
   changeThemeButton.removeAttribute('checked');
   body.classList.remove('dark-theme');
