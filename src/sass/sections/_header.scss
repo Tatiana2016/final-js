@@ -138,6 +138,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
+    line-height: 0.77;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     height: 18px;
@@ -171,6 +172,13 @@
     @media screen and (min-width: $tablet) {
           margin-right: 7px;
           height: 18px;
+          font-family: 'DM Sans';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 0.77;
+          letter-spacing: -0.04em;
+          text-transform: uppercase;
         }
   }
 }
