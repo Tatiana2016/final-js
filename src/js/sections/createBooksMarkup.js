@@ -1,6 +1,9 @@
+import { getBooksByCategory } from './getBooksByCategory';
+import { renderBooks } from './renderBooks';
+
 const bookContainer = document.querySelector('.books-container');
 
-//Top 5 books markup
+// Top 5 books markup
 function createBooksMarkup(arr, category) {
   const markup = arr
     .map(book => {
@@ -26,6 +29,29 @@ function createBooksMarkup(arr, category) {
     .join('');
 
   bookContainer.insertAdjacentHTML('beforeend', markup);
+
+  const seeMoreButtons = document.querySelectorAll('.books-category-js');
+
+  seeMoreButtons.forEach(button => {
+    button.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const selectedCategory = event.currentTarget.getAttribute('data-category');
+      const booksResponse = await getBooksByCategory(selectedCategory);
+
+      if (booksResponse && booksResponse.data) {
+        renderBooks(booksResponse.data, selectedCategory);
+
+        const bookButtons = document.querySelectorAll('.book button');
+        bookButtons.forEach(button => {
+          button.addEventListener('click', async (event) => {
+            const bookId = event.currentTarget.getAttribute('data-book-id');
+            const bookDetails = await getBookById(bookId);
+            renderBookDetails(bookDetails);
+          });
+        });
+      }
+    });
+  });
 
   return markup;
 }
