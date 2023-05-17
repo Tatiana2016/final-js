@@ -130,6 +130,10 @@ p {
   align-items: center;
 }
 
+a.swiper-button-next {
+  z-index: 1 !important;
+}
+
 .swiper-button-next {
   width: 38px !important;
   height: 38px !important;
