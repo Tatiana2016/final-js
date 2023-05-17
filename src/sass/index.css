@@ -41,6 +41,8 @@ img {
   --accent-secondary: #eac645;
   --background-white: #ffffff;
   --background-grey: #f6f6f6;
+  --color-total-black: #000000;
+  --svg-color: #f3f3f3;
 }
 
 body {
@@ -1143,6 +1145,10 @@ p {
   align-items: center;
 }
 
+a.swiper-button-next {
+  z-index: 1 !important;
+}
+
 .swiper-button-next {
   width: 38px !important;
   height: 38px !important;
@@ -1207,4 +1213,114 @@ p {
   font-style: normal;
   src: url("/src/fonts/dmsans-regular-webfont.woff");
   src: local(""), url("/src/fonts/dmsans-regular-webfont.woff2") format("woff2"), url("/src/fonts/dmsans-regular-webfont.woff") format("woff");
+}
+.light-theme main {
+  background-color: var(--background-grey);
+}
+
+.light-theme .header__icon--bookshelf {
+  fill: var(--color-total-black);
+}
+
+.light-theme .paginationToStart__icon {
+  fill: var(--text-color-secondary);
+}
+
+.light-theme .container-header {
+  background-color: var(--background-white);
+}
+
+.light-theme .header__text-SL,
+.light-theme .book-card__title,
+.light-theme .header-one,
+.light-theme .listCards__head,
+.light-theme .button {
+  color: var(--text-color-main);
+}
+
+.light-theme .paginationOne,
+.light-theme .paginationTwo,
+.light-theme .paginationThree {
+  color: var(--text-color-main);
+}
+.light-theme .paginationOne:hover, .light-theme .paginationOne:focus,
+.light-theme .paginationTwo:hover,
+.light-theme .paginationTwo:focus,
+.light-theme .paginationThree:hover,
+.light-theme .paginationThree:focus {
+  color: var(--background-white);
+}
+
+.light-theme .btnPag {
+  background-color: inherit;
+  border-color: var(--text-color-main);
+}
+.light-theme .btnPag:hover, .light-theme .btnPag:focus {
+  background-color: var(--text-color-main);
+  border-color: var(--background-white);
+}
+
+.light-theme .menu-item-light {
+  color: rgba(17, 17, 17, 0.6);
+}
+.light-theme .menu-item-light:hover, .light-theme .menu-item-light:focus {
+  color: var(--accent-primary);
+}
+
+.light-theme .shopping-list__emptyListDescription {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme main {
+  background-color: var(--background-dark);
+}
+
+.dark-theme .header__icon--bookshelf,
+.dark-theme .paginationToStart__icon {
+  fill: var(--svg-color);
+}
+
+.dark-theme .container-header {
+  background-color: var(--text-color-main);
+}
+
+.dark-theme .header__text-SL,
+.dark-theme .book-card__title,
+.dark-theme .header-one,
+.dark-theme .listCards__head,
+.dark-theme .button {
+  color: var(--background-white);
+}
+
+.dark-theme .paginationOne,
+.dark-theme .paginationTwo,
+.dark-theme .paginationThree {
+  color: var(--background-white);
+}
+.dark-theme .paginationOne:hover, .dark-theme .paginationOne:focus,
+.dark-theme .paginationTwo:hover,
+.dark-theme .paginationTwo:focus,
+.dark-theme .paginationThree:hover,
+.dark-theme .paginationThree:focus {
+  color: var(--text-color-main);
+}
+
+.dark-theme .btnPag {
+  background-color: inherit;
+  border-color: var(--background-white);
+}
+.dark-theme .btnPag:hover, .dark-theme .btnPag:focus {
+  background-color: var(--background-white);
+  border-color: var(--text-color-main);
+}
+
+.dark-theme .menu-item-light {
+  color: rgba(255, 255, 255, 0.6);
+}
+.dark-theme .menu-item-light:hover, .dark-theme .menu-item-light:focus {
+  color: var(--accent-secondary);
+}
+
+.dark-theme .shopping-list__emptyListDescription {
+  color: rgba(255, 255, 255, 0.6);
 }/*# sourceMappingURL=index.css.map */

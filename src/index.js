@@ -2,6 +2,7 @@ import './js/sections/header';
 import './js/sections/menu';
 import './js/sections/home';
 import './js/sections/books';
+import './js/components/switch';
 import './js/sections/getBooksCategories';
 import './js/sections/getBooksByCategory';
 import './js/sections/support-section';

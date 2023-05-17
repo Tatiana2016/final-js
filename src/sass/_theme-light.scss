@@ -1,0 +1,85 @@
+//Header:
+// 3. +svg НЕАКТИВНА from --text-color-main: #111111; on --background-white: #ffffff;
+// 4. home --text-color-main: #111111; on --background-white: #ffffff;
+
+// Shopping list:
+// 2. Контейнер для однієї книги background: #FFFFFF; on background: #111111;
+// 3. text, крім назви категорії та імені автора color: #111111; on color: #FFFFFF;
+// 4. amazon fill black on white
+// стрілочки назад background: #B4AFAF; on background: #FFFFFF;
+// Активна сторінка номер color: #FFFFFF; on color: #000000;
+// Активна сторінка background: #111111; on background: #FFFFFF;
+// Інша пагінація посередині сторінка номер color: #111111; on color: #FFFFFF;
+// Інша пагінація посередині сторінка background: #D0D0D0; on --background-dark: #202024;
+// Порожня сторінка text color: rgba(0, 0, 0, 0.6); on color: rgba(255, 255, 255, 0.6);
+
+// modal інф про одну книгу:
+// 1. background: #FFFFFF; on background: #202024;
+// 2. text, крім імені автора color: #111111; on color: #FFFFFF;
+// 3. amazon fill black on white
+// 4. button background  #FFFFFF; on background: #202024;
+// 5. Хрестик вихід black on white
+
+// Модальне вікно при реєстрації backgorund and button:
+// 1. backgorund from background: #F6F6F6; on background: #202024;
+// 2. Color and border color: #111111; on color: #F6F6F6;
+// 3. Sign up color from color: #F3F3F3; on color: #202024;
+// 4. Sign up background color background: #111111; on background: #F6F6F6;
+
+.light-theme main {
+  background-color: var(--background-grey);
+}
+
+.light-theme .header__icon--bookshelf {
+  fill: var(--color-total-black);
+}
+
+.light-theme .paginationToStart__icon {
+  fill: var(--text-color-secondary);
+}
+
+.light-theme .container-header {
+  background-color: var(--background-white);
+}
+
+.light-theme .header__text-SL,
+.light-theme .book-card__title,
+.light-theme .header-one,
+.light-theme .listCards__head,
+.light-theme .button {
+  color: var(--text-color-main);
+}
+
+.light-theme .paginationOne,
+.light-theme .paginationTwo,
+.light-theme .paginationThree {
+  color: var(--text-color-main);
+
+  &:hover,
+  &:focus {
+    color: var(--background-white);
+  }
+}
+.light-theme .btnPag {
+  background-color: inherit;
+  border-color: var(--text-color-main);
+
+  &:hover,
+  &:focus {
+    background-color: var(--text-color-main);
+    border-color: var(--background-white);
+  }
+}
+
+.light-theme .menu-item-light {
+  color: rgba(17, 17, 17, 0.6);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-primary);
+  }
+}
+
+.light-theme .shopping-list__emptyListDescription {
+  color: rgba(0, 0, 0, 0.6);
+}
