@@ -25,13 +25,13 @@ async function renderCategories() {
 
       list.insertAdjacentHTML('beforeend', itemsHtml);
 
-      const categoryLinks = document.querySelectorAll('.category-list a');
+      list.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const target = event.target;
 
-      categoryLinks.forEach(link => {
-        link.addEventListener('click', async (event) => {
-          event.preventDefault();
-          const selectedCategory = event.currentTarget.getAttribute('data-category');
-          const currentCategoryTitle = event.currentTarget.innerText; // Отримати назву категорії з тексту посилання
+        if (target.tagName === 'A' && target.classList.contains('menu-item-light')) {
+          const selectedCategory = target.getAttribute('data-category');
+          const currentCategoryTitle = target.innerText;
           const booksResponse = await getBooksByCategory(selectedCategory, currentCategoryTitle);
 
           if (booksResponse && booksResponse.data) {
@@ -46,7 +46,7 @@ async function renderCategories() {
               });
             });
           }
-        });
+        }
       });
     }
   } catch (error) {

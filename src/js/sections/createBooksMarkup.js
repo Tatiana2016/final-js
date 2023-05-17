@@ -30,12 +30,12 @@ function createBooksMarkup(arr, category) {
 
   bookContainer.insertAdjacentHTML('beforeend', markup);
 
-  const seeMoreButtons = document.querySelectorAll('.books-category-js');
+  bookContainer.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const target = event.target;
 
-  seeMoreButtons.forEach(button => {
-    button.addEventListener('click', async (event) => {
-      event.preventDefault();
-      const selectedCategory = event.currentTarget.getAttribute('data-category');
+    if (target.classList.contains('books-category-js')) {
+      const selectedCategory = target.getAttribute('data-category');
       const booksResponse = await getBooksByCategory(selectedCategory);
 
       if (booksResponse && booksResponse.data) {
@@ -50,10 +50,12 @@ function createBooksMarkup(arr, category) {
           });
         });
       }
-    });
+    }
   });
 
   return markup;
 }
 
 export { createBooksMarkup };
+
+  
