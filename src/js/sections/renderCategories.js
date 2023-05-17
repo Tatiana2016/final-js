@@ -31,10 +31,11 @@ async function renderCategories() {
         link.addEventListener('click', async (event) => {
           event.preventDefault();
           const selectedCategory = event.currentTarget.getAttribute('data-category');
-          const booksResponse = await getBooksByCategory(selectedCategory);
+          const currentCategoryTitle = event.currentTarget.innerText; // Отримати назву категорії з тексту посилання
+          const booksResponse = await getBooksByCategory(selectedCategory, currentCategoryTitle);
 
           if (booksResponse && booksResponse.data) {
-            renderBooks(booksResponse.data);
+            renderBooks(booksResponse.data, currentCategoryTitle);
 
             const bookButtons = document.querySelectorAll('.book button');
             bookButtons.forEach(button => {

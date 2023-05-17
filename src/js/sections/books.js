@@ -18,7 +18,7 @@ document.addEventListener('click', async function (event) {
 
     const categoryId = event.target.getAttribute('data-category');
     const books = await getAllBooksByCategory(categoryId);
-    const result = books.response.data;
+    const result = books.data;
 
     const markupCategory = createAllBooksByCategoryMarkup(result, categoryId);
     bookContainer.innerHTML = markupCategory;

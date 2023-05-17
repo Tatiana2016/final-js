@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-function renderBooks(books) {
+function renderBooks(books, currentCategoryTitle) {
   const container = document.querySelector('.books-container');
   container.innerHTML = '';
 
@@ -27,8 +27,12 @@ function renderBooks(books) {
     `;
   });
 
-  container.innerHTML = bookElements.join('');
+  container.innerHTML = `
+    <h2>${currentCategoryTitle}</h2>
+    ${bookElements.join('')}
+  `;
 }
+
 
 async function getBookById(id) {
   try {
