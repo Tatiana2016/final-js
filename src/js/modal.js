@@ -135,29 +135,32 @@ function addMarkup(data) {
   
 
   <ul class = "modal-shopping-list">
-
   <li class="modal-shopping-list-amazon">
   <a href="${shopAmazon}" target="_blank"> 
   <img width="62" height="19" class="modal-icon-amazon"
-        src ="${amazon1x},${amazon2x}" alt = "Amazon"/>
+        srcset = "${amazon1x} 1x,
+                  ${amazon2x} 2x" alt = "Amazon"/>
   </a>
   </li> 
 
   <li class="modal-shopping-list-apple">
   <a href="${shopAppleBooks}" target="_blank">
   <img width="38" height="38"
-        src ="${apple1x},${apple2x} " alt = "Apple"/>
+        srcset ="${apple1x} 1x,
+                ${apple2x} 2x" alt = "Apple"/>
   </a>
   </li>
 
   <li class="modal-shopping-list-book">
   <a href="${shopBookshop}" target="_blank"> 
   <img width="38" height="38"
-        src ="${book1x},${book2x}" alt = "Book"/>
+        srcset ="${book1x} 1x,
+                ${book2x} 2x" alt = "Book"/>
   </a>
   </li>
 
 </ul>
+
 </div>
 </div>
   `;
@@ -176,7 +179,7 @@ function onStorageAdd() {
   }
 
   storageDescription.textContent =
-    'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+    'Сongratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".';
   storageCheck();
 }
 
