@@ -9,6 +9,20 @@ function renderBooks(books, currentCategoryTitle) {
     container.innerHTML = '<p>No books found</p>';
     return;
   }
+  
+  function capitalizeWords(str) {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+  }
+
+  const words = currentCategoryTitle.split(' ');
+  const wordsPerPart = Math.ceil(words.length / 2);
+  const categoryPart1 = words.slice(0, wordsPerPart).join(' ');
+  const categoryPart2 = words.slice(wordsPerPart).join(' ');
+
+  const categoryMarkup = `
+    <span class="header-one">${capitalizeWords(categoryPart1)} </span>
+    <span class="header-one--accent">${capitalizeWords(categoryPart2).trim()}</span>
+  `;
 
   const bookElements = books.map(book => {
     const image = `
@@ -27,14 +41,11 @@ function renderBooks(books, currentCategoryTitle) {
   </ul>
     `;
   });
-  heading.textContent = currentCategoryTitle;
-  container.classList.add('books-container-category');
-  container.innerHTML = `
-    
-    ${bookElements.join('')}
-  `
-}
 
+  heading.innerHTML = categoryMarkup;
+  container.classList.add('books-container-category');
+  container.innerHTML = bookElements.join('');
+}
 
 async function getBookById(id) {
   try {
@@ -45,4 +56,4 @@ async function getBookById(id) {
   }
 }
 
-export { getBookById, renderBooks, renderBookDetails };
+export { getBookById, renderBooks };
