@@ -19,56 +19,60 @@ const paginationCont = document.querySelector('.card-shopping__btnContainer');
 const emptyListContainer = document.querySelector('.shopping-list__emptyListContainer');
 const btnDelCard = document.querySelector('.js-listCards');
 
-const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
+// const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
 const STORAGE_KEY = 'storage-data-shop';
-let listObg = [];
+let listObg = []; 
 let pagePagination=1;
 // localStorage.clear();
-function fethFunc(BASE_URL){
-    let bookObj=[];  
-    resp = fetch(BASE_URL)
-        .then(data=>data.json())
-        .then(data=>{       
-        data.map(({books})=>{   
-            books.map(book=> bookObj.push(book))
-        }); 
-        save(bookObj); 
-    });
-}
-fethFunc(BASE_URL); 
+// function fethFunc(BASE_URL){
+//     let bookObj=[];  
+//     resp = fetch(BASE_URL)
+//         .then(data=>data.json())
+//         .then(data=>{       
+//         data.map(({books})=>{   
+//             books.map(book=> bookObj.push(book))
+//         }); 
+//         save(bookObj); 
+//     });
+// }
+// fethFunc(BASE_URL); 
 
-const save = (value) => {
-    try {      
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+// const save = (value) => {
+//     try {      
+//       localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
 
-    } catch (error) {
-      console.error("Set state error: ", error.message);
-    }
-  };
+//     } catch (error) {
+//       console.error("Set state error: ", error.message);
+//     }
+//   };
+//   if (document.referrer.includes('shopping-list')){
+//       loadLocalStorage(); 
+//   }
 
-loadLocalStorage(); 
+  loadLocalStorage();  
 
 function loadLocalStorage(){
     try {        
         listObg = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
-        console.log(listObg);
-        if (listObg===null){listObg=[]}
+
     } catch (error) {
             console.error("Get state error: ", error.message);
         }
 }
 
 function createMarkup(arr){
-    return arr.map(({book_image, title, description, author, buy_links, list_name, _id})=>{ 
+    // return arr.map(({book_image, title, description, author, buy_links, list_name, _id})=>{ 
+    return arr.map(({book_image, title, description, author, list_name, id})=>{ 
+
         return `<li class="js-Card card-shopping">
             <div class="card-shopping__container"> 
                 <img src="${book_image}" alt="${title}" class="card-shopping__img">
                 <div class="card-shopping__itemContainer">         
                         <h2 class="card-shopping__head">${title}</h2>
                         <h3 class="card-shopping__categoryBook">${list_name}</h3>
-                        <div class="card-shopping__delCard js-delCard" data-id=${_id}>
-                            <svg width="17" height="17" class="card-shopping__delCardIcon js-delCard" data-id=${_id}>
-                                <use href="${svgLinkDelIcon}#delIcon" class="js-delCard" data-id=${_id}> </use>
+                        <div class="card-shopping__delCard js-delCard" data-id=${id}>
+                            <svg width="17" height="17" class="card-shopping__delCardIcon js-delCard" data-id=${id}>
+                                <use href="${svgLinkDelIcon}#delIcon" class="js-delCard" data-id=${id}> </use>
                             </svg>
                         </div>
                         <p class="card-shopping__shortDescription">${description}</p>
@@ -77,7 +81,7 @@ function createMarkup(arr){
                         <p class="card-shopping__author">${author}</p>
                         <ul class="card-shopping__listLinks">
                             <li class="card-shopping__listItem">
-                                <a rel="nofollow" target="_blank" href="${buy_links[0].url}" class="card-shopping__listIconLinks">
+                                <a rel="nofollow" target="_blank" href="buy_links[0].url" class="card-shopping__listIconLinks">
                                     <picture>
                                     <source
                                         srcset="
@@ -98,7 +102,7 @@ function createMarkup(arr){
                                 </a>
                             </li>
                             <li class="card-shopping__listItem">
-                                <a rel="nofollow" target="_blank" href="${buy_links[1].url}" class="card-shopping__listLinks">
+                                <a rel="nofollow" target="_blank" href="buy_links[1].url" class="card-shopping__listLinks">
                                     <picture>
                                         <source
                                             srcset="
@@ -119,7 +123,7 @@ function createMarkup(arr){
                                 </a>
                             </li>
                             <li class="card-shopping__listItem">
-                                <a rel="nofollow" target="_blank" href="${buy_links[3].url}" class="card-shopping__listLinks">
+                                <a rel="nofollow" target="_blank" href="buy_links[3].url" class="card-shopping__listLinks">
                                 <picture>
                                 <source
                                     srcset="
@@ -146,84 +150,95 @@ function createMarkup(arr){
         </li>`
         }).join('');
     }
+  
 
-if (listObg.length>0){
-    if (listObg.length<=3){
-        paginationCont.style.display = "none";
-    } 
-    listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
-    emptyListContainer.style.display = "none";
-    pagination.addEventListener('click', onPaginationNextEl);
-    paginationStart.addEventListener('click', onPaginationFirstEl);
-    paginationPrevEl.addEventListener('click', onPaginationPrevEl);
-    paginationOne.addEventListener('click', onPaginationElements);
-    paginationTwo.addEventListener('click', onPaginationElements);
-    paginationThree.addEventListener('click', onPaginationElements);
-    paginationToEnd.addEventListener('click', onPaginationElements);
-    paginationPoint.addEventListener('click', onPaginationPoint);
-    btnDelCard.addEventListener('click', delCardShoppingList);
-}
+if (listObg.length>0 && document.referrer.includes('shopping-list')){
+        if (listObg.length<=3){
+            paginationCont.style.display = "none";
+        } 
+        if (document.referrer.includes('shopping-list')){
+            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
+            emptyListContainer.style.display = "none";
+        }
+        pagination.addEventListener('click', onPaginationNextEl);
+        paginationStart.addEventListener('click', onPaginationFirstEl);
+        paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+        paginationOne.addEventListener('click', onPaginationElements);
+        paginationTwo.addEventListener('click', onPaginationElements);
+        paginationThree.addEventListener('click', onPaginationElements);
+        paginationToEnd.addEventListener('click', onPaginationElements);
+        paginationPoint.addEventListener('click', onPaginationPoint);
+        btnDelCard.addEventListener('click', delCardShoppingList);
+    }
 
 
-function onPaginationNextEl(){
+function onPaginationNextEl(evt){
+    if (evt.target.classList.contains('pgnEl')){
+        if (listObg.length<=(pagePagination-1)*3 || listObg.length===pagePagination*3){
+            pagination.disabled = true;
+        } 
+            pagePagination+=1;
+            listShoppingCards.innerHTML='';
+        
+            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));  
+    }
+    
 
-    if (listObg.length<=(pagePagination-1)*3 || listObg.length===pagePagination*3){
-        pagination.disabled = true;
-    } 
-        pagePagination+=1;
-        listShoppingCards.innerHTML='';
-      
-        listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));  
 }
 
 
 function onPaginationFirstEl(){
     pagePagination=1;
     listShoppingCards.innerHTML='';
-    listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3)))
+    listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3)));
 }
 
 
-function onPaginationPrevEl(){
-    if (pagePagination>1){     
-        pagePagination-=1;  
-        listShoppingCards.innerHTML='';
-        listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
+function onPaginationPrevEl(evt){
+    if (evt.target.classList.contains('pgnEl')){
+        if (pagePagination>1){     
+            pagePagination-=1;  
+            listShoppingCards.innerHTML='';
+            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
+        }
     }
+
 }
 
 
+function onPaginationElements(evt){ 
 
-function onPaginationElements(evt){  
-    if (evt.currentTarget.classList.contains('js-paginationToEnd')){
-        pagePagination = Math.ceil(listObg.length/3);
-
-        listShoppingCards.innerHTML='';
-        listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
-    }
-    if (Number(evt.currentTarget.textContent)===1){
-        onPaginationFirstEl()
-    }
-    if (listObg.length>3 && Number(evt.currentTarget.textContent)>1){          
-        pagePagination=Number(evt.currentTarget.textContent);
-        listShoppingCards.innerHTML='';
-        listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
-    }
+     if (evt.currentTarget.classList.contains('js-paginationToEnd')){
+         pagePagination = Math.ceil(listObg.length/3);
+         listShoppingCards.innerHTML='';
+         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
+     }
+     if (evt.target.classList.contains('js-paginationOne')){
+         onPaginationFirstEl()
+     }
+     if (listObg.length>3 && Number(evt.currentTarget.textContent)>1){          
+         pagePagination=Number(evt.currentTarget.textContent);
+         listShoppingCards.innerHTML='';
+         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
+     }
 }
 
-function onPaginationPoint(){
-    if (listObg.length>9 && (Number(paginationOne.textContent)+3)*3<listObg.length){
-        paginationOne.textContent=Number(paginationOne.textContent)+3;
-        paginationTwo.textContent=Number(paginationTwo.textContent)+3;
-        paginationThree.textContent=Number(paginationThree.textContent)+3;
+function onPaginationPoint(evt){
+    if (evt.target.classList.contains('pgnEl')){
+        if (listObg.length>9 && (Number(paginationOne.textContent)+3)*3<listObg.length){
+            paginationOne.textContent=Number(paginationOne.textContent)+3;
+            paginationTwo.textContent=Number(paginationTwo.textContent)+3;
+            paginationThree.textContent=Number(paginationThree.textContent)+3;
+        }
     }
+
 }
 
 function delCardShoppingList(evt){
     if (evt.target.classList.contains('js-delCard') && listObg.length>0){
         const idToDelete = evt.target.dataset.id;
         listObg = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        const indexToDelete = listObg.findIndex(obj => obj._id === idToDelete);
+        const indexToDelete = listObg.findIndex(obj => obj.id === idToDelete);
         listObg.splice(indexToDelete, 1);
         localStorage.setItem(STORAGE_KEY, JSON.stringify(listObg));
         
