@@ -48,7 +48,14 @@
   fill: var(--svg-color);
 }
 
-.dark-theme .container-header {
+.dark-theme .card-shopping__picture-amazon,
+.dark-theme .modal-icon-amazon,
+.dark-theme .icon-close-book {
+  filter: brightness(0) invert(1);
+}
+
+.dark-theme .container-header,
+.dark-theme .card-shopping__container {
   background-color: var(--text-color-main);
 }
 
@@ -59,33 +66,51 @@
 .dark-theme .listCards__head,
 .dark-theme .button,
 .dark-theme .txt-book-modal,
-.dark-theme .title-book-modal {
+.dark-theme .title-book-modal,
+.dark-theme .card-shopping__head,
+.dark-theme .card-shopping__shortDescription {
   color: var(--background-white);
 }
 
-.dark-theme .add-storage-button {
+.dark-theme .add-storage-button,
+.dark-theme .remove-modal-btn {
   color: var(--background-white);
-}
-
-.dark-theme .paginationOne,
-.dark-theme .paginationTwo,
-.dark-theme .paginationThree {
-  color: var(--background-white);
-
   &:hover,
   &:focus {
+    background-color: var(--accent-primary);
     color: var(--text-color-main);
   }
 }
 
 .dark-theme .btnPag {
+  &:hover,
+  &:focus {
+    background-color: var(--accent-secondary);
+  }
+}
+
+.dark-theme .paginationOne,
+.dark-theme .paginationTwo,
+.dark-theme .paginationThree,
+.dark-theme .paginationPoint {
   background-color: inherit;
   border-color: var(--background-white);
+  color: var(--background-white);
 
   &:hover,
   &:focus {
     background-color: var(--background-white);
     border-color: var(--text-color-main);
+    color: var(--text-color-main);
+    fill: var(--text-color-main);
+  }
+}
+
+.dark-theme .paginationToStart,
+.dark-theme .paginationPrevEl {
+  &:hover,
+  &:focus {
+    background-color: var(--accent-secondary);
   }
 }
 
@@ -100,4 +125,8 @@
 
 .dark-theme .shopping-list__emptyListDescription {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-theme .storage-description {
+  color: rgba(255, 255, 255, 0.5);
 }
