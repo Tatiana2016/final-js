@@ -5,13 +5,13 @@ header {
   scroll-behavior: unset;
   width: 100%;
   border: 1.5px solid #111111;
-  
 }
 .header{
   border: 1.5px solid #111111;
   &-nav {
       display: flex;
       align-items: center;
+      justify-content: center;
   }
   &__link {
   display: flex;
@@ -40,12 +40,11 @@ header {
   &__switch {
     margin-right: 17px;
     @media screen and (min-width: $tablet) {
-      margin-left: 105px;
-      margin-right: 240px;
+      margin-left: 330px;
     }
     @media screen and (min-width: $desktop) {
-      margin-left: 746px;
-      margin-right: 232px;
+      margin-left: 920px;
+    
     }
   }
   &__menu-button {
@@ -106,7 +105,7 @@ header {
     font-size: 14px;
     line-height: 0.7;
   }
-  &__drop-down-text:active {
+  &__drop-down-text:hover {
     color: var(--text-color-main);
     font-family: 'DM Sans';
     font-style: normal;
@@ -132,7 +131,7 @@ header {
     display: flex;
     flex-direction: column;
   }
-  &__home-active:active {
+  &__home-active:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -164,7 +163,7 @@ header {
     letter-spacing: -0.04em;
     text-transform: uppercase;
   }
-  &__home-text:active {
+  &__home-text:hover {
     color: var(--text-color-main);
     font-family: 'DM Sans';
     font-style: normal;
@@ -174,7 +173,7 @@ header {
     letter-spacing: -0.04em;
     text-transform: uppercase;
   }
-  &__shopping-list-active:active {
+  &__shopping-list-active:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -302,4 +301,7 @@ position: relative;
   display: block;
   position: fixed;
   z-index: 1;
+}
+button {
+  border: none;
 }
