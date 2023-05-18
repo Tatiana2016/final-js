@@ -125,6 +125,8 @@ header {
   }
   &__container-drop-down {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   &__home-active:active {
     display: flex;
