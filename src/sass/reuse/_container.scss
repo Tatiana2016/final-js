@@ -30,6 +30,7 @@
   &__column-left {
     @include tablet {
       display: flex;
+      gap: 32px;
     }
     @include desktop {
       // width: 356px;
