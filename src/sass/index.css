@@ -835,6 +835,8 @@ header {
 }
 .header__container-drop-down {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .header__home-active:active {
   display: flex;
@@ -1007,7 +1009,9 @@ body {
 .container-header {
   padding-left: 20px;
   padding-right: 20px;
-  min-width: 375px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu-container.is-open {
@@ -1531,7 +1535,7 @@ p {
 }
 
 .support__img {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(100%);
 }
 
 .swiper-container {
@@ -1719,7 +1723,7 @@ a.swiper-button-next {
 .dark-theme .card-shopping__picture-amazon,
 .dark-theme .modal-icon-amazon,
 .dark-theme .icon-close-book {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(100%);
 }
 
 .dark-theme .container-header,
