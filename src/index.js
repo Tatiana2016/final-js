@@ -15,7 +15,7 @@ import './js/sections/createBooksMarkup';
 import './js/sections/createAllBooksMarkup';
 import './js/sections/createAllBooksByCategoryMarkup';
 import './js/sections/category';
-import './js/sections/shopping-list';
+
 import './js/modal';
 import './js/sections/fetchApi';
 import './js/components/scroll-up';
