@@ -2,8 +2,12 @@ export const supportList = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: new URL(
-      '../../images/support-ukraine/Save_the_Children.svg',
+    img1: new URL(
+      '../../images/support-ukraine/Save_the_Children_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/Save_the_Children_2x.png',
       import.meta.url
     ),
     width: 129,
@@ -12,8 +16,12 @@ export const supportList = [
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: new URL(
-      '../../images/support-ukraine/Project_HOPE.svg',
+    img1: new URL(
+      '../../images/support-ukraine/Project_HOPE_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/Project_HOPE_2x.png',
       import.meta.url
     ),
     width: 62,
@@ -22,15 +30,26 @@ export const supportList = [
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img: new URL('../../images/support-ukraine/UNITED24.svg', import.meta.url),
+    img1: new URL(
+      '../../images/support-ukraine/UNITED24_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/UNITED24_2x.png',
+      import.meta.url
+    ),
     width: 129,
     height: 15,
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: new URL(
-      '../../images/support-ukraine/International_Medical_Corps.svg',
+    img1: new URL(
+      '../../images/support-ukraine/International_Medical_Corps_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/International_Medical_Corps_2x.png',
       import.meta.url
     ),
     width: 103,
@@ -39,8 +58,12 @@ export const supportList = [
   {
     title: 'Medicins Sans Frontieres',
     url: 'https://www.msf.org/ukraine',
-    img: new URL(
-      '../../images/support-ukraine/Medicins_Sans_Frontieres.svg',
+    img1: new URL(
+      '../../images/support-ukraine/Medicins_Sans_Frontieres_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/Medicins_Sans_Frontieres_2x.png',
       import.meta.url
     ),
     width: 90,
@@ -49,25 +72,35 @@ export const supportList = [
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: new URL('../../images/support-ukraine/RAZOM.svg', import.meta.url),
+    img1: new URL('../../images/support-ukraine/RAZOM_1x.png', import.meta.url),
+    img2: new URL('../../images/support-ukraine/RAZOM_2x.png', import.meta.url),
     width: 82,
     height: 32,
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: new URL(
-      '../../images/support-ukraine/Action_against_hunger.svg',
+    img1: new URL(
+      '../../images/support-ukraine/Action_against_hunger_1x.png',
       import.meta.url
     ),
+    img2: new URL(
+      '../../images/support-ukraine/Action_against_hunger_2x.png',
+      import.meta.url
+    ),
+
     width: 55,
     height: 35,
   },
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
-    img: new URL(
-      '../../images/support-ukraine/World_vision.svg',
+    img1: new URL(
+      '../../images/support-ukraine/World_vision_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/World_vision_2x.png',
       import.meta.url
     ),
     width: 81,
@@ -76,8 +109,12 @@ export const supportList = [
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
-    img: new URL(
-      '../../images/support-ukraine/Serhiy_Prytula_Charity_Foundation.svg',
+    img1: new URL(
+      '../../images/support-ukraine/Serhiy_Prytula_Charity_Foundation_1x.png',
+      import.meta.url
+    ),
+    img2: new URL(
+      '../../images/support-ukraine/Serhiy_Prytula_Charity_Foundation_2x.png',
       import.meta.url
     ),
     width: 115,

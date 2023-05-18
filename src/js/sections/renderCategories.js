@@ -4,13 +4,10 @@ import { renderBooks } from './renderBooks';
 
 const container = document.querySelector('.category-list');
 const list = document.createElement('ul');
-const title = document.createElement('h2');
 
-title.textContent = 'All categories';
-title.classList.add('menu-item-light');
 list.classList.add('menu-category');
 list.style.listStyleType = 'none';
-container.append(title, list);
+container.append(list);
 
 renderCategories();
 
