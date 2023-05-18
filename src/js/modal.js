@@ -6,13 +6,13 @@ import book1x from '../images/modal_img/icons-for-light-theme/bookShop.png';
 import book2x from '../images/modal_img/icons-for-light-theme/bookShop@2x.png';
 
 
-const idBackdropModal = document.querySelector('.js-backdrop-modal');
+const modalBackdrop = document.querySelector('.js-backdrop-modal');
 const bookList = document.querySelector('.books-container');
 const modals = document.querySelector('#modals');
 const idModal = document.querySelector('.about-book-modal');
 const closeModalBtn = document.querySelector('#modal-close');
 const storageButton = document.querySelector('.add-storage-button');
-const removeStorageBtn = document.querySelector('.remove-modal-btn');
+const removeStorageBtn = document.querySelector('.storage-delete-button');
 const storageDescription = document.querySelector('.storage-description');
 const STORAGE_KEY = 'storage-data-shop';
 let storageArr = [];
@@ -20,12 +20,12 @@ let storageObj = {};
 
 function openModalId() {
   idModal.classList.remove('is-hidden');
-  idBackdropModal.classList.remove('is-hidden');
+  modalBackdrop.classList.remove('is-hidden');
 }
 
 function closeModalId() {
   idModal.classList.add('is-hidden');
-  idBackdropModal.classList.add('is-hidden');
+  modalBackdrop.classList.add('is-hidden');
 }
 
 closeModalBtn.addEventListener('click', closeModalId);
@@ -36,8 +36,8 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
-idBackdropModal.addEventListener('click', function (event) {
-  if (event.target === idBackdropModal) {
+modalBackdrop.addEventListener('click', function (event) {
+  if (event.target === modalBackdrop) {
     closeModalId();
   }
 });
@@ -50,14 +50,11 @@ removeStorageBtn.addEventListener('click', onStorageDelete);
 
 function onClick(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'IMG' && e.target.nodeName !== 'H3' && e.target.nodeName !== 'P') {
+  if (e.target.nodeName !== 'IMG') {
     return;
   } 
   openModalId();
   addModal(e.target.closest('li').id);
-  // console.log((e.target.nodeName.nodeName !== 'H3'));
-  // console.log(e.target.parentNode.parentNode.id);
-  // console.log(e.target.closest('li').id);
 }
 
 async function addModal(bookId) {
