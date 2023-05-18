@@ -143,7 +143,6 @@ h3 {
     top: 50%;
     right: 50%;
     transform: translate(30%, 30%);
-
   }
 
   &__author-links-container {
@@ -157,7 +156,6 @@ h3 {
     @media screen and (min-width: $tablet) {
       width: 100%;
     }
-
   }
 
   &__listLinks {
@@ -286,7 +284,11 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // align-items: center;
+}
+
+.shopping-list__container > .shopping-list__emptyListContainer {
+  margin: 0 auto;
+  margin-top: 140px;
 }
 
 .shopping-list__emptyListContainer {
@@ -313,8 +315,7 @@ h3 {
   text-align: center;
 }
 
-.container__both-sections{
-
+.container__both-sections {
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: row;
@@ -322,7 +323,7 @@ h3 {
   }
 }
 
-.container__column-left{
+.container__column-left {
   display: none;
   @media screen and (min-width: $tablet) {
     display: block;
