@@ -1,20 +1,22 @@
 
 <div class="js-backdrop-modal is-hidden">
-<div data-modal-open class="modal is-hidden about-book-modal">
-    <button id="modal-close" class="close-modal-btn" type="button">
-        <img width="24" height="24" src="./images/modal-img/icon-close-dark.svg" alt="close-icon" />
-    </button>
-    <div id="modals"></div>
-    <div class="storage-button-wrapper">
-        <button type="button" class="add-storage-button">
-            Add to shopping list
+    <div class="modal-conteiner"></div>
+    <div data-modal-open class="modal is-hidden about-book-modal">
+        <button id="modal-close" class="close-modal-btn" type="button">
+            <img width="24" height="24" src="./images/modal-img/icon-close-dark.svg" alt="close-icon" />
         </button>
-        <div class="remove-modal-btn">
-            <button type="button" class="storage-delete-button">
-                'Remove from the shopping list';
+        <div id="modals"></div>
+
+        <div class="storage-button-wrapper">
+            <button type="button" class="add-storage-button">
+                Add to shopping list
             </button>
-            <p class="storage-description"></p>
+            <div class="storage-delete-button">
+                <button type="button" class="remove-modal-btn remove">
+                    Remove from the shopping list
+                </button>
+                <p class="storage-description"></p>
+            </div>
         </div>
     </div>
-</div>
 </div>
