@@ -18,7 +18,7 @@ function renderBooks(books, currentCategoryTitle) {
     const description = `<p class="book-card__author">${book.author}</p>`;
     
     return `
-    <ul class="books-container-category">
+    <ul class="books-container-category books-container-category--margin-bottom">
       <li id="${book._id}" class="book-card__component"> 
         ${image}
         ${title}

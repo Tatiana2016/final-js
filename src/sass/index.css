@@ -1032,6 +1032,10 @@ body {
   flex-wrap: wrap;
 }
 
+.books-container-category--margin-bottom {
+  margin-bottom: 40px;
+}
+
 .book-margin-bottom {
   margin-bottom: 8px;
 }
