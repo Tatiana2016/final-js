@@ -6,6 +6,13 @@ import pngLinkbookIcon2x from '/src/images/bookIcon@2x.png';
 import pngLinkbooksIcon from '/src/images/booksIcon.png';
 import pngLinkbooksIcon2x from '/src/images/booksIcon@2x.png';
 
+import amazon1x from '/src/images/modal_img/icons-for-light-theme/amazonLight.png';
+import amazon2x from '/src/images/modal_img/icons-for-light-theme/amazonLight@2x.png';
+import book1x from '/src/images/modal_img/icons-for-light-theme/bookShop.png';
+import book2x from '/src/images/modal_img/icons-for-light-theme/bookShop@2x.png';
+import apple1x from "/src/images/modal_img/icons-for-light-theme/appleBooks.png";
+import apple2x from '/src/images/modal_img/icons-for-light-theme/appleBooks@2x.png';
+
 const listShoppingCards = document.querySelector('.js-listCards');
 const paginationStart = document.querySelector('.js-paginationToStart');
 const paginationPrevEl = document.querySelector('.js-paginationPrevEl');
@@ -19,51 +26,51 @@ const paginationCont = document.querySelector('.card-shopping__btnContainer');
 const emptyListContainer = document.querySelector('.shopping-list__emptyListContainer');
 const btnDelCard = document.querySelector('.js-listCards');
 
-// const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
 const STORAGE_KEY = 'storage-data-shop';
-let listObg = []; 
+let listObg=[] ;
 let pagePagination=1;
 // localStorage.clear();
-// function fethFunc(BASE_URL){
-//     let bookObj=[];  
-//     resp = fetch(BASE_URL)
-//         .then(data=>data.json())
-//         .then(data=>{       
-//         data.map(({books})=>{   
-//             books.map(book=> bookObj.push(book))
-//         }); 
-//         save(bookObj); 
-//     });
-// }
-// fethFunc(BASE_URL); 
 
-// const save = (value) => {
-//     try {      
-//       localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+if (listShoppingCards){
+    loadLocalStorage();
+}    
 
-//     } catch (error) {
-//       console.error("Set state error: ", error.message);
-//     }
-//   };
-//   if (document.referrer.includes('shopping-list')){
-//       loadLocalStorage(); 
-//   }
+if (listObg.length>0 && listShoppingCards){  
+        if (listObg.length<=3){
+            paginationCont.style.display = "none";
+        } else{
+            pagination.addEventListener('click', onPaginationNextEl);
+            paginationStart.addEventListener('click', onPaginationFirstEl);
+            paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+            paginationOne.addEventListener('click', onPaginationElements);
+            paginationTwo.addEventListener('click', onPaginationElements);
+            paginationThree.addEventListener('click', onPaginationElements);
+            paginationToEnd.addEventListener('click', onPaginationElements);
+            paginationPoint.addEventListener('click', onPaginationPoint);
+        }
 
-  loadLocalStorage();  
+
+        if (listShoppingCards){
+            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
+            emptyListContainer.style.display = "none";
+        }
+
+        btnDelCard.addEventListener('click', delCardShoppingList);
+    }
+
+  
 
 function loadLocalStorage(){
     try {        
         listObg = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
-
+        
     } catch (error) {
             console.error("Get state error: ", error.message);
         }
 }
 
-function createMarkup(arr){
-    // return arr.map(({book_image, title, description, author, buy_links, list_name, _id})=>{ 
-    return arr.map(({book_image, title, description, author, list_name, id})=>{ 
-
+function createMarkup(arr){    
+    return arr.map(({book_image, title, description, author, list_name, id, shopAmazon, shopAppleBooks, shopBookshop})=>{ 
         return `<li class="js-Card card-shopping">
             <div class="card-shopping__container"> 
                 <img src="${book_image}" alt="${title}" class="card-shopping__img">
@@ -81,40 +88,40 @@ function createMarkup(arr){
                         <p class="card-shopping__author">${author}</p>
                         <ul class="card-shopping__listLinks">
                             <li class="card-shopping__listItem">
-                                <a rel="nofollow" target="_blank" href="buy_links[0].url" class="card-shopping__listIconLinks">
+                                <a rel="nofollow" target="_blank" href="${shopAmazon}" class="card-shopping__listIconLinks">
                                     <picture>
                                     <source
                                         srcset="
-                                            ${pngLinkAmazonIcon} 1x, 
-                                            ${pngLinkAmazonIcon2x} 2x
+                                            ${amazon1x} 1x, 
+                                            ${amazon2x} 2x
                                         "
                                         type="image/png"
                                         width="48" 
                                         height="15" 
                                     >
                                     <img
-                                        src=${pngLinkAmazonIcon}
+                                        src=${amazon1x}
 
                                         alt="amazon"
-                                        class="card-shopping__picture"
+                                        class="card-shopping__picture card-shopping__picture-amazon"
                                     >
                                     </picture>    
                                 </a>
                             </li>
                             <li class="card-shopping__listItem">
-                                <a rel="nofollow" target="_blank" href="buy_links[1].url" class="card-shopping__listLinks">
+                                <a rel="nofollow" target="_blank" href="${shopAppleBooks}" class="card-shopping__listLinks">
                                     <picture>
                                         <source
                                             srcset="
-                                                ${pngLinkbookIcon} 1x, 
-                                                ${pngLinkbookIcon2x} 2x
+                                                ${apple1x} 1x, 
+                                                ${apple2x} 2x
                                             "
                                             type="image/png"
                                             width="28" 
                                             height="27" 
                                         >
                                         <img
-                                            src=${pngLinkbookIcon}
+                                            src=${apple1x}
 
                                             alt="book"
                                             class="card-shopping__picture"
@@ -123,19 +130,19 @@ function createMarkup(arr){
                                 </a>
                             </li>
                             <li class="card-shopping__listItem">
-                                <a rel="nofollow" target="_blank" href="buy_links[3].url" class="card-shopping__listLinks">
+                                <a rel="nofollow" target="_blank" href="${shopBookshop}" class="card-shopping__listLinks">
                                 <picture>
                                 <source
                                     srcset="
-                                        ${pngLinkbooksIcon} 1x, 
-                                        ${pngLinkbooksIcon2x} 2x
+                                        ${book1x} 1x, 
+                                        ${book2x} 2x
                                     "
                                     type="image/png"
                                     width="28" 
                                     height="27" 
                                 >
                                 <img
-                                    src=${pngLinkbooksIcon}
+                                    src=${book1x}
 
                                     alt="book"
                                     class="card-shopping__picture"
@@ -150,28 +157,7 @@ function createMarkup(arr){
         </li>`
         }).join('');
     }
-  
-
-if (listObg.length>0 && document.referrer.includes('shopping-list')){
-        if (listObg.length<=3){
-            paginationCont.style.display = "none";
-        } 
-        if (document.referrer.includes('shopping-list')){
-            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
-            emptyListContainer.style.display = "none";
-        }
-        pagination.addEventListener('click', onPaginationNextEl);
-        paginationStart.addEventListener('click', onPaginationFirstEl);
-        paginationPrevEl.addEventListener('click', onPaginationPrevEl);
-        paginationOne.addEventListener('click', onPaginationElements);
-        paginationTwo.addEventListener('click', onPaginationElements);
-        paginationThree.addEventListener('click', onPaginationElements);
-        paginationToEnd.addEventListener('click', onPaginationElements);
-        paginationPoint.addEventListener('click', onPaginationPoint);
-        btnDelCard.addEventListener('click', delCardShoppingList);
-    }
-
-
+    
 function onPaginationNextEl(evt){
     if (evt.target.classList.contains('pgnEl')){
         if (listObg.length<=(pagePagination-1)*3 || listObg.length===pagePagination*3){
@@ -186,13 +172,11 @@ function onPaginationNextEl(evt){
 
 }
 
-
 function onPaginationFirstEl(){
     pagePagination=1;
     listShoppingCards.innerHTML='';
     listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3)));
 }
-
 
 function onPaginationPrevEl(evt){
     if (evt.target.classList.contains('pgnEl')){
@@ -202,7 +186,6 @@ function onPaginationPrevEl(evt){
             listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
         }
     }
-
 }
 
 
