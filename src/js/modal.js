@@ -1,4 +1,4 @@
-import apple1x from "../images/modal_img/icons-for-light-theme/appleBooks.png";
+import apple1x from '../images/modal_img/icons-for-light-theme/appleBooks.png';
 import apple2x from '../images/modal_img/icons-for-light-theme/appleBooks@2x.png';
 import amazon1x from '../images/modal_img/icons-for-light-theme/amazonLight.png';
 import amazon2x from '../images/modal_img/icons-for-light-theme/amazonLight@2x.png';
@@ -43,7 +43,6 @@ modalBackdrop.addEventListener('click', function (event) {
 });
 
 
-
 bookList.addEventListener('click', onClick);
 storageButton.addEventListener('click', onStorageAdd);
 removeStorageBtn.addEventListener('click', onStorageDelete);
@@ -52,7 +51,7 @@ function onClick(e) {
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
-  } 
+  }
   openModalId();
   addModal(e.target.closest('li').id);
 }
@@ -64,11 +63,9 @@ async function addModal(bookId) {
     storageCheck();
     addMarkup(data);
     return data;
-  
   } catch (error) {
     console.error('Error', error);
     throw error;
-  
   }
 }
 
@@ -114,9 +111,7 @@ function storageCheck() {
       removeStorageBtn.style.display = 'block';
     }
   }
-
 }
-
 
 function addMarkup(data) {
   
@@ -136,14 +131,14 @@ function addMarkup(data) {
   <div class = "cont-title">
   <h2 class="title-book-modal">${title}</h2></div>
   <p class="author-book-modal"> ${author}</p>
-  <p class="txt-book-modal">${description || ""}
+  <p class="txt-book-modal">${description || ''}
   
 
   <ul class = "modal-shopping-list">
 
   <li class="modal-shopping-list-amazon">
   <a href="${shopAmazon}" target="_blank"> 
-  <img width="62" height="19"
+  <img width="62" height="19" class="modal-icon-amazon"
         src ="${amazon1x},${amazon2x}" alt = "Amazon"/>
   </a>
   </li> 

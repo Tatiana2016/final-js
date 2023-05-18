@@ -1,6 +1,7 @@
 
 .js-backdrop-modal {
-    display: none  transform translate(-50%, -50%); 
+    display: none;
+    transform: translate(-50%, -50%); 
     position: fixed;
     top: 0;
     left: 0;
@@ -53,7 +54,7 @@
 .about-book-modal {
     
     width: 335px;
-    height: 806px;
+
     background-color: #f6f6f6;
     border: 2px solid #fff;
     border-radius: 18px;
@@ -69,13 +70,9 @@
 
     @include tablet{
     width: 579px;
-    height: 465px;
+
     padding: 40px
 }
-    @include desktop{
-        height: 501px;
-    }
-
 }
 
 .image-modal {

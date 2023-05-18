@@ -10,7 +10,7 @@ import amazon1x from '/src/images/modal_img/icons-for-light-theme/amazonLight.pn
 import amazon2x from '/src/images/modal_img/icons-for-light-theme/amazonLight@2x.png';
 import book1x from '/src/images/modal_img/icons-for-light-theme/bookShop.png';
 import book2x from '/src/images/modal_img/icons-for-light-theme/bookShop@2x.png';
-import apple1x from "/src/images/modal_img/icons-for-light-theme/appleBooks.png";
+import apple1x from '/src/images/modal_img/icons-for-light-theme/appleBooks.png';
 import apple2x from '/src/images/modal_img/icons-for-light-theme/appleBooks@2x.png';
 
 const listShoppingCards = document.querySelector('.js-listCards');
@@ -23,54 +23,67 @@ const paginationPoint = document.querySelector('.js-paginationPoint');
 const pagination = document.querySelector('.js-paginationNextEl');
 const paginationToEnd = document.querySelector('.js-paginationToEnd');
 const paginationCont = document.querySelector('.card-shopping__btnContainer');
-const emptyListContainer = document.querySelector('.shopping-list__emptyListContainer');
+const emptyListContainer = document.querySelector(
+  '.shopping-list__emptyListContainer'
+);
 const btnDelCard = document.querySelector('.js-listCards');
 
 const STORAGE_KEY = 'storage-data-shop';
-let listObg=[] ;
-let pagePagination=1;
+let listObg = [];
+let pagePagination = 1;
 // localStorage.clear();
 
-if (listShoppingCards){
-    loadLocalStorage();
-}    
-
-if (listObg.length>0 && listShoppingCards){  
-        if (listObg.length<=3){
-            paginationCont.style.display = "none";
-        } else{
-            pagination.addEventListener('click', onPaginationNextEl);
-            paginationStart.addEventListener('click', onPaginationFirstEl);
-            paginationPrevEl.addEventListener('click', onPaginationPrevEl);
-            paginationOne.addEventListener('click', onPaginationElements);
-            paginationTwo.addEventListener('click', onPaginationElements);
-            paginationThree.addEventListener('click', onPaginationElements);
-            paginationToEnd.addEventListener('click', onPaginationElements);
-            paginationPoint.addEventListener('click', onPaginationPoint);
-        }
-
-
-        if (listShoppingCards){
-            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3))); 
-            emptyListContainer.style.display = "none";
-        }
-
-        btnDelCard.addEventListener('click', delCardShoppingList);
-    }
-
-  
-
-function loadLocalStorage(){
-    try {        
-        listObg = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
-        
-    } catch (error) {
-            console.error("Get state error: ", error.message);
-        }
+if (listShoppingCards) {
+  loadLocalStorage();
 }
 
-function createMarkup(arr){    
-    return arr.map(({book_image, title, description, author, list_name, id, shopAmazon, shopAppleBooks, shopBookshop})=>{ 
+if (listObg.length > 0 && listShoppingCards) {
+  if (listObg.length <= 3) {
+    paginationCont.style.display = 'none';
+  } else {
+    pagination.addEventListener('click', onPaginationNextEl);
+    paginationStart.addEventListener('click', onPaginationFirstEl);
+    paginationPrevEl.addEventListener('click', onPaginationPrevEl);
+    paginationOne.addEventListener('click', onPaginationElements);
+    paginationTwo.addEventListener('click', onPaginationElements);
+    paginationThree.addEventListener('click', onPaginationElements);
+    paginationToEnd.addEventListener('click', onPaginationElements);
+    paginationPoint.addEventListener('click', onPaginationPoint);
+  }
+
+  if (listShoppingCards) {
+    listShoppingCards.insertAdjacentHTML(
+      'beforeend',
+      createMarkup(listObg.slice(0, 3))
+    );
+    emptyListContainer.style.display = 'none';
+  }
+
+  btnDelCard.addEventListener('click', delCardShoppingList);
+}
+
+function loadLocalStorage() {
+  try {
+    listObg = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch (error) {
+    console.error('Get state error: ', error.message);
+  }
+}
+
+function createMarkup(arr) {
+  return arr
+    .map(
+      ({
+        book_image,
+        title,
+        description,
+        author,
+        list_name,
+        id,
+        shopAmazon,
+        shopAppleBooks,
+        shopBookshop,
+      }) => {
         return `<li class="js-Card card-shopping">
             <div class="card-shopping__container"> 
                 <img src="${book_image}" alt="${title}" class="card-shopping__img">
@@ -154,87 +167,108 @@ function createMarkup(arr){
                     </div>
                 </div>
             </div>
-        </li>`
-        }).join('');
-    }
-    
-function onPaginationNextEl(evt){
-    if (evt.target.classList.contains('pgnEl')){
-        if (listObg.length<=(pagePagination-1)*3 || listObg.length===pagePagination*3){
-            pagination.disabled = true;
-        } 
-            pagePagination+=1;
-            listShoppingCards.innerHTML='';
-        
-            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));  
-    }
-    
-
+        </li>`;
+      }
+    )
+    .join('');
 }
 
-function onPaginationFirstEl(){
-    pagePagination=1;
-    listShoppingCards.innerHTML='';
-    listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice(0,3)));
-}
-
-function onPaginationPrevEl(evt){
-    if (evt.target.classList.contains('pgnEl')){
-        if (pagePagination>1){     
-            pagePagination-=1;  
-            listShoppingCards.innerHTML='';
-            listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
-        }
+function onPaginationNextEl(evt) {
+  if (evt.target.classList.contains('pgnEl')) {
+    if (
+      listObg.length <= (pagePagination - 1) * 3 ||
+      listObg.length === pagePagination * 3
+    ) {
+      pagination.disabled = true;
     }
+    pagePagination += 1;
+    listShoppingCards.innerHTML = '';
+
+    listShoppingCards.insertAdjacentHTML(
+      'beforeend',
+      createMarkup(listObg.slice((pagePagination - 1) * 3, pagePagination * 3))
+    );
+  }
 }
 
-
-function onPaginationElements(evt){ 
-
-     if (evt.currentTarget.classList.contains('js-paginationToEnd')){
-         pagePagination = Math.ceil(listObg.length/3);
-         listShoppingCards.innerHTML='';
-         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
-     }
-     if (evt.target.classList.contains('js-paginationOne')){
-         onPaginationFirstEl()
-     }
-     if (listObg.length>3 && Number(evt.currentTarget.textContent)>1){          
-         pagePagination=Number(evt.currentTarget.textContent);
-         listShoppingCards.innerHTML='';
-         listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
-     }
+function onPaginationFirstEl() {
+  pagePagination = 1;
+  listShoppingCards.innerHTML = '';
+  listShoppingCards.insertAdjacentHTML(
+    'beforeend',
+    createMarkup(listObg.slice(0, 3))
+  );
 }
 
-function onPaginationPoint(evt){
-    if (evt.target.classList.contains('pgnEl')){
-        if (listObg.length>9 && (Number(paginationOne.textContent)+3)*3<listObg.length){
-            paginationOne.textContent=Number(paginationOne.textContent)+3;
-            paginationTwo.textContent=Number(paginationTwo.textContent)+3;
-            paginationThree.textContent=Number(paginationThree.textContent)+3;
-        }
+function onPaginationPrevEl(evt) {
+  if (evt.target.classList.contains('pgnEl')) {
+    if (pagePagination > 1) {
+      pagePagination -= 1;
+      listShoppingCards.innerHTML = '';
+      listShoppingCards.insertAdjacentHTML(
+        'beforeend',
+        createMarkup(
+          listObg.slice((pagePagination - 1) * 3, pagePagination * 3)
+        )
+      );
     }
-
+  }
 }
 
-function delCardShoppingList(evt){
-    if (evt.target.classList.contains('js-delCard') && listObg.length>0){
-        const idToDelete = evt.target.dataset.id;
-        listObg = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        const indexToDelete = listObg.findIndex(obj => obj.id === idToDelete);
-        listObg.splice(indexToDelete, 1);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(listObg));
-        
-        pagePagination=Math.ceil(listObg.length/3);
-        listShoppingCards.innerHTML='';
-        listShoppingCards.insertAdjacentHTML('beforeend', createMarkup(listObg.slice((pagePagination-1)*3,pagePagination*3)));
-        if (pagePagination===1){
-            paginationCont.style.display = "none";
-        } 
-        if (listObg.length===0){
-            emptyListContainer.style.display = "block";
-        }
-        
+function onPaginationElements(evt) {
+  if (evt.currentTarget.classList.contains('js-paginationToEnd')) {
+    pagePagination = Math.ceil(listObg.length / 3);
+    listShoppingCards.innerHTML = '';
+    listShoppingCards.insertAdjacentHTML(
+      'beforeend',
+      createMarkup(listObg.slice((pagePagination - 1) * 3, pagePagination * 3))
+    );
+  }
+  if (evt.target.classList.contains('js-paginationOne')) {
+    onPaginationFirstEl();
+  }
+  if (listObg.length > 3 && Number(evt.currentTarget.textContent) > 1) {
+    pagePagination = Number(evt.currentTarget.textContent);
+    listShoppingCards.innerHTML = '';
+    listShoppingCards.insertAdjacentHTML(
+      'beforeend',
+      createMarkup(listObg.slice((pagePagination - 1) * 3, pagePagination * 3))
+    );
+  }
+}
+
+function onPaginationPoint(evt) {
+  if (evt.target.classList.contains('pgnEl')) {
+    if (
+      listObg.length > 9 &&
+      (Number(paginationOne.textContent) + 3) * 3 < listObg.length
+    ) {
+      paginationOne.textContent = Number(paginationOne.textContent) + 3;
+      paginationTwo.textContent = Number(paginationTwo.textContent) + 3;
+      paginationThree.textContent = Number(paginationThree.textContent) + 3;
     }
-    
+  }
+}
+
+function delCardShoppingList(evt) {
+  if (evt.target.classList.contains('js-delCard') && listObg.length > 0) {
+    const idToDelete = evt.target.dataset.id;
+    listObg = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const indexToDelete = listObg.findIndex(obj => obj.id === idToDelete);
+    listObg.splice(indexToDelete, 1);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(listObg));
+
+    pagePagination = Math.ceil(listObg.length / 3);
+    listShoppingCards.innerHTML = '';
+    listShoppingCards.insertAdjacentHTML(
+      'beforeend',
+      createMarkup(listObg.slice((pagePagination - 1) * 3, pagePagination * 3))
+    );
+    if (pagePagination === 1) {
+      paginationCont.style.display = 'none';
+    }
+    if (listObg.length === 0) {
+      emptyListContainer.style.display = 'block';
+    }
+  }
 }

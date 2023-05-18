@@ -24,7 +24,7 @@ new Swiper('.swiper-container', {
     prevEl: '.swiper-button-prev',
   },
   breakpoints: {
-    1440: {
+    768: {
       slidesPerView: 6,
       spaceBetween: 20,
     },
