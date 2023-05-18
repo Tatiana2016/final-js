@@ -4,6 +4,14 @@ header {
   background-color:var(--background-white);
   scroll-behavior: unset;
   border: 1.5px solid #111111;
+
+  @include tablet{
+    width: $tablet;
+  }
+
+  @include desktop{
+    width: $desktop;
+  }
 }
 .header{
   
@@ -215,7 +223,7 @@ header {
   }
 }
 body {
-position: absolute;
+position: relative;
 }
 // -----Switch-----
 * {
