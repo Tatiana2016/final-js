@@ -1430,6 +1430,11 @@ h3 {
   justify-content: center;
 }
 
+.shopping-list__container > .shopping-list__emptyListContainer {
+  margin: 0 auto;
+  margin-top: 140px;
+}
+
 .shopping-list__emptyListContainer {
   width: 260px;
   display: flex;
@@ -1641,9 +1646,9 @@ a.swiper-button-next {
   src: url("/src/fonts/dmsans-regular-webfont.woff");
   src: local(""), url("/src/fonts/dmsans-regular-webfont.woff2") format("woff2"), url("/src/fonts/dmsans-regular-webfont.woff") format("woff");
 }
-.light-theme main,
+.light-theme,
 .light-theme .about-book-modal {
-  background-color: var(--background-grey);
+  background: var(--background-grey);
 }
 
 .light-theme .header__icon--bookshelf {
@@ -1664,12 +1669,18 @@ a.swiper-button-next {
 .light-theme .book-card__title,
 .light-theme .header-one,
 .light-theme .listCards__head,
-.light-theme .button,
 .light-theme .txt-book-modal,
 .light-theme .title-book-modal,
 .light-theme .card-shopping__head,
 .light-theme .card-shopping__shortDescription {
   color: var(--text-color-main);
+}
+
+.light-theme .button {
+  color: var(--text-color-main);
+}
+.light-theme .button:hover, .light-theme .button:focus {
+  color: var(--background-white);
 }
 
 .light-theme .add-storage-button {
@@ -1722,7 +1733,7 @@ a.swiper-button-next {
   color: rgba(17, 17, 17, 0.5);
 }
 
-.dark-theme main,
+.dark-theme,
 .dark-theme .about-book-modal {
   background-color: var(--background-dark);
 }
@@ -1748,12 +1759,18 @@ a.swiper-button-next {
 .dark-theme .book-card__title,
 .dark-theme .header-one,
 .dark-theme .listCards__head,
-.dark-theme .button,
 .dark-theme .txt-book-modal,
 .dark-theme .title-book-modal,
 .dark-theme .card-shopping__head,
 .dark-theme .card-shopping__shortDescription {
   color: var(--background-white);
+}
+
+.dark-theme .button {
+  color: var(--background-white);
+}
+.dark-theme .button:hover, .dark-theme .button:focus {
+  color: var(--text-color-main);
 }
 
 .dark-theme .add-storage-button,
