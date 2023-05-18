@@ -12,7 +12,7 @@ function renderBooks(books, currentCategoryTitle) {
 
   const bookElements = books.map(book => {
     const image = `
-       <div><img data-modal-open class="book-card__image book-card__image--margin-bottom" src="${book.book_image}" alt="${book.title}" loading="lazy" data-modal-open loading="lazy"/>
+       <div class="book-margin-bottom"><img data-modal-open class="book-card__image book-card__image--margin-bottom" src="${book.book_image}" alt="${book.title}" loading="lazy" data-modal-open loading="lazy"/>
             </div>`;
     const title = `<h3 class="book-card__title book-card__title--margin-bottom" data-modal-open>${book.title}</h3>`;
     const description = `<p class="book-card__author">${book.author}</p>`;

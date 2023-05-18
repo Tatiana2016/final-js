@@ -1,3 +1,8 @@
 body {
   background-color: var(--background-grey);
 }
+
+//smooth effect for scroll
+html {
+  scroll-behavior: smooth;
+}

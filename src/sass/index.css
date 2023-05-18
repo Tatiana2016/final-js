@@ -49,6 +49,10 @@ body {
   background-color: var(--background-grey);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*Responsive mixins begins*/
 /*Responsive up to 374px*/
 /*Mobile*/
@@ -1026,6 +1030,10 @@ body {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.book-margin-bottom {
+  margin-bottom: 8px;
 }
 
 .book-card {
