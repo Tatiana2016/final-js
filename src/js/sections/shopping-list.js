@@ -45,11 +45,11 @@ let pagePagination=1;
 //       console.error("Set state error: ", error.message);
 //     }
 //   };
-  if (document.referrer.includes('shopping-list')){
-      loadLocalStorage(); 
-  }
+//   if (document.referrer.includes('shopping-list')){
+//       loadLocalStorage(); 
+//   }
 
-
+  loadLocalStorage();  
 
 function loadLocalStorage(){
     try {        
