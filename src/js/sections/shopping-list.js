@@ -21,7 +21,7 @@ const btnDelCard = document.querySelector('.js-listCards');
 
 // const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
 const STORAGE_KEY = 'storage-data-shop';
-let listObg = [];
+let listObg = []; 
 let pagePagination=1;
 // localStorage.clear();
 // function fethFunc(BASE_URL){
