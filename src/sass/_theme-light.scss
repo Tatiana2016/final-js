@@ -92,6 +92,7 @@
 
 .light-theme .menu-item-light {
   color: rgba(17, 17, 17, 0.6);
+  transition: color 0.5s ease, text-transform 0.5s ease;
 
   &:hover,
   &:focus {
