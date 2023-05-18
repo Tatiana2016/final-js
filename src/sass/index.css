@@ -49,6 +49,10 @@ body {
   background-color: var(--background-grey);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*Responsive mixins begins*/
 /*Responsive up to 374px*/
 /*Mobile*/
@@ -344,7 +348,6 @@ body {
     height: 472px;
     gap: 32px;
     margin-bottom: 100px;
-    margin-right: 32px;
   }
 }
 @media (min-width: 1440px) {
@@ -1027,6 +1030,14 @@ body {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.books-container-category--margin-bottom {
+  margin-bottom: 40px;
+}
+
+.book-margin-bottom {
+  margin-bottom: 8px;
 }
 
 .book-card {
