@@ -344,7 +344,6 @@ body {
     height: 472px;
     gap: 32px;
     margin-bottom: 100px;
-    margin-right: 32px;
   }
 }
 @media (min-width: 1440px) {
