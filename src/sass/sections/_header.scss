@@ -1,3 +1,9 @@
+header {
+  position: fixed;
+  z-index: 5;
+  background-color:var(--background-white);
+  scroll-behavior: unset;
+}
 .header{
   &-nav {
       display: flex;
@@ -96,6 +102,16 @@
     font-size: 14px;
     line-height: 0.7;
   }
+  &__drop-down-text:active {
+    color: var(--text-color-main);
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 0.77;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
   &__icon-lock {
     width: 20px;
     height: 20px;
@@ -141,10 +157,16 @@
     line-height: 0.77;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    height: 18px;
   }
   &__home-text:active {
     color: var(--text-color-main);
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 0.77;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
   }
   &__shopping-list-active:active {
     display: flex;
@@ -157,6 +179,13 @@
     height: 34px;
     background-color: var(--accent-secondary);
     border-radius: 36px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 0.77;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
   }
   &__shopping-list-link {
     display: none;
@@ -171,7 +200,6 @@
   &__shopping-list-text {
     @media screen and (min-width: $tablet) {
           margin-right: 7px;
-          height: 18px;
           font-family: 'DM Sans';
           font-style: normal;
           font-weight: 500;
@@ -183,7 +211,7 @@
   }
 }
 body {
-position: relative;
+position: absolute;
 }
 // -----Switch-----
 * {
