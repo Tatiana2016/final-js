@@ -26,7 +26,8 @@
 // 3. Sign up color from color: #F3F3F3; on color: #202024;
 // 4. Sign up background color background: #111111; on background: #F6F6F6;
 
-.light-theme main {
+.light-theme main,
+.light-theme .about-book-modal {
   background-color: var(--background-grey);
 }
 
@@ -42,11 +43,19 @@
   background-color: var(--background-white);
 }
 
-.light-theme .header__text-SL,
+.light-theme .header__home-text,
+.light-theme .header__shopping-list-text,
 .light-theme .book-card__title,
 .light-theme .header-one,
 .light-theme .listCards__head,
-.light-theme .button {
+.light-theme .button,
+.light-theme .txt-book-modal,
+.light-theme .title-book-modal {
+  color: var(--text-color-main);
+}
+
+.light-theme .add-storage-button {
+  background-color: var(--background-grey);
   color: var(--text-color-main);
 }
 
