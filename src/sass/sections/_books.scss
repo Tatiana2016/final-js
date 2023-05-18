@@ -35,6 +35,7 @@
     list-style: none;
     align-items: center;
     overflow: hidden;
+    align-items: baseline;
 
     @include tablet {
       flex-direction: row;

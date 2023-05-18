@@ -116,10 +116,15 @@
 
 .dark-theme .menu-item-light {
   color: rgba(255, 255, 255, 0.6);
+  text-transform: none;
+  transition: color 0.5s ease, text-transform 0.5s ease;
+
+  
 
   &:hover,
   &:focus {
     color: var(--accent-secondary);
+    text-transform: uppercase;
   }
 }
 

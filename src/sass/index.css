@@ -369,7 +369,8 @@ body {
 }
 
 .js-backdrop-modal {
-  display: none transform translate(-50%, -50%);
+  display: none;
+  transform: translate(-50%, -50%);
   position: fixed;
   top: 0;
   left: 0;
@@ -417,7 +418,6 @@ body {
 
 .about-book-modal {
   width: 335px;
-  height: 806px;
   background-color: #f6f6f6;
   border: 2px solid #fff;
   border-radius: 18px;
@@ -434,13 +434,7 @@ body {
 @media only screen and (min-width: 768px) {
   .about-book-modal {
     width: 579px;
-    height: 465px;
     padding: 40px;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .about-book-modal {
-    height: 501px;
   }
 }
 
@@ -1055,6 +1049,7 @@ body {
   list-style: none;
   align-items: center;
   overflow: hidden;
+  align-items: baseline;
 }
 @media only screen and (min-width: 768px) {
   .book-card__section {
@@ -1697,6 +1692,7 @@ a.swiper-button-next {
 
 .light-theme .menu-item-light {
   color: rgba(17, 17, 17, 0.6);
+  transition: color 0.5s ease, text-transform 0.5s ease;
 }
 .light-theme .menu-item-light:hover, .light-theme .menu-item-light:focus {
   color: var(--accent-primary);
@@ -1788,9 +1784,12 @@ a.swiper-button-next {
 
 .dark-theme .menu-item-light {
   color: rgba(255, 255, 255, 0.6);
+  text-transform: none;
+  transition: color 0.5s ease, text-transform 0.5s ease;
 }
 .dark-theme .menu-item-light:hover, .dark-theme .menu-item-light:focus {
   color: var(--accent-secondary);
+  text-transform: uppercase;
 }
 
 .dark-theme .shopping-list__emptyListDescription {
