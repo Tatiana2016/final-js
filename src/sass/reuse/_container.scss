@@ -32,7 +32,7 @@
       display: flex;
     }
     @include desktop {
-      width: 356px;
+      // width: 356px;
       margin-right: 40px;
       flex-direction: column;
     }
