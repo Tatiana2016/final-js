@@ -1,53 +1,51 @@
-<header>
-    <div class="container-header header-nav">
-        <a href="/src/index.html" class="header__link">
-            <svg class="header__icon--logo" aria-label="Іконка логотипа">
-                <use href="/src/images/logo.svg#icon-logo"></use>
-            </svg>
-            <svg class="header__icon--bookshelf" aria-label="Текст логотипу">
-                <use href="/src/images/logo.svg#icon-Bookshelf"></use>
-            </svg>
+<div class="container-header header-nav">
+    <a href="/src/index.html" class="header__link">
+        <svg class="header__icon--logo" aria-label="Іконка логотипа">
+            <use href="/src/images/logo.svg#icon-logo"></use>
+        </svg>
+        <svg class="header__icon--bookshelf" aria-label="Текст логотипу">
+            <use href="/src/images/logo.svg#icon-Bookshelf"></use>
+        </svg>
+    </a>
+    <div class="header__home-active">
+        <a href="/src/index.html" class="header__home-link">
+            <p class="header__home-text">home</p>
         </a>
-        <div class="header__home-active">
-            <a href="/src/index.html" class="header__home-link">
-                <p class="header__home-text">home</p>
-            </a>
-        </div>
-        <div class="header__shopping-list-active">
-            <a href="/src/shopping-list.html" class="header__shopping-list-link">
-                <p class="header__shopping-list-text">Shopping list</p>
-            </a>
-        </div>
-        <div class="header__switch">
-            <label class="switch">
-            <input class="switch__input" type="checkbox" />
-            <i class="switch__icon"></i>
-        </div>
-        <button type="button" class="header__menu-button is-open" data-menu-button
-        aria-expanded="false">
-            <svg width="28" height="28" aria-label="Перемикач мобільного меню">
-                <use class="header__icon-burger" href="/src/images/symbol-defs2.svg#icon-burger"></use>
-                <use class="header__icon-close" href="/src/images/symbol-defs2.svg#icon-close"></use>
-            </svg>
-        </button>
     </div>
-    <nav class="header__drop-down-menu" data-menu>
-        <!-- icon-home -->
-        <div class="header__container-drop-down">
-                <a href="/src/index.html" class="header__drop-down-link">
-                    <svg width="72", height="34">
-                        <use href="/src/images/symbol-defs2.svg#icon-home"></use>
-                    </svg>
-                </a>
-            <div>
-                <a href="/src/shopping-list.html" class="header__shopping-list">
-                    <p class="header__drop-down-text">Shopping list</p>
-                    <svg class="header__icon-lock">
-                        <use href="/src/images/symbol-defs2.svg#icon-lock"></use>
-                    </svg>
-                </a>
-            </div>
-            <img class="header__img" src="/src/images/Group.png" alt="Group-drop-down">
+    <div class="header__shopping-list-active">
+        <a href="/src/shopping-list.html" class="header__shopping-list-link">
+            <p class="header__shopping-list-text">Shopping list</p>
+        </a>
+    </div>
+    <div class="header__switch">
+        <label class="switch">
+        <input class="switch__input" type="checkbox" />
+        <i class="switch__icon"></i>
+    </div>
+    <button type="button" class="header__menu-button is-open" data-menu-button
+    aria-expanded="false">
+        <svg width="28" height="28" aria-label="Перемикач мобільного меню">
+            <use class="header__icon-burger" href="/src/images/symbol-defs2.svg#icon-burger"></use>
+            <use class="header__icon-close" href="/src/images/symbol-defs2.svg#icon-close"></use>
+        </svg>
+    </button>
+</div>
+<nav class="header__drop-down-menu" data-menu>
+
+    <div class="header__container-drop-down">
+            <a href="/src/index.html" class="header__drop-down-link">
+                <svg width="72", height="34">
+                    <use href="/src/images/symbol-defs2.svg#icon-home"></use>
+                </svg>
+            </a>
+        <div>
+            <a href="/src/shopping-list.html" class="header__shopping-list">
+                <p class="header__drop-down-text">Shopping list</p>
+                <svg class="header__icon-lock">
+                    <use href="/src/images/symbol-defs2.svg#icon-lock"></use>
+                </svg>
+            </a>
         </div>
-    </nav>
-</header>
+        <img class="header__img" src="/src/images/Group.png" alt="Group-drop-down">
+    </div>
+</nav>
