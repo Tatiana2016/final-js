@@ -3,8 +3,10 @@ header {
   z-index: 5;
   background-color:var(--background-white);
   scroll-behavior: unset;
+  border: 1.5px solid #111111;
 }
 .header{
+  
   &-nav {
       display: flex;
       align-items: center;
