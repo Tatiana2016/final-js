@@ -699,19 +699,13 @@ header {
   z-index: 5;
   background-color: var(--background-white);
   scroll-behavior: unset;
+  width: 100%;
   border: 1.5px solid #111111;
 }
-@media only screen and (min-width: 768px) {
-  header {
-    width: 768px;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  header {
-    width: 1440px;
-  }
-}
 
+.header {
+  border: 1.5px solid #111111;
+}
 .header-nav {
   display: flex;
   align-items: center;
