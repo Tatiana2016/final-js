@@ -3,8 +3,12 @@ header {
   z-index: 5;
   background-color:var(--background-white);
   scroll-behavior: unset;
+  width: 100%;
+  border: 1.5px solid #111111;
+  
 }
 .header{
+  border: 1.5px solid #111111;
   &-nav {
       display: flex;
       align-items: center;
@@ -213,7 +217,7 @@ header {
   }
 }
 body {
-position: absolute;
+position: relative;
 }
 // -----Switch-----
 * {
