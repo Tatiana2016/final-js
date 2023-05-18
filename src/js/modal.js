@@ -5,9 +5,18 @@ import amazon2x from '../images/modal_img/icons-for-light-theme/amazonLight@2x.p
 import book1x from '../images/modal_img/icons-for-light-theme/bookShop.png';
 import book2x from '../images/modal_img/icons-for-light-theme/bookShop@2x.png';
 
+
+const idBackdropModal = document.querySelector('.js-backdrop-modal');
+const bookList = document.querySelector('.books-container');
+const modals = document.querySelector('#modals');
 const idModal = document.querySelector('.about-book-modal');
 const closeModalBtn = document.querySelector('#modal-close');
-const idBackdropModal = document.querySelector('.js-backdrop-modal');
+const storageButton = document.querySelector('.add-storage-button');
+const removeStorageBtn = document.querySelector('.remove-modal-btn');
+const storageDescription = document.querySelector('.storage-description');
+const STORAGE_KEY = 'storage-data-shop';
+let storageArr = [];
+let storageObj = {};
 
 function openModalId() {
   idModal.classList.remove('is-hidden');
@@ -33,14 +42,6 @@ idBackdropModal.addEventListener('click', function (event) {
   }
 });
 
-const bookList = document.querySelector('.books-container');
-const modals = document.querySelector('#modals');
-const storageButton = document.querySelector('.add-storage-button');
-const removeStorageBtn = document.querySelector('.remove-modal-btn');
-const storageDescription = document.querySelector('.storage-description');
-const STORAGE_KEY = 'storage-data-shop';
-let storageArr = [];
-let storageObj = {};
 
 
 bookList.addEventListener('click', onClick);
@@ -60,6 +61,7 @@ function onClick(e) {
 }
 
 async function addModal(bookId) {
+  modals.innerHTML = '';
   try {
     const data = await fetchBookById(bookId);
     storageCheck();
@@ -120,7 +122,7 @@ function storageCheck() {
 
 
 function addMarkup(data) {
-  modals.innerHTML = '';
+  
   const bookImage = data.book_image;
   const title = data.title;
   const author = data.author;
