@@ -144,8 +144,6 @@ h3 {
     right: 50%;
     transform: translate(30%, 30%);
 
-    &__picture-amazon {
-    }
   }
 
   &__author-links-container {
@@ -156,17 +154,10 @@ h3 {
     justify-content: space-between;
     height: 14px;
 
-    // @media screen and (min-width: $mobile) {
-    //    gap: 42px;
-    // }
-
     @media screen and (min-width: $tablet) {
       width: 100%;
     }
 
-    // @media screen and (min-width: $desktop) {
-    //     gap: 597px;
-    // }
   }
 
   &__listLinks {
@@ -320,4 +311,20 @@ h3 {
   color: rgba(0, 0, 0, 0.6);
 
   text-align: center;
+}
+
+.container__both-sections{
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+.container__column-left{
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
 }

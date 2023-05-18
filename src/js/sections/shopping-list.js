@@ -23,18 +23,19 @@ const paginationPoint = document.querySelector('.js-paginationPoint');
 const pagination = document.querySelector('.js-paginationNextEl');
 const paginationToEnd = document.querySelector('.js-paginationToEnd');
 const paginationCont = document.querySelector('.card-shopping__btnContainer');
-const emptyListContainer = document.querySelector(
-  '.shopping-list__emptyListContainer'
-);
+const emptyListContainer = document.querySelector('.shopping-list__emptyListContainer');
 const btnDelCard = document.querySelector('.js-listCards');
+
 
 const STORAGE_KEY = 'storage-data-shop';
 let listObg = [];
 let pagePagination = 1;
 // localStorage.clear();
 
+
 if (listShoppingCards) {
   loadLocalStorage();
+  listObg.length<3?paginationCont.style.display = 'none':null;
 }
 
 if (listObg.length > 0 && listShoppingCards) {
