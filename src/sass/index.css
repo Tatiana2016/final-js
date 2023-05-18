@@ -1448,23 +1448,6 @@ h3 {
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
-  .container__both-sections {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-  }
-}
-
-.container__column-left {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .container__column-left {
-    display: block;
-  }
-}
-
 a {
   text-decoration: none;
 }
