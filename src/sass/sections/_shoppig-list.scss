@@ -313,18 +313,3 @@ h3 {
   text-align: center;
 }
 
-.container__both-sections{
-
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-  }
-}
-
-.container__column-left{
-  display: none;
-  @media screen and (min-width: $tablet) {
-    display: block;
-  }
-}
