@@ -1,4 +1,4 @@
-<header style="position: fixed;z-index: 5;background-color: white;scroll-behavior: unset;">
+<header>
     <div class="container-header header-nav">
         <a href="/src/index.html" class="header__link">
             <svg class="header__icon--logo" aria-label="Іконка логотипа">
@@ -26,24 +26,27 @@
         <button type="button" class="header__menu-button is-open" data-menu-button
         aria-expanded="false">
             <svg width="28" height="28" aria-label="Перемикач мобільного меню">
-                <use class="header__icon-burger" href="/src/images/symbol-defs.svg#icon-burger"></use>
-                <use class="header__icon-close" href="/src/images/symbol-defs.svg#icon-close"></use>
+                <use class="header__icon-burger" href="/src/images/symbol-defs2.svg#icon-burger"></use>
+                <use class="header__icon-close" href="/src/images/symbol-defs2.svg#icon-close"></use>
             </svg>
         </button>
     </div>
     <nav class="header__drop-down-menu" data-menu>
+        <!-- icon-home -->
         <div class="header__container-drop-down">
-            <a href="/src/index.html" class="header__drop-down-link">
-                <svg class="header__icon-home">
-                    <use href="/src/images/symbol-defs.svg#icon-home"></use>
-                </svg>
-            </a>
-            <a href="/src/partials/sections/shopping-list.html" class="header__shopping-list">
-                <p class="header__drop-down-text">Shopping list</p>
-                <svg class="header__icon-lock">
-                    <use href="/src/images/symbol-defs.svg#icon-lock"></use>
-                </svg>
-            </a>
+                <a href="/src/index.html" class="header__drop-down-link">
+                    <svg width="72", height="34">
+                        <use href="/src/images/symbol-defs2.svg#icon-home"></use>
+                    </svg>
+                </a>
+            <div>
+                <a href="/src/partials/sections/shopping-list.html" class="header__shopping-list">
+                    <p class="header__drop-down-text">Shopping list</p>
+                    <svg class="header__icon-lock">
+                        <use href="/src/images/symbol-defs2.svg#icon-lock"></use>
+                    </svg>
+                </a>
+            </div>
             <img class="header__img" src="/src/images/Group.png" alt="Group-drop-down">
         </div>
     </nav>
