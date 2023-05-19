@@ -11,7 +11,6 @@ async function getBooksSeeMore(category, currentCategoryTitle) {
   try {
     const response = await axios.get(`${BASE_URL}${ENDPOINT}`);
     const books = response.data;
-    console.log(books);
     renderSeeMoreBooks(books, currentCategoryTitle);
     Notiflix.Notify.success('Books loaded successfully');
   } catch (error) {
