@@ -1,41 +1,41 @@
 header {
   position: fixed;
   z-index: 5;
-  background-color:var(--background-white);
+  background-color: var(--background-white);
   scroll-behavior: unset;
   width: 100%;
   border: 1.5px solid #111111;
 }
-.header{
+.header {
   border: 1.5px solid #111111;
   &-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &__link {
-  display: flex;
-  align-items: center;
-  width: 109px;
-  height: 28px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 145px;
-  @media screen and (min-width: $tablet) {
-    margin-right: 40px;
-  }
-  @media screen and (min-width: $desktop) {
-    margin-right: 76px;
-  }
+    display: flex;
+    align-items: center;
+    width: 109px;
+    height: 28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 145px;
+    @media screen and (min-width: $tablet) {
+      margin-right: 40px;
+    }
+    @media screen and (min-width: $desktop) {
+      margin-right: 76px;
+    }
   }
   &__icon--logo {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
   }
   &__icon--bookshelf {
-  width: 77px;
-  height: 13px;
+    width: 77px;
+    height: 13px;
   }
   &__switch {
     margin-right: 17px;
@@ -58,27 +58,27 @@ header {
     display: block;
   }
   &__menu-button .header__icon-close {
-  display: block;
+    display: block;
   }
   &__menu-button.is-open .header__icon-close {
     display: none;
   }
   &__drop-down-menu {
-      position: fixed;
-      flex-flow: column;
-      height: 100%;
-      background: linear-gradient(#4F2EE8, #FFFFFF);
-      overflow: hidden;
-      overscroll-behavior: none;
-      z-index: 1;
-      display: none;
-      }
-      &__drop-down-menu.is-open {
-        display: block;
-        position: fixed;
-        z-index: 1;
-        overflow-y: scroll;
-      }
+    position: fixed;
+    flex-flow: column;
+    height: 100%;
+    background: linear-gradient(#4f2ee8, #ffffff);
+    overflow: hidden;
+    overscroll-behavior: none;
+    z-index: 1;
+    display: none;
+  }
+  &__drop-down-menu.is-open {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    overflow-y: scroll;
+  }
   &__drop-down-link {
     width: 72px;
     height: 34px;
@@ -132,7 +132,7 @@ header {
     width: 450px;
     height: 439px;
     top: 443px;
-    overflow:hidden;
+    overflow: hidden;
   }
   &__container-drop-down {
     overflow: hidden;
@@ -151,7 +151,6 @@ header {
     background-color: var(--accent-secondary);
     margin-right: 16px;
     transition-duration: 1000ms;
-
   }
   &__home-link {
     display: none;
@@ -184,7 +183,6 @@ header {
     letter-spacing: -0.04em;
     text-transform: uppercase;
     transition-duration: 1000ms;
-
   }
   &__shopping-list-active:hover {
     display: flex;
@@ -216,15 +214,15 @@ header {
   }
   &__shopping-list-text {
     @media screen and (min-width: $tablet) {
-          margin-right: 7px;
-          font-family: 'DM Sans';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 0.77;
-          letter-spacing: -0.04em;
-          text-transform: uppercase;
-        }
+      margin-right: 7px;
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 0.77;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
   }
   &__drop-down--hover:hover {
     display: flex;
@@ -259,7 +257,7 @@ header {
   }
 }
 body {
-position: relative;
+  position: relative;
 }
 // -----Switch-----
 * {
@@ -283,7 +281,7 @@ position: relative;
   &__input {
     display: none;
     &:checked + .switch__icon {
-      background: linear-gradient(#4F2EE8, #686868);
+      background: linear-gradient(#4f2ee8, #686868);
       &:before {
         transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
       }
@@ -299,7 +297,7 @@ position: relative;
     min-width: 42px;
     min-height: 24px;
     max-height: 24px;
-    background-color: #BEBEBE;
+    background-color: #bebebe;
     border-radius: 22px;
     vertical-align: text-bottom;
     transition: all 0.3s linear;
@@ -309,7 +307,7 @@ position: relative;
       left: 0;
       width: 38px;
       height: 20px;
-      background: linear-gradient(#4F2EE8, #DCDCDC);
+      background: linear-gradient(#4f2ee8, #dcdcdc);
       border-radius: 11px;
       transform: translate3d(2px, 2px, 0) scaleX(1);
       transition: all 0.25s linear;
