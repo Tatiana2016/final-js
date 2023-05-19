@@ -78,6 +78,11 @@ header {
         position: fixed;
         z-index: 1;
         overflow-y: scroll;
+        width: 100%;
+        background-image: url(/src/images/Group.png), radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+        background-repeat: no-repeat;
+        background-size: contain, cover;
+        background-position: center bottom;
       }
   &__drop-down-link {
     width: 72px;
@@ -344,6 +349,7 @@ position: relative;
   display: block;
   position: fixed;
   z-index: 1;
+  
 }
 button {
   border: none;
