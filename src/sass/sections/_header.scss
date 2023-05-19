@@ -13,6 +13,10 @@ header {
       align-items: center;
       justify-content: center;
   }
+  &__box {
+    display: flex;
+    align-items: center;
+  }
   &__link {
   display: flex;
   align-items: center;
@@ -74,10 +78,16 @@ header {
       display: none;
       }
       &__drop-down-menu.is-open {
-        display: block;
+        display: flex;
+        align-items: center;
         position: fixed;
         z-index: 1;
         overflow-y: scroll;
+        width: 100%;
+        background-image: url(/src/images/Group.png), radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+        background-repeat: no-repeat;
+        background-size: contain, cover;
+        background-position: center bottom;
       }
   &__drop-down-link {
     width: 72px;
@@ -106,11 +116,11 @@ header {
   }
   &__drop-down-text-home {
     text-transform: uppercase;
-    color: var(--background-white);
+    color: var(--text-color-main);
     font-size: 14px;
     line-height: 0.7;
   }
-  &__drop-down-text-home:hover {
+  &__drop-down-text-home:hover header__drop-down-text-home:focus {
     color: var(--text-color-main);
     transition-duration: 1000ms;
   }
@@ -139,26 +149,30 @@ header {
     display: flex;
     flex-direction: column;
   }
-  &__home-active:hover {
+  &__home-active:hover, header__home-active:focus {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: center;
     padding: 8px 16px;
-    gap: 10px;
-    width: 72px;
-    height: 34px;
     border-radius: 36px;
     background-color: var(--accent-secondary);
-    margin-right: 16px;
     transition-duration: 1000ms;
-
+  }
+  &__shopping-list-active:hover, header__shopping-list-active:focus {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--accent-secondary);
+    transition-duration: 1000ms;
   }
   &__home-link {
+    text-align: center;
     display: none;
     text-decoration: none;
     @media screen and (min-width: $tablet) {
       display: block;
-      margin-right: 16px;
+      width: 72px;
+      margin: 0 auto;
     }
     @media screen and (min-width: $desktop) {
       margin-right: 24px;
@@ -174,7 +188,7 @@ header {
     letter-spacing: -0.04em;
     text-transform: uppercase;
   }
-  &__home-text:hover {
+  &__home-text:hover, header__home-text:focus {
     color: var(--text-color-main);
     font-family: 'DM Sans';
     font-style: normal;
@@ -184,14 +198,13 @@ header {
     letter-spacing: -0.04em;
     text-transform: uppercase;
     transition-duration: 1000ms;
-
   }
-  &__shopping-list-active:hover {
+  &__shopping-list-active:hover header__shopping-list-active:focus {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 7px 16px;
+    padding: 8px 16px;
     gap: 8px;
     background-color: var(--accent-secondary);
     border-radius: 36px;
@@ -206,12 +219,16 @@ header {
   }
   &__shopping-list-link {
     display: none;
+    text-align: center;
     @media screen and (min-width: $tablet) {
       display: flex;
+      justify-content: center;
       align-items: center;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--text-color-main);
+      width: 156px;
+      height: 34px;
     }
   }
   &__shopping-list-text {
@@ -226,7 +243,7 @@ header {
           text-transform: uppercase;
         }
   }
-  &__drop-down--hover:hover {
+  &__drop-down--SL:hover header__drop-down--SL:focus {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -347,4 +364,29 @@ position: relative;
 }
 button {
   border: none;
+}
+.js__home {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--accent-secondary);
+    height: 34px;
+  }
+}
+.js__home_mobile {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--accent-secondary);
+}
+.js__shopping-list {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 36px;
+  background-color: var(--accent-secondary);
 }
