@@ -13,8 +13,7 @@
 
 .dark-theme .card-shopping__picture-amazon,
 .dark-theme .modal-icon-amazon,
-.dark-theme .icon-close-book,
-.dark-theme .icon-lock-header {
+.dark-theme .icon-close-book {
   filter: brightness(0) invert(100%);
 }
 
@@ -109,5 +108,18 @@
 .dark-theme.page-shopping-list .header__shopping-list-link,
 .dark-theme.page-shopping-list .icon-lock-header {
   color: var(--text-color-main);
-  filter: none;
+  fill: var(--text-color-main);
+}
+
+.dark-theme .header__shopping-list-link {
+  fill: var(--svg-color);
+}
+
+.dark-theme .header__home-link,
+.dark-theme .header__shopping-list-link {
+  &:hover,
+  &:focus {
+    color: var(--text-color-main);
+    fill: var(--text-color-main);
+  }
 }
