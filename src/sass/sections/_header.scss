@@ -71,7 +71,7 @@ header {
     position: fixed;
     flex-flow: column;
     height: 100%;
-    background: linear-gradient(#4f2ee8, #ffffff);
+    background: linear-gradient(#4F2EE8, #FFFFFF);
     overflow: hidden;
     overscroll-behavior: none;
     z-index: 1;
@@ -87,8 +87,8 @@ header {
     background-image: url(/src/images/Group.png),
       radial-gradient(
         183.6% 183.01% at 59.76% -23.42%,
-        #4f2ee8 18.03%,
-        #ffffff 100%
+        #4F2EE8 18.03%,
+        #FFFFFF 100%
       );
     background-repeat: no-repeat;
     background-size: contain, cover;
@@ -308,7 +308,7 @@ body {
   &__input {
     display: none;
     &:checked + .switch__icon {
-      background: linear-gradient(#4f2ee8, #686868);
+      background: linear-gradient(#4F2EE8, #686868);
       &:before {
         transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
       }
@@ -324,7 +324,7 @@ body {
     min-width: 42px;
     min-height: 24px;
     max-height: 24px;
-    background-color: #bebebe;
+    background-color: #BEBEBE;
     border-radius: 22px;
     vertical-align: text-bottom;
     transition: all 0.3s linear;
@@ -334,7 +334,7 @@ body {
       left: 0;
       width: 38px;
       height: 20px;
-      background: linear-gradient(#4f2ee8, #dcdcdc);
+      background: linear-gradient(#4F2EE8, #DCDCDC);
       border-radius: 11px;
       transform: translate3d(2px, 2px, 0) scaleX(1);
       transition: all 0.25s linear;
@@ -374,15 +374,18 @@ button {
   border: none;
 }
 .page-main .header__home-link {
-  display: flex;
+  @media screen and (min-width: $tablet) {
+    display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
   border-radius: 36px;
   height: 34px;
   background-color: var(--accent-secondary);
+  }
 }
 .page-shopping-list .header__shopping-list-link {
+  @media screen and (min-width: $tablet) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -390,4 +393,14 @@ button {
   border-radius: 36px;
   height: 34px;
   background-color: var(--accent-secondary);
+  }
+}
+.header__drop-down-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    height: 34px;
+    background-color: var(--accent-secondary);
 }
