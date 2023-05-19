@@ -5,18 +5,20 @@
 }
 
 //Book Card - category page
-.books-container-category{
+.books-container-category {
   display: flex;
-  gap: 24px;
+  gap: 40px;
   flex-wrap: wrap;
-}
 
-.books-container-category--margin-bottom{
-  margin-bottom: 40px;
+  @include tablet {
+    gap: 25px;
+  }
+  @include desktop {
+    gap: 24px;
+  }
 }
-
 //Book Card
-.book-margin-bottom{
+.book-margin-bottom {
   margin-bottom: 8px;
 }
 
@@ -60,21 +62,32 @@
       }
     }
   }
-  
+
   &__component {
-    width: 180px;
+    width: 335px;
+    height: 535px;
+
+    @include tablet {
+      width: 218px;
+      height: 366px;
+    }
+
+    @include desktop {
+      width: 180px;
+      height: 306px;
+    }
   }
   &__image {
     width: 335px;
     height: 485px;
     border-radius: 8px;
 
-    @include tablet{
+    @include tablet {
       width: 218px;
       height: 316px;
     }
 
-    @include desktop{
+    @include desktop {
       width: 180px;
       height: 256px;
     }
