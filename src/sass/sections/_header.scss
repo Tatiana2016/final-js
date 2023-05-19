@@ -106,7 +106,7 @@ header {
   }
   &__drop-down-text-home {
     text-transform: uppercase;
-    color: var(--background-white);
+    color: var(--text-color-main);
     font-size: 14px;
     line-height: 0.7;
   }
@@ -159,7 +159,7 @@ header {
     text-decoration: none;
     @media screen and (min-width: $tablet) {
       display: block;
-      width: 100px;
+      width: 72px;
       margin: 0 auto;
     }
     @media screen and (min-width: $desktop) {
@@ -207,12 +207,15 @@ header {
   }
   &__shopping-list-link {
     display: none;
+    text-align: center;
     @media screen and (min-width: $tablet) {
       display: flex;
+      justify-content: center;
       align-items: center;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--text-color-main);
+      width: 156px;
     }
   }
   &__shopping-list-text {
