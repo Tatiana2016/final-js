@@ -8,14 +8,15 @@
 .books-container-category{
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
 
   @include tablet{
     flex-direction: row;
-    justify-content: left;
-    row-gap: 40px;
+    justify-content: center;
+    row-gap: 40;
+    column-gap: 24;
   }
 }
 
