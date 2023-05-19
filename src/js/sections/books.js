@@ -4,13 +4,14 @@ import { getBooks } from './getBooks';
 import { createBooksMarkup } from './createBooksMarkup';
 
 const bookContainer = document.querySelector('.books-container');
-
-window.addEventListener('load', async () => {
+if (bookContainer) {
+  window.addEventListener('load', async () => {
   const response = await getBooks(); // make API request for books
   const books = response.data;
   const markup = createBooksMarkup(books); // create HTML markup
   bookContainer.insertAdjacentHTML('beforeend', markup);
-});
+});}
+
 
 // // See more button clicked - show 20 books
 // document.addEventListener('click', async function (event) {
