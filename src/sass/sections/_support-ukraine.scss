@@ -39,7 +39,7 @@ p {
   }
 
   @include desktop {
-    width: 356px;
+    width: 335px;
     height: 490px;
   }
 }
@@ -166,3 +166,22 @@ a.swiper-button-next {
   font-size: 16px !important;
   font-weight: 900 !important;
 }
+
+.page-main .support {
+  display: block;
+}
+
+.page-shopping-list .support {
+  display: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+
+

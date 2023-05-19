@@ -791,7 +791,7 @@ header {
   position: fixed;
   flex-flow: column;
   height: 100%;
-  background: linear-gradient(#4f2ee8, #ffffff);
+  background: linear-gradient(#4F2EE8, #FFFFFF);
   overflow: hidden;
   overscroll-behavior: none;
   z-index: 1;
@@ -1015,7 +1015,7 @@ body {
   display: none;
 }
 .switch__input:checked + .switch__icon {
-  background: linear-gradient(#4f2ee8, #686868);
+  background: linear-gradient(#4F2EE8, #686868);
 }
 .switch__input:checked + .switch__icon:before {
   transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
@@ -1030,7 +1030,7 @@ body {
   min-width: 42px;
   min-height: 24px;
   max-height: 24px;
-  background-color: #bebebe;
+  background-color: #BEBEBE;
   border-radius: 22px;
   vertical-align: text-bottom;
   transition: all 0.3s linear;
@@ -1041,7 +1041,7 @@ body {
   left: 0;
   width: 38px;
   height: 20px;
-  background: linear-gradient(#4f2ee8, #dcdcdc);
+  background: linear-gradient(#4F2EE8, #DCDCDC);
   border-radius: 11px;
   transform: translate3d(2px, 2px, 0) scaleX(1);
   transition: all 0.25s linear;
@@ -1576,7 +1576,7 @@ p {
 }
 @media only screen and (min-width: 1440px) {
   .support {
-    width: 356px;
+    width: 335px;
     height: 490px;
   }
 }
@@ -1695,6 +1695,24 @@ a.swiper-button-next {
 .swiper-button-next:after {
   font-size: 16px !important;
   font-weight: 900 !important;
+}
+
+.page-main .support {
+  display: block;
+}
+
+.page-shopping-list .support {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .page-shopping-list .support {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .page-shopping-list .support {
+    display: block;
+  }
 }
 
 @font-face {
