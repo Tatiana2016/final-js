@@ -140,7 +140,8 @@ header {
     flex-direction: column;
   }
   &__home-active:hover, header__home-active:focus {
-    // display: flex;
+    display: flex;
+    justify-content: center;
     // flex-direction: row;
     // align-items: center;
     padding: 8px 16px;
@@ -153,6 +154,7 @@ header {
     transition-duration: 1000ms;
   }
   &__home-link {
+    text-align: center;
     display: none;
     text-decoration: none;
     @media screen and (min-width: $tablet) {
