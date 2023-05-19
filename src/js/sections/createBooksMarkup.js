@@ -1,5 +1,5 @@
-import { getBooksByCategory } from './getBooksByCategory';
-import { renderBooks } from './renderBooks';
+// import { getBooksByCategory } from './getBooksByCategory';
+// import { renderBooks } from './renderBooks';
 
 const bookContainer = document.querySelector('.books-container');
 
@@ -28,34 +28,34 @@ function createBooksMarkup(arr, category) {
     })
     .join('');
 
-  bookContainer.insertAdjacentHTML('beforeend', markup);
+  // bookContainer.insertAdjacentHTML('beforeend', markup);
 
-  bookContainer.addEventListener('click', async (event) => {
-    event.preventDefault();
-    const target = event.target;
+  // bookContainer.addEventListener('click', async (event) => {
+  //   event.preventDefault();
+  //   const target = event.target;
 
-    if (target.classList.contains('books-category-js')) {
-      const selectedCategory = target.getAttribute('data-category');
-      const booksResponse = await getBooksByCategory(selectedCategory);
+  //   if (target.classList.contains('books-category-js')) {
+  //     const selectedCategory = target.getAttribute('data-category');
+  //     const booksResponse = await getBooksByCategory(selectedCategory);
 
-      if (booksResponse && booksResponse.data) {
-        renderBooks(booksResponse.data, selectedCategory);
+  //     if (booksResponse && booksResponse.data) {
+  //       renderBooks(booksResponse.data, selectedCategory);
 
-        const bookButtons = document.querySelectorAll('.book button');
-        bookButtons.forEach(button => {
-          button.addEventListener('click', async (event) => {
-            const bookId = event.currentTarget.getAttribute('data-book-id');
-            const bookDetails = await getBookById(bookId);
-            renderBookDetails(bookDetails);
-          });
-        });
-      }
-    }
-  });
+  //       const bookButtons = document.querySelectorAll('.book button');
+  //       bookButtons.forEach(button => {
+  //         button.addEventListener('click', async (event) => {
+  //           const bookId = event.currentTarget.getAttribute('data-book-id');
+  //           const bookDetails = await getBookById(bookId);
+  //           renderBookDetails(bookDetails);
+  //         });
+  //       });
+  //     }
+  //   }
+  // });
+
+  bookContainer.innerHTML = markup;
 
   return markup;
 }
 
 export { createBooksMarkup };
-
-  
