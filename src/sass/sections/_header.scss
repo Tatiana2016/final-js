@@ -365,28 +365,22 @@ position: relative;
 button {
   border: none;
 }
-.js__home {
-  @media screen and (min-width: $tablet) {
+.page-main .header__home-link {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 16px;
     border-radius: 36px;
-    background-color: var(--accent-secondary);
     height: 34px;
-  }
+    background-color: var(--accent-secondary);
+  
 }
-.js__home_mobile {
+.page-shopping-list .header__shopping-list-link {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 8px 16px;
     border-radius: 36px;
+    height: 34px;
     background-color: var(--accent-secondary);
-}
-.js__shopping-list {
-  display: flex;
-  justify-content: center;
-  padding: 8px 16px;
-  border-radius: 36px;
-  background-color: var(--accent-secondary);
 }
