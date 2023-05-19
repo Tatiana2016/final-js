@@ -9,9 +9,12 @@ function renderBooks(books, currentCategoryTitle) {
     container.innerHTML = '<p>No books found</p>';
     return;
   }
-  
+
   function capitalizeWords(str) {
-    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+    return str
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
   }
 
   const words = currentCategoryTitle.split(' ');
@@ -21,7 +24,9 @@ function renderBooks(books, currentCategoryTitle) {
 
   const categoryMarkup = `
     <span class="header-one">${capitalizeWords(categoryPart1)} </span>
-    <span class="header-one--accent">${capitalizeWords(categoryPart2).trim()}</span>
+    <span class="header-one--accent">${capitalizeWords(
+      categoryPart2
+    ).trim()}</span>
   `;
 
   const bookElements = books.map(book => {
@@ -30,15 +35,13 @@ function renderBooks(books, currentCategoryTitle) {
             </div>`;
     const title = `<h3 class="book-card__title book-card__title--margin-bottom" data-modal-open>${book.title}</h3>`;
     const description = `<p class="book-card__author">${book.author}</p>`;
-    
+
     return `
-    <ul class="books-container-category books-container-category--margin-bottom">
-      <li id="${book._id}" class="book-card__component"> 
+      <li id="${book._id}" class="book-card__component book-card__item"> 
         ${image}
         ${title}
         ${description}    
       </li>
-  </ul>
     `;
   });
 
@@ -49,7 +52,9 @@ function renderBooks(books, currentCategoryTitle) {
 
 async function getBookById(id) {
   try {
-    const { data } = await axios.get(`https://books-backend.p.goit.global/books/${id}`);
+    const { data } = await axios.get(
+      `https://books-backend.p.goit.global/books/${id}`
+    );
     return data;
   } catch (error) {
     console.error(error);

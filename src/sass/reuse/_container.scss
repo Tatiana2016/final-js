@@ -3,9 +3,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 110px;
+
+  & > .container__column-right {
+    margin: 0 auto;
+  }
 
   @include tablet {
     padding-left: 32px;

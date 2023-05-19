@@ -6,12 +6,10 @@ const bookContainer = document.querySelector('.books-container');
 bookContainer.addEventListener('click', async event => {
   event.preventDefault();
   const target = event.target;
-  console.log(target);
 
   if (target.classList.contains('books-category-js')) {
     const selectedCategory = target.getAttribute('data-category');
     const booksResponse = await getBooksSeeMore(selectedCategory);
-    console.log(booksResponse);
 
     if (booksResponse && booksResponse.data) {
       const bookButtons = document.querySelectorAll('.book button');
