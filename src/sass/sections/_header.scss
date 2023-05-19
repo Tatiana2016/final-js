@@ -13,6 +13,10 @@ header {
       align-items: center;
       justify-content: center;
   }
+  &__box {
+    display: flex;
+    align-items: center;
+  }
   &__link {
   display: flex;
   align-items: center;
@@ -78,6 +82,7 @@ header {
         position: fixed;
         z-index: 1;
         overflow-y: scroll;
+        width: 100%;
       }
   &__drop-down-link {
     width: 72px;
@@ -142,15 +147,17 @@ header {
   &__home-active:hover, header__home-active:focus {
     display: flex;
     justify-content: center;
-    // flex-direction: row;
-    // align-items: center;
     padding: 8px 16px;
-    // gap: 10px;
-    // width: 72px;
-    // height: 34px;
     border-radius: 36px;
     background-color: var(--accent-secondary);
-    // margin-right: 16px;
+    transition-duration: 1000ms;
+  }
+  &__shopping-list-active:hover, header__shopping-list-active:focus {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--accent-secondary);
     transition-duration: 1000ms;
   }
   &__home-link {
@@ -192,7 +199,7 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 7px 16px;
+    padding: 8px 16px;
     gap: 8px;
     background-color: var(--accent-secondary);
     border-radius: 36px;
@@ -216,6 +223,7 @@ header {
       text-decoration: none;
       color: var(--text-color-main);
       width: 156px;
+      height: 34px;
     }
   }
   &__shopping-list-text {
@@ -351,4 +359,29 @@ position: relative;
 }
 button {
   border: none;
+}
+.js__home {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--accent-secondary);
+    height: 34px;
+  }
+}
+.js__home_mobile {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--accent-secondary);
+}
+.js__shopping-list {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 36px;
+  background-color: var(--accent-secondary);
 }
