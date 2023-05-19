@@ -104,3 +104,10 @@
 .dark-theme .storage-description {
   color: rgba(255, 255, 255, 0.5);
 }
+
+.dark-theme.page-main .header__home-link,
+.dark-theme.page-shopping-list .header__shopping-list-link,
+.dark-theme.page-shopping-list .icon-lock-header {
+  color: var(--text-color-main);
+  filter: none;
+}
