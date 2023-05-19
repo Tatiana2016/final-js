@@ -140,16 +140,16 @@ header {
     flex-direction: column;
   }
   &__home-active:hover, header__home-active:focus {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
     padding: 8px 16px;
-    gap: 10px;
-    width: 72px;
-    height: 34px;
+    // gap: 10px;
+    // width: 72px;
+    // height: 34px;
     border-radius: 36px;
     background-color: var(--accent-secondary);
-    margin-right: 16px;
+    // margin-right: 16px;
     transition-duration: 1000ms;
   }
   &__home-link {
