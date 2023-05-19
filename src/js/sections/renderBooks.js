@@ -33,7 +33,7 @@ function renderBooks(books, currentCategoryTitle) {
     
     return `
     <ul class="books-container-category books-container-category--margin-bottom">
-      <li id="${book._id}" class="book-card__component"> 
+      <li id="${book._id}" class="book-card__image"> 
         ${image}
         ${title}
         ${description}    

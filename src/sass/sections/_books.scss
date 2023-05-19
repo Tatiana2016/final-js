@@ -7,9 +7,17 @@
 //Book Card - category page
 .books-container-category{
   display: flex;
+  flex-direction: column;
   gap: 24px;
   flex-wrap: wrap;
+  justify-content: center;
+
+  @include tablet{
+    flex-direction: row;
+    justify-content: left;
+  }
 }
+
 
 .books-container-category--margin-bottom{
   margin-bottom: 40px;
