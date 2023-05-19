@@ -44,7 +44,6 @@ header {
     }
     @media screen and (min-width: $desktop) {
       margin-left: 920px;
-    
     }
   }
   &__menu-button {
@@ -105,11 +104,20 @@ header {
     font-size: 14px;
     line-height: 0.7;
   }
-  &__drop-down-text:hover {
+  &__drop-down-text-home {
+    text-transform: uppercase;
+    color: var(--background-white);
+    font-size: 14px;
+    line-height: 0.7;
+  }
+  &__drop-down-text-home:hover header__drop-down-text-home:focus {
     color: var(--text-color-main);
+    transition-duration: 1000ms;
+  }
+  &__shopping-list-text {
     font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 14px;
     line-height: 0.77;
     letter-spacing: -0.04em;
@@ -131,7 +139,7 @@ header {
     display: flex;
     flex-direction: column;
   }
-  &__home-active:hover {
+  &__home-active:hover, header__home-active:focus {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -141,13 +149,16 @@ header {
     height: 34px;
     border-radius: 36px;
     background-color: var(--accent-secondary);
+    margin-right: 16px;
+    transition-duration: 1000ms;
   }
   &__home-link {
     display: none;
     text-decoration: none;
     @media screen and (min-width: $tablet) {
       display: block;
-      margin-right: 16px;
+      width: 100px;
+      margin: 0 auto;
     }
     @media screen and (min-width: $desktop) {
       margin-right: 24px;
@@ -163,7 +174,7 @@ header {
     letter-spacing: -0.04em;
     text-transform: uppercase;
   }
-  &__home-text:hover {
+  &__home-text:hover, header__home-text:focus {
     color: var(--text-color-main);
     font-family: 'DM Sans';
     font-style: normal;
@@ -172,16 +183,15 @@ header {
     line-height: 0.77;
     letter-spacing: -0.04em;
     text-transform: uppercase;
+    transition-duration: 1000ms;
   }
-  &__shopping-list-active:hover {
+  &__shopping-list-active:hover header__shopping-list-active:focus {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 7px 16px;
     gap: 8px;
-    width: 156px;
-    height: 34px;
     background-color: var(--accent-secondary);
     border-radius: 36px;
     font-family: 'DM Sans';
@@ -191,6 +201,7 @@ header {
     line-height: 0.77;
     letter-spacing: -0.04em;
     text-transform: uppercase;
+    transition-duration: 1000ms;
   }
   &__shopping-list-link {
     display: none;
@@ -213,6 +224,37 @@ header {
           letter-spacing: -0.04em;
           text-transform: uppercase;
         }
+  }
+  &__drop-down--SL:hover header__drop-down--SL:focus {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 16px;
+    gap: 8px;
+    width: 156px;
+    height: 34px;
+    background-color: var(--accent-secondary);
+    border-radius: 36px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 0.77;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    transition-duration: 1000ms;
+  }
+  &__drop-down--text {
+    text-transform: uppercase;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 0.77;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--background-white);
   }
 }
 body {
