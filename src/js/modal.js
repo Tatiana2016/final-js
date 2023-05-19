@@ -49,7 +49,7 @@ removeStorageBtn.addEventListener('click', onStorageDelete);
 
 function onClick(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'IMG') {
+  if (e.target.nodeName !== 'DIV') {
     return;
   }
   openModalId();
