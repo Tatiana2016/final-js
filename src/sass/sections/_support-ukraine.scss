@@ -33,9 +33,14 @@ p {
   border-radius: 16px;
 
   @include tablet {
-    width: 356px;
-    height: 490px;
+    width: 335px;
+    height: 472px;
     margin-bottom: 0;
+  }
+
+  @include desktop {
+    width: 335px;
+    height: 490px;
   }
 }
 
@@ -161,3 +166,22 @@ a.swiper-button-next {
   font-size: 16px !important;
   font-weight: 900 !important;
 }
+
+.page-main .support {
+  display: block;
+}
+
+.page-shopping-list .support {
+  display: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+
+

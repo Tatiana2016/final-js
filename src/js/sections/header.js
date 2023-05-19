@@ -1,4 +1,5 @@
 (() => {
+
   const menuBtnRef = document.querySelector("[data-menu-button]");
   const mobileMenuRef = document.querySelector("[data-menu]");
   menuBtnRef.addEventListener("click", () => {
@@ -17,3 +18,4 @@ LinkShoppingList.addEventListener("click", () => {
   console.log(linkHome.classList);
   console.log(LinkShoppingList.classList);
 });
+
